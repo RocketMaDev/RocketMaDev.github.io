@@ -184,16 +184,27 @@ navbar:
   width:
     home: 1200px #home page
     pages: 1000px #other pages
+  # Navbar categories
+  categories:
+    Categories:
+      icon: fa-solid fa-folder
+      path: /categories/
   # Navbar tags
   tags:
     Tags:
       icon: fa-solid fa-tags
-      path: /tags
+      path: /tags/
   # Navbar links
   links:
     Home: 
       path: / 
       icon: fa-regular fa-house # can be empty
+    Tags:
+      icon: fa-solid fa-tags
+      path: /tags/
+    Categories:
+      icon: fa-solid fa-folder
+      path: /categories/
     # Archives: 
     #   path: /archives 
     #   icon: fa-regular fa-archive # can be empty

@@ -1,44 +1,16 @@
 ---
-title: Hello World
+title: Hello Hexo
+date: 2024/7/23 17:09:00
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-`test code bar`
+从今天开始，我正式开始使用hexo来搭博客啦，之后我也会慢慢把wp搬过来
 
-## Quick Start
+正值暑假，也是时候做点有意义的事了，搭个博客，方便自己看，也方便别人看
 
-### Create a new post
+这里也罗列一些博客用到的开源项目，向他们表示感谢！
 
-{% notel green tip %}
-test tip
-{% endnotel %}
+## 致谢
 
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+[zthxxx/hexo-directory-category](https://github.com/zthxxx/hexo-directory-category): 自动通过路径为文章加分类的插件
+[SVG Repo](https://www.svgrepo.com/): 网站favicon的素材
+[EvanNotFound/hexo-theme-redefine](https://github.com/EvanNotFound/hexo-theme-redefine): 博客的主题
