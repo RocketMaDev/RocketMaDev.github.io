@@ -4,6 +4,7 @@ date: 2024/3/31 21:53:00
 tags:
     - heap - tcache
     - libc2.27
+excerpt: 利用双重释放和使用-after-free漏洞，通过tcache dup将free_hook指向system，最终获取shell。
 ---
 
 ## 文件属性

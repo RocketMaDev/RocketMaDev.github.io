@@ -4,6 +4,8 @@ date: 2024/5/3 23:44:00
 tags:
     - heap - tcache
     - buffer nearby-flow
+thumbnail: /assets/bluewhale2024/kasio.png
+excerpt: 利用堆块重叠漏洞，通过修改堆块尺寸实现计算器后门。
 ---
 
 {% note %}

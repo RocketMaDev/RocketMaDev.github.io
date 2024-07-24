@@ -1,8 +1,9 @@
 ---
-title: PIE enabled
+title: moectf2023 - PIE enabled
 date: 2023/9/24 12:00:00
 tags:
     - noob
+excerpt: 利用vuln函数打印地址减去偏移量获取PIE基址，构造payload实现远程代码执行。
 ---
 
 ## 文件分析

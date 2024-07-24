@@ -5,6 +5,9 @@ tags:
     - vm
     - House of Apple 2
     - libc2.35
+    - tls
+thumbnail: /assets/ciscn2024/magicvm.png
+excerpt: CTF题解Magic VM利用时序漏洞绕过检测，伪造FILE实现代码执行。
 ---
 
 ## 文件属性
@@ -23,7 +26,9 @@ tags:
 
 没去符号表的vm题，费了好大劲在黑灯开始时想通了怎么利用，然后来不及了
 
-> 我在[这里](./MagicVMPsrc)会放逆好的伪代码，看起来清晰多了
+{% note success fa-check %}
+我在[这里](https://github.com/RocketMaDev/CTFWriteup/tree/main/ciscn2024/MagicVMPsrc)会放逆好的伪代码，看起来清晰多了
+{% endnote %}
 
 这道题的漏洞在于绕过时序，从代码读入到实际写入，实际上需要3个周期，
 而所有合法性检查是在`vm_id::run`中做的，那意味着，我们只要使数据变化慢于检测，

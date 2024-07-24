@@ -1,8 +1,9 @@
 ---
-title: moectf2023 - Pwn 入门指北 & testnc
+title: moectf2023 - moectf2023 - Pwn 入门指北 & testnc
 date: 2023/9/23 12:00:00
 tags:
     - noob
+excerpt: Pwn入门指北和testnc解法：下载WSRX后用nc命令获取flag。
 ---
 
 ## Pwn 入门指北

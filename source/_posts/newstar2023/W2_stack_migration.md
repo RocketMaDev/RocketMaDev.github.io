@@ -3,6 +3,8 @@ title: newstar2023 week2 - stack migration
 date: 2023/10/5 12:00:00
 tags:
     - noob
+thumbnail: /assets/newstar2023/legend.jpg
+excerpt: 通过栈迁移和ret2libc技术利用漏洞，成功执行system函数。
 ---
 
 ## 文件分析

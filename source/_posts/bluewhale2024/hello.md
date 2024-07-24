@@ -3,6 +3,8 @@ title: bluewhale2024 - 摩登Pwn
 date: 2024/5/3 23:10:00
 tags:
     - gui pwn
+thumbnail: /assets/bluewhale2024/vnc.png
+excerpt: 通过VNC连接gtk程序，利用输入大数使符号位为1，成功获取flag。
 ---
 
 {% note %}

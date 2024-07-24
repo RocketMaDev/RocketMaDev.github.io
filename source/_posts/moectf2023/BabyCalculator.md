@@ -1,8 +1,9 @@
 ---
-title: Baby Calculator
+title: moectf2023 - Baby Calculator
 date: 2023/9/23 12:00:00
 tags:
     - noob
+excerpt: 通过连接服务器并自动回答100道加法题，成功获取flag。
 ---
 
 ## 文件分析

@@ -3,7 +3,8 @@ title: newstar2023 week5 - no ouput
 date: 2023/10/23 12:00:00
 tags:
     - stack pivot
-    - 1/16 possibility
+    - 1-digit guess
+excerpt: 利用堆栈迁移和GOT劫持，从无输出程序中获取libc基址并执行system("/bin/sh")。
 ---
 
 ~~肯定是把output的t漏了~~

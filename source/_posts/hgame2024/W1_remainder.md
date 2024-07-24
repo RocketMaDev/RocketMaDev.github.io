@@ -3,6 +3,8 @@ title: hgame2024 week1 剩余题解
 date: 2024/2/7 19:36:00
 tags:
     - multi-directions
+thumbnail: /assets/hgame2024/ezida.png
+excerpt: 总结了hgame2024第一周的CTF题解，包括web、reverse、crypto、misc和pwn类别，共解决15个挑战。
 ---
 
 15 challenges solved
@@ -11,7 +13,9 @@ tags:
 
 ### ezHTTP
 
-*HTTP Protocol Basics*
+{% note %}
+HTTP Protocol Basics
+{% endnote %}
 
 考察http的3种头
 
@@ -25,7 +29,9 @@ tags:
 
 ### Bypass it
 
-*This page requires javascript to be enabled : )*
+{% note %}
+This page requires javascript to be enabled : )
+{% endnote %}
 
 在注册的时候发现本来可以注册的，但html里有js阻拦，此时禁用js就可以注册了
 
@@ -39,7 +45,9 @@ tags:
 
 ### ezASM
 
-*To learn a little ASM*
+{% note %}
+To learn a little ASM
+{% endnote %}
 
 关键代码，看出check中是将`[c + esi] ^ 0x22`与输入作比较
 
@@ -62,7 +70,9 @@ Out[19]: b'hgame{ASM_Is_Imp0rt4nt_4_Rev3rs3}\x00'
 
 ### ezPYC
 
-*ez python Reverse*
+{% note %}
+ez python Reverse
+{% endnote %}
 
 先使用pyinstxtractor把exe中的文件提取出来，然后在解密pyc文件得到部分源码
 
@@ -90,7 +100,9 @@ Out[5]: b'VIDAR{Python_R3vers3_1s_1nter3st1ng!}\x00'
 
 ### ezUPX
 
-*UPX is a packer*
+{% note %}
+UPX is a packer
+{% endnote %}
 
 `upx -d ezUPX.exe` 拿到压缩前exe，分析main函数
 
@@ -129,7 +141,9 @@ Out[2]: b'VIDAR{Wow!Y0u_kn0w_4_l1ttl3_0f_UPX!}'
 
 ### ezIDA
 
-*Do you know how to use IDA?*
+{% note %}
+Do you know how to use IDA?
+{% endnote %}
 
 逆向即送
 
@@ -141,7 +155,9 @@ Out[2]: b'VIDAR{Wow!Y0u_kn0w_4_l1ttl3_0f_UPX!}'
 
 ### ezRSA
 
-*一个简单的RSA*
+{% note %}
+一个简单的RSA
+{% endnote %}
 
 根据费马小定理， $p ^ { q - 1 } = 1 (mod\ q)$  
 所以 $p ^ q = p (mod\ pq)$  
@@ -169,8 +185,10 @@ print(long_to_bytes(decrypted))
 
 ### SignIn
 
-*换个方式签个到  
-flag格式：'hgame\{[A-Z_]+\}'*
+{% note %}
+换个方式签个到  
+flag格式：'hgame\{[A-Z_]+\}'
+{% endnote %}
 
 缩放也可以看到哦
 
@@ -178,7 +196,9 @@ flag格式：'hgame\{[A-Z_]+\}'*
 
 ### simple_attack
 
-*怎么解开这个压缩包呢？*
+{% note %}
+怎么解开这个压缩包呢？
+{% endnote %}
 
 压缩包组成like:
 
@@ -208,7 +228,9 @@ flag格式：'hgame\{[A-Z_]+\}'*
 
 ### EzSignIn
 
-*Have fun in pwn games of hgame2024~*
+{% note %}
+Have fun in pwn games of hgame2024~
+{% endnote %}
 
 nc 连接即得
 

@@ -3,6 +3,7 @@ title: isctf2023 - test nc & nc shell
 date: 2023/12/1 12:00:00
 tags:
     - noob
+excerpt: 通过nc连接获取flag
 ---
 
 ## test nc

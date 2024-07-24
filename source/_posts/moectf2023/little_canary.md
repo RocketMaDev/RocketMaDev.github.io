@@ -1,8 +1,9 @@
 ---
-title: little canary
+title: moectf2023 - little canary
 date: 2023/9/25 12:00:00
 tags:
     - noob
+excerpt: 通过覆盖字符数组获取Canary值，利用ROP和ret2libc进行漏洞利用，最终获得shell。
 ---
 
 ## 文件分析
@@ -14,7 +15,9 @@ ghidra分析为64位程序
 
 先溢出字符数组读取Canary的值
 
-**注意：Canary的第一字节是\0，需要先覆盖才能打印出后面内容，之后还要还原**
+{% note warning fa-exclamation %}
+Canary的第一字节是\0，需要先覆盖才能打印出后面内容，之后还要还原
+{% endnote %}
 
 获取canary的值后就可以考虑rop  
 由于不存在后门且开了NX，所以后面根据ret2libc做即可

@@ -8,10 +8,13 @@ tags:
     - House of Einherjar
     - House of Spirit
     - libc2.23
+excerpt: 通过利用堆重叠和off-by-one漏洞，修改glibc的stdout指针以泄露libc地址，并最终利用__malloc_hook执行OneGadget。
 ---
 
 ~~标题依旧是没活~~  
-*you need to learn some FILE IO knowlegde first*
+{% note %}
+you need to learn some FILE IO knowlegde first
+{% endnote %}
 
 ## 文件属性
 

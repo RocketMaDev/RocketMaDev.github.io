@@ -5,9 +5,13 @@ tags:
     - heap - fastbin
     - fastbin stash into tcache
     - libc2.31
+thumbnail: /assets/hgame2024/stashfb.png
+excerpt: 通过构造tcache dup和利用libc 2.31中的free hook，实现任意地址写，最终调用system('/bin/sh')。
 ---
 
-*Fast note can't be edited*
+{% note %}
+Fast note can't be edited
+{% endnote %}
 
 ## 文件属性
 
@@ -33,7 +37,7 @@ glibc 2.31，相比Elden Ring II少了edit函数，leak时脚本一样，
 <img src="/assets/hgame2024/stashfb.png" height="70%" width="70%">
 
 此时，fastbin头指向的chunk不再有效（错位了），故最后tcache里有且仅有3个chunk  
-（个人想法，不一定正确，有正确的说法可以发discussion）
+（个人想法，不一定正确，有正确的说法可以评论）
 
 ## EXPLOIT
 

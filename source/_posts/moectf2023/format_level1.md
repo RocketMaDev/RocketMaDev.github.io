@@ -1,8 +1,9 @@
 ---
-title: format level1
+title: moectf2023 - format level1
 date: 2023/9/25 12:00:00
 tags:
     - noob
+excerpt: 通过printf漏洞将龙的血量修改为1，以便轻松击败龙并获取flag。
 ---
 
 ## 文件分析
@@ -36,7 +37,9 @@ sh.sendline(b'1') # attack the dragon
 sh.interactive()
 ```
 
-> 注：arg7:'0%9$', arg8:'n000', arg9:dragonAddr；所有0都是占位符，无实际含义
+{% note info fa-info %}
+arg7:'0%9$', arg8:'n000', arg9:dragonAddr；所有0都是占位符，无实际含义
+{% endnote %}
 
 这道题构造payload时出了点小问题：sendline太快，最后的`1`没读到，
 要重新打，服务器读取问题要考虑！遇到这种情况就要使用sendlineafter()

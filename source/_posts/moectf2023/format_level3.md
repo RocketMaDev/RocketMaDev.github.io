@@ -1,8 +1,9 @@
 ---
-title: format level3
+title: moectf2023 - format level3
 date: 2023/9/26 12:00:00
 tags:
     - noob
+excerpt: 通过利用ebp间接改写返回地址，成功利用后门漏洞解决format level3题目。
 ---
 
 ## 文件分析

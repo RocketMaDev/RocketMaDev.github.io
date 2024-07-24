@@ -3,6 +3,7 @@ title: DASCTF月赛 - EASYBOX
 date: 2023/12/3 12:00:00
 tags:
     - noob
+excerpt: 通过拼接字符串绕过限制，利用grep获取flag并查看result.txt。
 ---
 
 From CBCTF x DASCTF

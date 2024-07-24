@@ -3,16 +3,19 @@ title: hgame2024 week2 剩余题解
 date: 2024/2/17 21:31:00
 tags:
     - multi-directions
+thumbnail: /assets/hgame2024/keyToZip.png
+excerpt: CTF题解总结：包括web命令绕过、逆向多线程程序、AES解密、RSA与背包问题解法，以及通过Wireshark和水印提取flag。
 ---
 
-By: RocketDev  
 12 challenges solved
 
 ## web
 
 ### What the cowsay?
 
-*the cow want to tell you something*
+{% note %}
+the cow want to tell you something
+{% endnote %}
 
 `cowsay`命令，填入字符串，尝试后发现为命令绕过  
 经尝试，cat、flag、|等会被拦下来，那么换行可不可以呢？  
@@ -75,7 +78,9 @@ print(bytes(user.tolist()))
 
 ### ezcpp
 
-*cppppppppppppppp*
+{% note %}
+cppppppppppppppp
+{% endnote %}
 
 找到main函数中发现有一个对输入的字符串进行处理的函数，拿之后要比对的数据将所有操作全部逆推，
 就可以推知flag
@@ -223,7 +228,9 @@ print(flag)
 
 ### midRSA
 
-*兔兔梦到自己变成了帕鲁被crumbling抓去打黑工，醒来后连夜偷走了部分flag*
+{% note %}
+兔兔梦到自己变成了帕鲁被crumbling抓去打黑工，醒来后连夜偷走了部分flag
+{% endnote %}
 
 padding补在flag后面，并且随后右移了26个字节，意味着先丢失的是padding（大端序表达？），
 推测还会有flag剩余，结果一解析...好家伙，padding都没移完
@@ -237,7 +244,9 @@ Out[2]: b'hgame{0ther_cas3s_0f_c0ppr3smith}\xff\xff\xff\xff\xff'
 
 ### backpack
 
-*crumbling的游戏已经玩到了中期，打算带着帕鲁搬家到新据点，你来帮他研究一下背包管理*
+{% note %}
+crumbling的游戏已经玩到了中期，打算带着帕鲁搬家到新据点，你来帮他研究一下背包管理
+{% endnote %}
 
 由于`p`是32位的，即4字节的，那么只有4个字节受到影响，前面的字节不受影响，因此可以尝试解析
 
@@ -250,7 +259,9 @@ Out[3]: b'hgame{M@ster_0f ba3kpack_m4nag3ment!}\x00\x0e#'
 
 ### ek1ng_want_girlfriend
 
-*An introducation to Wireshark and also ek1ng.*
+{% note %}
+An introducation to Wireshark and also ek1ng.
+{% endnote %}
 
 用Wireshark打开`capture.pcapng`，发现请求了资源`/ek1ng.jpg`，跟踪tcp流截取raw数据保存，
 然后使用ImHex编辑之，去掉头部的http请求头即可拿到图片
@@ -261,7 +272,9 @@ Out[3]: b'hgame{M@ster_0f ba3kpack_m4nag3ment!}\x00\x0e#'
 
 ### ezWord
 
-*通过破译图片的水印来解开文档里的秘密吧！*
+{% note %}
+通过破译图片的水印来解开文档里的秘密吧！
+{% endnote %}
 
 直接使用压缩软件打开word文档，其中的media文件夹中包含了jpg和png两张很相似的图片，
 结合提示，推测是盲水印。找到BlindWaterMark项目然后clone下来运行

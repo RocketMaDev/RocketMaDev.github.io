@@ -5,6 +5,7 @@ tags:
     - fmt-string
     - stack pivot
     - 1-digit guess
+excerpt: CTF题目利用格式化字符串漏洞和栈迁移执行后门函数，需猜测rbp地址。
 ---
 
 ## 文件属性

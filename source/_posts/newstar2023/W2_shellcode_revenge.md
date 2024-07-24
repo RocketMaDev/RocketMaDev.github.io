@@ -3,6 +3,8 @@ title: newstar2023 week2 - shellcode revenge
 date: 2023/10/4 12:00:00
 tags:
     - shellcode
+thumbnail: /assets/newstar2023/regs.png
+excerpt: 分析新生赛shellcode，构建90字节的shellcode并成功利用。
 ---
 
 ## 文件分析

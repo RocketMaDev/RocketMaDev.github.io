@@ -1,8 +1,9 @@
 ---
-title: shellcode level2
+title: moectf2023 - shellcode level2
 date: 2023/9/24 12:00:00
 tags:
     - noob
+excerpt: 通过分析64位程序，利用gets输入shellcode并在首字节放置`\0`实现远程代码执行。
 ---
 
 ## 文件分析

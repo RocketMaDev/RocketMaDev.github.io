@@ -3,6 +3,8 @@ title: hgame2024 final 剩余题解
 date: 2024/3/23 21:30:00
 tags:
     - multi-directions
+thumbnail: /assets/hgame2024/zero.png
+excerpt: 解出4道题目，涉及反混淆、解密、零宽字符和多层文件解压。
 ---
 
 解出题数：4
@@ -11,7 +13,9 @@ tags:
 
 ### restore
 
-*字母王国的奇妙漂流,flag格式'VIDAR'*
+{% note %}
+字母王国的奇妙漂流,flag格式'VIDAR'
+{% endnote %}
 
 先根据混淆脚本反混淆代码，然后反解xtea求flag
 
@@ -83,15 +87,19 @@ int main()
 
 ### 看不见的字
 
-*'hello',可以试一试npm install zero-width-lib*
+{% note %}
+'hello',可以试一试npm install zero-width-lib
+{% endnote %}
 
 根据“zero-width-lib”搜索，发现有现成[网站](https://yuanfux.github.io/zero-width-web/)可用
 
-![zero](/assets/hgame2024/hgame2024/zero.png)
+![zero](/assets/hgame2024/zero.png)
 
 ### 逮虾户
 
-*dejavu,I have been here before. 你找到flag*
+{% note %}
+dejavu,I have been here before. 你找到flag
+{% endnote %}
 
 下载下来是dmg，先7z解压，发现一张png和一个有密码的7z  
 通过Google Lens搜索图片发现是piet图片，解析结果是
@@ -102,11 +110,11 @@ password is: fin4lly_f1n4l_c0me
 ```
 
 将其作为密码解压7z得到一个逮虾户的mp3，使用elisa播放器打开，歌词中有不寻常之处：
-![lyric](/assets/hgame2024/hgame2024/lyric.png)
+![lyric](/assets/hgame2024/lyric.png)
 
 binwalk这个mp3发现还藏了一个zip，使用这个密钥解压出一个.djvu文档  
 网上随便找了一个转pdf的网站生成pdf
 
-![djvu](/assets/hgame2024/hgame2024/djvu.png)
+![djvu](/assets/hgame2024/djvu.png)
 
 

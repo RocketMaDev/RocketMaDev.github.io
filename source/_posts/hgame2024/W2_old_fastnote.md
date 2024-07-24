@@ -5,6 +5,8 @@ tags:
     - heap - fastbin
     - libc2.23
     - House of Spirit
+thumbnail: /assets/hgame2024/bytecross.png
+excerpt: 通过fastbin dup漏洞，利用glibc 2.23的mallocHook实现了任意代码执行，成功获取shell。
 ---
 
 ## 文件属性
@@ -32,7 +34,9 @@ glibc 2.23，tcache还没有，打fastbin dup，先分配0x80的chunk在unsorted
 
 颜色是后期涂的，很明显，字节错位的要求是含有`p64(libc地址)+p64(0)`才可以
 
-> 图中的地址是打不通的，仅作示意；黄色部分是mallocHook
+{% note default fa-exclamation %}
+图中的地址是打不通的，仅作示意；黄色部分是mallocHook
+{% endnote %}
 
 ## EXPLOIT
 

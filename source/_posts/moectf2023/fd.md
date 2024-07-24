@@ -1,8 +1,9 @@
 ---
-title: fd
+title: moectf2023 - fd
 date: 2023/9/23 12:00:00
 tags:
     - noob
+excerpt: 通过计算输入匹配的File Descriptor，利用`fd`关闭后的新值获取flag。
 ---
 
 ## 文件分析

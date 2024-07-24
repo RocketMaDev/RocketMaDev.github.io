@@ -2,7 +2,10 @@
 title: rctf2024 - taskgo 
 date: 2024/6/1 02:44:00
 tags:
-    - noob
+    - race condition
+    - uaf
+thumbnail: /assets/practice/taskgo1.png
+excerpt: 利用条件竞争和UAF漏洞，通过溢出玩家金钱和操控函数指针，成功获取程序的BackDoor地址并提取flag。
 ---
 
 From XCTF x RCTF 2024

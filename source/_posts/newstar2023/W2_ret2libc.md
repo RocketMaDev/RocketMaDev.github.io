@@ -3,6 +3,7 @@ title: newstar2023 week2 - ret2libc
 date: 2023/10/2 12:00:00
 tags:
     - noob
+excerpt: 利用ret2libc技术实现远程代码执行。
 ---
 
 ## 文件分析

@@ -105,6 +105,8 @@ auto_dir_categorize:
 marked:
   gfm: true
   breaks: false
+  smartypants: false
+  quotes: 
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

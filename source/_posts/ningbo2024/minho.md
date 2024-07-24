@@ -5,9 +5,9 @@ tags:
     - heap - unsorted
     - House of minho
     - libc2.35
+thumbnail: /assets/ningbo2024/smallSuccess.png
+excerpt: 利用堆溢出技术，通过一系列精细的内存操作泄露heap和libc地址，最终实现利用“House of Apple”漏洞的攻击。
 ---
-
-House of Minho
 
 ## 文件属性
 
@@ -23,15 +23,19 @@ House of Minho
 
 ## 解题思路
 
-> 这道题出自[Black Hat 2023 中的一题](https://bbs.kanxue.com/thread-279588.htm)，
-> 本文需要读者先阅读这篇文章了解相关利用手法，这样看题解效率更高
+{% notel blue fa-exclamation 请先阅读 %}
+这道题出自[Black Hat 2023 中的一题](https://bbs.kanxue.com/thread-279588.htm)，
+本文需要读者先阅读这篇文章了解相关利用手法，这样看题解效率更高
+{% endnotel %}
 
 这道题改编的挺多的，溢出的尺寸，自己实现的puts（防止利用其中的ifunc），
 自己实现的scanf（防止分配大块），不过其实相对更简单了
 
-> 下文用 *Ms* 指代"分配小堆块"，用 *Fl* 指代"释放大堆块"，
-> 分别用 *Us* , *Ul* 指代分配0x10堆块和0x1000堆块，
-> 并且一些释放操作被省略了，理解即可
+{% note tip fa-circle-arrow-right %}
+下文用 *Ms* 指代"分配小堆块"，用 *Fl* 指代"释放大堆块"，
+分别用 *Us* , *Ul* 指代分配0x10堆块和0x1000堆块，
+并且一些释放操作被省略了，理解即可
+{% endnote %}
 
 ### 第一步
 
@@ -109,11 +113,13 @@ tcache entry从`heap -> heap + 0x20`变为了`heap -> _IO_list_all`，然后 *Ul
 `_flags & (_IO_NO_WRITES | _IO_UNBUFFERED | _IO_CURRENTLY_PUTTING) == 0`，
 `_flags`在开启了aslr后是随机的，因此这些位都有可能是1
 
-> 看了一血的解答发现exp是可以百分百成功的，只需要在第一次小堆块溢出写时，
-> 把大堆块的`prev_size`写作`  sh;`，然后将伪造的FILE往前调0x10，
-> 就可以绕过释放时`fd`的限制，具体如图所示
-> 
-> ![optimized](/assets/ningbo2024/optimized.png)
+{% notel purple fa-check 更优解 %}
+看了一血的解答发现exp是可以百分百成功的，只需要在第一次小堆块溢出写时，
+把大堆块的`prev_size`写作`  sh;`，然后将伪造的FILE往前调0x10，
+就可以绕过释放时`fd`的限制，具体如图所示
+
+![optimized](/assets/ningbo2024/optimized.png)
+{% endnotel %}
 
 ## EXPLOIT
 

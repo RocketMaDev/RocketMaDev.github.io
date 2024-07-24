@@ -2,7 +2,8 @@
 title: 浙江省赛决赛 2023 - SafeNote
 date: 2023/12/3 12:00:00
 tags:
-    - noob
+    - result predicting
+excerpt: 浙江省赛决赛2023的SafeNote题目利用gmp库的mpz_t数据类型，通过时间种子模拟攻击解密。
 ---
 
 from 浙江省赛决赛 2023

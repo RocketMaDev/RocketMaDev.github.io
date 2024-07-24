@@ -1,7 +1,11 @@
 ---
 title: Hello Hexo
 date: 2024/7/23 17:09:00
+tags:
+    - not-ctf
 ---
+
+<!--excerpt-->
 
 从今天开始，我正式开始使用hexo来搭博客啦，之后我也会慢慢把wp搬过来
 

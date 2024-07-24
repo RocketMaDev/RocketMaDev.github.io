@@ -3,6 +3,7 @@ title: newstar2023 week1 - p1eee
 date: 2023/9/27 12:00:00
 tags:
     - noob
+excerpt: 利用后门函数的地址重定向，成功溢出一个字节实现CTF题解。
 ---
 
 ## 文件分析

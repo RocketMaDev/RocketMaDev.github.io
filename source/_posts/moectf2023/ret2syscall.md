@@ -1,8 +1,9 @@
 ---
-title: ret2syscall
+title: moectf2023 - ret2syscall
 date: 2023/9/26 12:00:00
 tags:
     - syscall
+excerpt: 利用ret2syscall漏洞在64位程序中执行execve，成功获取shell。
 ---
 
 ## 文件分析

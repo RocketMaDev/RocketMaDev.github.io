@@ -3,7 +3,11 @@ title: 修复zsh上patchelf自动补全的错误
 date: 2024/5/8 22:40:00
 tags:
     - tricks
+    - not-ctf
+thumbnail: /images/patchelfFix.png
 ---
+
+<!--excerpt-->
 
 如果你使用zsh来作为你的主力shell的话，那你在使用patchelf的时候一定受到过这样的困扰：
 在尝试补全`--set-interpreter`后的参数时，按下tab就变成了 *_arguments:463: command not found: dynamic*；

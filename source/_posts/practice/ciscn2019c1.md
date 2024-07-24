@@ -1,8 +1,9 @@
 ---
 title: buuoj - 2019国赛第一题
-date: 2023/12/3 12:00:00
+date: 2023/9/20 12:00:00
 tags:
     - noob
+excerpt: 通过栈溢出和ret2libc攻击，利用`puts`泄露libc地址，最终执行`system("/bin/sh")`。
 ---
 
 From buuoj.
@@ -25,9 +26,9 @@ ghidra分析为64位程序
 4. 将**puts@got**偏移到system@got & shstr@got
 5. 回到`gets`函数，重新执行溢出拿到sh
 
-## 重大注意
-
+{% note warning fa-exclamation %}
 如果一个字节为**0x0a**，**会被截断**！（换行）
+{% endnote %}
 
 ## EXPLOIT
 

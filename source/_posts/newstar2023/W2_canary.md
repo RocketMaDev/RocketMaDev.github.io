@@ -3,6 +3,7 @@ title: newstar2023 week2 - canary
 date: 2023/10/1 12:00:00
 tags:
     - noob
+excerpt: 利用格式化字符串漏洞获取canary值，栈溢出后跳转至后门函数。
 ---
 
 ## 文件分析

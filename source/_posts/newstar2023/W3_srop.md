@@ -3,6 +3,7 @@ title: newstar2023 week3 - srop
 date: 2023/10/13 12:00:00
 tags:
     - srop
+excerpt: 利用srop技术通过栈迁移和sigreturn控制程序执行，成功实现execve("/bin/sh")。
 ---
 
 ## 文件分析

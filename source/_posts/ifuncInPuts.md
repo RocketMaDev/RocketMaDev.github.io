@@ -1,15 +1,20 @@
 ---
-title: ifunc in puts
+title: puts中调用的got表
 date: 2024/4/15 23:48:00
 tags:
     - libc-hook
+    - not-ctf
+    - got-hijack
+thumbnail: /assets/disasm.png
 ---
+
+<!--excerpt-->
 
 去千岛湖团建的时候和*男孩*聊起上次强网杯中`_exit`的题中用到了`puts@got@libc`，
 当时不是很理解，于是就提起了这件事，然后发现，这个类似于got表一样的东西与`puts`没啥关系，
 倒是与`strlen`有关系
 
-{% note tip %}
+{% note tip fa-circle-arrow-right %}
 省流：看下文粗体结论
 {% endnote %}
 
@@ -18,8 +23,8 @@ tags:
 
 于是我就在本地调了一下，也是类似有个跳表存在，不过Arch的libc不能改这一项（因为开了Full RELRO）
 
-![what is ABS?](./assets/disasm.png)
-![can not write](./assets/vmmap.png)
+![what is ABS?](/assets/disasm.png)
+![can not write](/assets/vmmap.png)
 
 可以看到出现跳表的位置对应源码是在`strlen`的位置，在[elixir](https://elixir.bootlin.com/glibc/glibc-2.38/source/libio/ioputs.c#L48)中，
 原始的`puts`函数是这样的：

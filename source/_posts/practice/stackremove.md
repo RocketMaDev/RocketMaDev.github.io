@@ -1,8 +1,9 @@
 ---
 title: 赛博协会训练营 - stackremove
-date: 2023/12/3 12:00:00
+date: 2023/9/22 12:00:00
 tags:
     - noob
+excerpt: 通过栈迁移和ret2libc利用，成功破解`stackremove`程序。
 ---
 
 from cbctf starter 2023

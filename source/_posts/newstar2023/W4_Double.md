@@ -4,6 +4,8 @@ date: 2023/10/17 12:00:00
 tags:
     - heap - fastbin
     - House of Spirit
+thumbnail: /assets/newstar2023/doubleFree.png
+excerpt: 利用fastbin double free漏洞伪造堆块，实现shell获取。
 ---
 
 ## 文件分析

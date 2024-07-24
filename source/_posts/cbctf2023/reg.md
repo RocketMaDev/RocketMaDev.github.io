@@ -3,6 +3,7 @@ title: cbctf2023 - reg
 date: 2024/4/22 00:40:00
 tags:
     - rop
+excerpt: 通过分析CTF题目，利用ROP链和libc中的gadget，构造了execveat("/bin/sh")的payload以获取shell。
 ---
 
 ## 文件属性

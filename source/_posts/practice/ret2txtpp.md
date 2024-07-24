@@ -1,8 +1,9 @@
 ---
 title: 赛博协会训练营 - ret2txtplusplus
-date: 2023/12/3 12:00:00
+date: 2023/9/16 12:00:00
 tags:
     - noob
+excerpt: 通过修改最后两个字节实现ret2txtplusplus的漏洞利用，成功跳转到back_door。
 ---
 
 from cbctf starter 2023

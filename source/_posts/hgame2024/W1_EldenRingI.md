@@ -3,6 +3,7 @@ title: hgame2024 week1 - Elden Ring I
 date: 2024/2/6 18:23:00
 tags:
     - stack pivot
+excerpt: 通过栈溢出和libc泄露，利用ORW在BSS区执行命令获取flag。
 ---
 
 ## 文件属性

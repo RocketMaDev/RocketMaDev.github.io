@@ -228,7 +228,7 @@ navbar:
   # Navbar search (local search). Requires hexo-generator-searchdb (npm i hexo-generator-searchdb). See https://github.com/theme-next/hexo-generator-searchdb
   search:
     # Whether to enable
-    enable: false
+    enable: true
     # Preload search data when the page loads
     preload: true
 # NAVIGATION BAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
@@ -241,10 +241,13 @@ home:
   sidebar:
     enable: true # Whether to enable sidebar
     position: left # Sidebar position. left, right
-    first_item: menu # First item in sidebar. menu, info
+    first_item: info # First item in sidebar. menu, info
     announcement: # Announcement text
     show_on_mobile: true # Whether to show sidebar navigation on mobile sheet menu
     links:
+      友情链接:
+        icon: fa-solid fa-users
+        path: /links/
       # Archives: 
       #   path: /archives 
       #   icon: fa-regular fa-archive # can be empty
@@ -366,10 +369,10 @@ comment:
       region: # Twikoo region. can be empty
     # Giscus comment system. See https://giscus.app/
     giscus:
-      repo: RocketMaDev/RocketMaDev.github.io # Github repository name e.g. EvanNotFound/hexo-theme-redefine
-      repo_id: R_kgDOMZecTQ # Github repository id
+      repo: RocketMaDev/CTFWriteup # Github repository name e.g. EvanNotFound/hexo-theme-redefine
+      repo_id: R_kgDOKVVIHQ # Github repository id
       category: Announcements # Github discussion category
-      category_id: DIC_kwDOMZecTc4ChFMy # Github discussion category id
+      category_id: DIC_kwDOKVVIHc4CZwei # Github discussion category id
       mapping: pathname # Which value to use as the unique identifier for the page. e.g. pathname, url, title, og:title. DO NOT USE og:title WITH PJAX ENABLED since pjax will not update og:title when the page changes
       strict: 0 # Whether to enable strict mode. e.g. 0, 1
       reactions_enabled: 1 # Whether to enable reactions. e.g. 0, 1

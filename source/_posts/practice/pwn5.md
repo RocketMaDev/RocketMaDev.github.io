@@ -1,8 +1,9 @@
 ---
 title: buuoj - 第五空间2019 决赛
-date: 2023/12/3 12:00:00
+date: 2023/9/19 12:00:00
 tags:
     - noob
+excerpt: 通过格式化字符串漏洞注入值到程序中的随机数变量，成功获取flag。
 ---
 
 From buuoj.

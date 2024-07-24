@@ -3,9 +3,12 @@ title: hgame2024 final - 1988
 date: 2024/3/23 17:56:00
 tags:
     - vax780
+excerpt: 利用vax780的栈溢出和suid权限，通过定时任务实现RCE并获取flag。
 ---
 
-*Welcome to 1988, please read README.md carefully*
+{% note %}
+Welcome to 1988, please read README.md carefully
+{% endnote %}
 
 用上了vax780的远古老题，并给出了详细的wp，以下是我粗略的解释
 

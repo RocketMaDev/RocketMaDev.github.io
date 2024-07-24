@@ -1,8 +1,9 @@
 ---
 title: 赛博协会训练营 - ret2shell 
-date: 2023/12/3 12:00:00
+date: 2023/9/19 12:00:00
 tags:
     - noob
+excerpt: 通过分析`ret2shell`程序，利用ret2libc方法成功实现远程代码执行。
 ---
 
 from cbctf starter 2023

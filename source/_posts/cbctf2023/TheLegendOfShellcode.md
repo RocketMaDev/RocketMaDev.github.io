@@ -3,6 +3,7 @@ title: cbctf2023 - The Legend of Shellcode
 date: 2024/4/22 00:35:00
 tags:
     - shellcode
+excerpt: 通过构造shellcode并利用堆栈控制，成功实现对目标程序的远程代码执行。
 ---
 
 ## 文件属性

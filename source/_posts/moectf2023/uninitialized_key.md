@@ -1,8 +1,9 @@
 ---
-title: uninitialized key
+title: moectf2023 - uninitialized key
 date: 2023/9/23 12:00:00
 tags:
     - noob
+excerpt: 利用程序漏洞，通过无效输入保留esp值以获取flag。
 ---
 
 ## 文件分析
@@ -23,6 +24,8 @@ nc localhost 37713
 *114514*  
 *asdfasdf*
 
-> 斜体代表输入，正体代表命令
+{% note default fa-info %}
+斜体代表输入，正体代表命令
+{% endnote %}
 
 Done.

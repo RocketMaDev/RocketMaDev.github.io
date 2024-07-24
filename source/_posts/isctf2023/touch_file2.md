@@ -4,6 +4,7 @@ date: 2023/12/5 12:00:00
 tags:
     - heap - tcache
     - libc2.31
+excerpt: 通过利用堆漏洞和libc函数，成功实现了从程序获取shell的攻击。
 ---
 
 ## 文件分析

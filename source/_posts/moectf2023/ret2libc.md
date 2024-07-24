@@ -1,8 +1,9 @@
 ---
-title: ret2libc
+title: moectf2023 - ret2libc
 date: 2023/9/24 12:00:00
 tags:
     - noob
+excerpt: 利用ret2libc漏洞实现远程代码执行的CTF题解。
 ---
 
 ## 文件分析

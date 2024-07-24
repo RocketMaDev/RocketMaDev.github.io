@@ -1,8 +1,9 @@
 ---
-title: int overflow
+title: moectf2023 - int overflow
 date: 2023/9/24 12:00:00
 tags:
     - noob
+excerpt: 通过输入特定的long long数值4294852782以溢出int，成功获取flag。
 ---
 
 ## 文件分析

@@ -1,8 +1,9 @@
 ---
-title: shellcode level3
+title: moectf2023 - shellcode level3
 date: 2023/9/24 12:00:00
 tags:
     - noob
+excerpt: 利用后门函数和跳转指令构造shellcode成功执行。
 ---
 
 ## 文件分析

@@ -3,6 +3,7 @@ title: newstar2023 week3 - orw rop
 date: 2023/10/11 12:00:00
 tags:
     - noob
+excerpt: 通过利用rwx区域和libc中的gadgets，成功构造payload读取shellcode并执行以获取flag。
 ---
 
 ## 文件分析

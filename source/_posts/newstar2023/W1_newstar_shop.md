@@ -3,6 +3,7 @@ title: newstar2023 week1 - newstar shop
 date: 2023/9/26 12:00:00
 tags:
     - noob
+excerpt: 通过逆向分析`newstar_shop`程序，利用下溢漏洞以负钱购买商品并获取flag。
 ---
 
 ## 文件分析
@@ -115,7 +116,8 @@ nc node4.buuoj.cn 28760
  flag{你猜}
 ```
 
-> money变化：100 - 40 - 40 - 50 -> -10 -> 0xFFFFFFF5
-
+{% note default fa-dollar-sign %}
+money变化：100 - 40 - 40 - 50 -> -10 -> 0xFFFFFFF5
+{% endnote %}
 
 Done.

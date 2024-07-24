@@ -3,6 +3,8 @@ title: hgame2024 week1 - ezshellcode
 date: 2024/2/5 19:13:00
 tags:
     - shellcode
+thumbnail: /assets/hgame2024/registers.png
+excerpt: 通过输入-1绕过大小限制，利用异或和寄存器控制实现shellcode注入并打开shell。
 ---
 
 ## 文件属性
@@ -22,7 +24,7 @@ tags:
 但是题目还限制了输入的字符，考虑用异或和pop、push来控制寄存器和syscall(0x0f05)
 
 先观察一下寄存器：
-![regs](/assets/hgame2024/hgame2024/registers.png)
+![regs](/assets/hgame2024/registers.png)
 
 ## EXPLOIT
 

@@ -3,6 +3,8 @@ title: hgame2024 week4 剩余题解
 date: 2024/2/28 19:36:00
 tags:
     - multi-directions
+thumbnail: /assets/hgame2024/tupperHgame.png
+excerpt: CTF题解总结：通过逆向工程和解密手段，成功解决多个挑战，包括Python反编译、异或解密、破解Zip文件、解析OpenWRT固件等，最终获得flag。
 ---
 
 6 challenges solved
@@ -11,7 +13,9 @@ tags:
 
 ### again!
 
-*为啥无法运行也无法反编译！*
+{% note %}
+为啥无法运行也无法反编译！
+{% endnote %}
 
 看图标是打包了一个python环境，先用pyinstxtractor提取里面的资源
 
@@ -112,7 +116,9 @@ int main(void) {
 
 ### change
 
-*丑死了*
+{% note %}
+丑死了
+{% endnote %}
 
 代码里用了2个钩子，一个异或，一个异或+10，逆向即可
 
@@ -131,7 +137,9 @@ print(flag)
 
 ### crackme2
 
-*新一代 flag checker*
+{% note %}
+新一代 flag checker
+{% endnote %}
 
 > 处理函数喂给gpt，发现是base64，赛博厨子一把梭，好家伙，假flag
 
@@ -494,7 +502,9 @@ Out[6]: b'what_is_tupper'
 
 ### ez7621
 
-*flag in kernel mode.*
+{% note %}
+flag in kernel mode.
+{% endnote %}
 
 一个openwrt固件，先尝试解压一下
 

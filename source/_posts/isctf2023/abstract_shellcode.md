@@ -3,6 +3,7 @@ title: isctf2023 - abstract shellcode
 date: 2023/12/2 20:00:00
 tags:
     - shellcode
+excerpt: 通过分析64位程序的shellcode，利用read和execve实现远程shell的获取。
 ---
 
 确实挺抽象

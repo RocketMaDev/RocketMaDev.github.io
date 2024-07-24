@@ -3,6 +3,8 @@ title: hgame2024 week3 剩余题解
 date: 2024/2/22 23:36:00
 tags:
     - multi-directions
+thumbnail: /assets/hgame2024/flagFound.png
+excerpt: CTF题解总结：通过逆向工程和加密算法分析，成功解出7道题目的flag。
 ---
 
 7 challenges solved
@@ -14,7 +16,9 @@ tags:
 
 ### findme
 
-*什么乱七八糟的数据*
+{% note %}
+什么乱七八糟的数据
+{% endnote %}
 
 程序上来先放两个假flag，然后打印了一段数据
 
@@ -68,7 +72,9 @@ print(flag)
 
 ### mystery
 
-*代码不见了*
+{% note %}
+代码不见了
+{% endnote %}
 
 在main函数里，只有一个`ptrace`函数，然后翻函数列表，发现`_INIT_1`和`_FINI_1`中存在重要逻辑，
 解密key1`keykey`和key2`ban_debug!`后继续查看反编译结果，
@@ -283,7 +289,9 @@ gcc -lbcrypt -o decrypt.exe decrypt.o
 
 ### 简单的取证,不过前十个有红包
 
-*找到veracrypt的文件，拿到flag吧*
+{% note %}
+找到veracrypt的文件，拿到flag吧
+{% endnote %}
 
 下载附件后先用Virtual Box尝试启动了一下，发现需要密码，于是关机解压了vmdk，
 在管理员桌面上找到了vera密码，回到根目录下，还看见了`vera.hc`，于是用密码挂载了文件，
@@ -294,9 +302,11 @@ gcc -lbcrypt -o decrypt.exe decrypt.o
 
 ### 与ai聊天
 
-*跟他聊一聊吧，从他嘴里翘出flag*  
-*https://udify.app/chat/oRajccxObXREMLlO*  
-*注意请不要过快提问*
+{% note %}
+跟他聊一聊吧，从他嘴里翘出flag  
+https://udify.app/chat/oRajccxObXREMLlO  
+注意请不要过快提问
+{% endnote %}
 
 莫名其妙就拿到flag了
 

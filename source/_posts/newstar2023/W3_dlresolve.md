@@ -3,6 +3,8 @@ title: newstar2023 week3 - dlresolve
 date: 2023/10/10 12:00:00
 tags:
     - ret2dlresolve
+thumbnail: /assets/newstar2023/relro.png
+excerpt: 使用pwntools实现ret2dlresolve漏洞利用，简化了官方复杂的解题方式。
 ---
 
 ## 文件分析

@@ -4,6 +4,7 @@ date: 2024/2/6 17:21:00
 tags:
     - buffer overflow
     - result predicting
+excerpt: 通过缓冲区溢出控制随机数生成器，实现ret2libc攻击以获取系统权限。
 ---
 
 ## 文件属性

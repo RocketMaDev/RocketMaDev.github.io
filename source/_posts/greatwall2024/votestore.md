@@ -6,6 +6,8 @@ tags:
     - House of Spirit
     - libc2.23
     - got-hijack
+thumbnail: /assets/greatwall2024/bss.png
+excerpt: 通过修改堆块和GOT表，利用libc漏洞获取shell。
 ---
 
 ## 文件属性

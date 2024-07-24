@@ -3,6 +3,7 @@ title: newstar2023 week3 - stack migration revenge
 date: 2023/10/14 12:00:00
 tags:
     - noob
+excerpt: 通过栈迁移到bss区控制地址，利用GOT和PLT泄露libc地址并执行system函数。
 ---
 
 ## 文件分析

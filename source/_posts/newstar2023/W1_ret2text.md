@@ -3,6 +3,7 @@ title: newstar2023 week1 - ret2text
 date: 2023/9/25 12:00:00
 tags:
     - noob
+excerpt: 利用ret2text漏洞调用backdoor函数打开shell。
 ---
 
 ## 文件分析

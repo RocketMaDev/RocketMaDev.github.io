@@ -1,8 +1,9 @@
 ---
-title: ret2text 64
+title: moectf2023 - ret2text 64
 date: 2023/9/23 12:00:00
 tags:
     - noob
+excerpt: 利用`pop rdi; ret;`漏洞执行`system("/bin/sh")`，完成ctf题目ret2text 64。
 ---
 
 ## 文件分析

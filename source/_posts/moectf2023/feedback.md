@@ -1,8 +1,9 @@
 ---
-title: feedback
+title: moectf2023 - feedback
 date: 2023/9/27 12:00:00
 tags:
     - IO arb write
+excerpt: 利用`_IO_FILE`结构体漏洞，通过修改stdout指针实现读取flag。
 ---
 
 ## 文件分析
@@ -60,7 +61,9 @@ read函数返回-1(val of rax)，使用`p *__errno_location()`查询errno得知�
 后来发现zip包里含有ld和libc，
 可以patchelf（这里我把这两各文件放在./libs下）
 
-> Arch Linux可以直接pacman(yay)安装patchelf哦
+{% note tip fa-circle-arrow-right %}
+Arch Linux可以直接pacman(yay)安装patchelf哦
+{% endnote %}
 
 gdb中要重启程序不需要q，先kill再run/start即可
 
