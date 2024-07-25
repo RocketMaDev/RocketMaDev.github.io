@@ -1,0 +1,18 @@
+- links_category: 校内
+  has_thumbnail: true
+  list: 
+  - name: JBNRZ
+    link: https://jbnrz.com.cn/
+    description: 头号摸鱼头子
+    avatar: /images/friends/jbnrz_avatar.jpg
+    thumbnail: /images/friends/jbnrz_banner.jpg
+
+- links_category: 校外
+  has_thumbnail: true
+  list:
+  - name: nova
+    link: https://n.ova.moe
+    description: 逆天二次元
+    avatar: /images/friends/nova_avatar.png
+    thumbnail: /images/friends/nova_banner.png
+
