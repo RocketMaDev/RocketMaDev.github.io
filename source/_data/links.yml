@@ -7,6 +7,12 @@
     avatar: /images/friends/jbnrz_avatar.jpg
     thumbnail: /images/friends/jbnrz_banner.jpg
 
+  - name: k0rian
+    link:  https://k0rian.github.io/
+    description: 咸鱼pwn手 ，不定期更新
+    avatar: /images/friends/k0rian_avatar.jpg
+    thumbnail: /images/friends/k0rian_banner.jpg
+
 - links_category: 校外
   has_thumbnail: true
   list:
