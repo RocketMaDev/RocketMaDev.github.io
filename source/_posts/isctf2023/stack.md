@@ -1,6 +1,7 @@
 ---
 title: isctf2023 - stack
 date: 2023/12/1 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 利用栈溢出和后门函数实现ret2text漏洞利用，覆盖迭代器以跳转到返回地址。

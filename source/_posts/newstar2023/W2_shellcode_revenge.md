@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week2 - shellcode revenge
 date: 2023/10/4 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - shellcode
 thumbnail: /assets/newstar2023/regs.png

@@ -1,6 +1,7 @@
 ---
 title: DASCTF 4月赛 - exception 
 date: 2024/4/21 23:54:00
+updated: 2024/7/25 12:34:56
 tags:
     - c++ exception
 excerpt: 利用C++异常处理漏洞，通过修改`main`函数返回地址实现提权。

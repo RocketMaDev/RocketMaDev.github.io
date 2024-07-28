@@ -1,6 +1,7 @@
 ---
 title: puts中调用的got表
 date: 2024/4/15 23:48:00
+updated: 2024/7/25 12:34:56
 tags:
     - libc-hook
     - not-ctf

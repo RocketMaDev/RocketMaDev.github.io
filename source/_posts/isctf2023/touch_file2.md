@@ -1,6 +1,7 @@
 ---
 title: isctf2023 - touch file 2
 date: 2023/12/5 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - heap - tcache
     - libc2.31
@@ -32,6 +33,7 @@ free它就能拿到shell
 的P位设为1
 4. 当getline得到一个超长输入时，会分配一个chunk，用完后释放，可以考虑写入大量垃圾字符，
 来触发`malloc_consolidate`（不是用在这题）
+updated: 2024/7/25 12:34:56
 
 ## EXPLOIT
 

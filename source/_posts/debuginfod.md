@@ -1,6 +1,7 @@
 ---
 title: 摆脱调试符号的困扰：使用debuginfod拉取libc的调试符号
 date: 2024/5/8 21:18:00
+updated: 2024/7/25 12:34:56
 tags:
     - tricks
     - not-ctf

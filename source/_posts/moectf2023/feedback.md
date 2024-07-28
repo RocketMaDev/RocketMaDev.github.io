@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - feedback
 date: 2023/9/27 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - IO arb write
 excerpt: 利用`_IO_FILE`结构体漏洞，通过修改stdout指针实现读取flag。

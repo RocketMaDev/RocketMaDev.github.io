@@ -1,6 +1,7 @@
 ---
 title: bluewhale2024 - baby stack
 date: 2024/5/3 23:26:00
+updated: 2024/7/25 12:34:56
 tags:
     - stack pivot
 excerpt: 通过栈溢出和栈迁移泄露地址，最终获取flag。

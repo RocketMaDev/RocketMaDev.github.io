@@ -1,6 +1,7 @@
 ---
 title: Hello Hexo
 date: 2024/7/23 17:09:00
+updated: 2024/7/25 12:34:56
 tags:
     - not-ctf
 ---

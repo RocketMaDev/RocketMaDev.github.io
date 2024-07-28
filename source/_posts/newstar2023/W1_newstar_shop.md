@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week1 - newstar shop
 date: 2023/9/26 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过逆向分析`newstar_shop`程序，利用下溢漏洞以负钱购买商品并获取flag。

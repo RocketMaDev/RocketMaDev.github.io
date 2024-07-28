@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - format level0
 date: 2023/9/24 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过分析`format_level0`程序，利用printf漏洞泄露栈信息并成功获取flag。

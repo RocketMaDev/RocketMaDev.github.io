@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week1 - Random
 date: 2023/9/28 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - result predicting
 excerpt: 通过时间预测随机数，成功利用程序漏洞打开shell。

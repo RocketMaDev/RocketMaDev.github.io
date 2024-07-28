@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - uninitialized key
 date: 2023/9/23 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 利用程序漏洞，通过无效输入保留esp值以获取flag。

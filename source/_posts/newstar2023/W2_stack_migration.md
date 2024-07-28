@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week2 - stack migration
 date: 2023/10/5 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 thumbnail: /assets/newstar2023/legend.jpg

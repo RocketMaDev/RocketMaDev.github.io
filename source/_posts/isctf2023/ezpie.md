@@ -1,6 +1,7 @@
 ---
 title: isctf2023 - ezpie
 date: 2023/12/1 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过构造多个payload，利用ret2libc漏洞从程序中泄露libc地址并执行system函数获取flag。

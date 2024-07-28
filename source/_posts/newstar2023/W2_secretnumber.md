@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week2 - secretnumber
 date: 2023/10/3 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过格式化字符串漏洞，利用bss上的secret数字地址进行覆盖，成功解题。

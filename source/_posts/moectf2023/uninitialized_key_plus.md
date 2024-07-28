@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - uninitialized key plus
 date: 2023/9/23 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 利用GDB探测并填充栈，成功将变量key设置为114514以解题。

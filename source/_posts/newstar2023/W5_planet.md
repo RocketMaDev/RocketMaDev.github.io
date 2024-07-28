@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week5 - planet
 date: 2023/10/24 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - result predicting
 excerpt: 通过模拟攻击获取后门函数的密钥，成功利用程序漏洞获得shell。

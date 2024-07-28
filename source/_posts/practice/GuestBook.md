@@ -1,6 +1,7 @@
 ---
 title: DASCTF月赛 - GuestBook
 date: 2023/12/3 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过分析GuestBook程序，利用canary泄露和栈溢出成功调用后门函数。

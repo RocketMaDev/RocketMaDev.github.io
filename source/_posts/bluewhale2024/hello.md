@@ -1,6 +1,7 @@
 ---
 title: bluewhale2024 - 摩登Pwn
 date: 2024/5/3 23:10:00
+updated: 2024/7/25 12:34:56
 tags:
     - gui pwn
 thumbnail: /assets/bluewhale2024/vnc.png

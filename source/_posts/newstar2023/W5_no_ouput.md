@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week5 - no ouput
 date: 2023/10/23 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - stack pivot
     - 1-digit guess

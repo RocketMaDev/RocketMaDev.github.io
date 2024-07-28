@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - shellcode level0
 date: 2023/9/23 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 使用shellcode利用64位程序漏洞，发送shellcode并获取交互。

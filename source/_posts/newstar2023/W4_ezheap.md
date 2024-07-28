@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week4 - ezheap
 date: 2023/10/18 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - heap - fastbin
     - libc2.31
@@ -100,6 +101,7 @@ fastbin: head -> 7 -> 8
 """
 
 addn(9, 1024)       #0 huge chunk to trigger malloc consolidate
+updated: 2024/7/25 12:34:56
 """
 bins now:
 inuse: ...

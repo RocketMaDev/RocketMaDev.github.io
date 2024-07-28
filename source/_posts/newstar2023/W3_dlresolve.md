@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week3 - dlresolve
 date: 2023/10/10 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - ret2dlresolve
 thumbnail: /assets/newstar2023/relro.png

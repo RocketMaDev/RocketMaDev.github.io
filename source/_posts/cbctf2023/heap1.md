@@ -1,6 +1,7 @@
 ---
 title: cbctf2023 - heap1 
 date: 2024/4/22 00:43:00
+updated: 2024/7/25 12:34:56
 tags:
     - off-by-one error
 excerpt: 利用off-by-one错误通过修改全局变量实现对目标地址的控制，最终成功利用该漏洞。

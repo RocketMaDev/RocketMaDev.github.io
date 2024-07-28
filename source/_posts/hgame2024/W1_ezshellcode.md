@@ -1,6 +1,7 @@
 ---
 title: hgame2024 week1 - ezshellcode
 date: 2024/2/5 19:13:00
+updated: 2024/7/25 12:34:56
 tags:
     - shellcode
 thumbnail: /assets/hgame2024/registers.png

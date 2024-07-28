@@ -1,6 +1,7 @@
 ---
 title: DASCTF 4月赛 - dynamic_or_static 
 date: 2024/4/21 23:30:00
+updated: 2024/7/25 12:34:56
 tags:
     - rop
 excerpt: 通过栈溢出和libc泄露，绕过限制并成功读取flag。

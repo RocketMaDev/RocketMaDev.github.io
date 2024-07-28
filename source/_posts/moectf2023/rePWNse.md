@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - rePWNse
 date: 2023/9/25 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过分析`rePWNse`程序，利用`makebinsh`函数构造输入并结合`pop rdi; ret;`与`execve()`实现了ret2text漏洞利用。

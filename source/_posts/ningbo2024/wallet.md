@@ -1,6 +1,7 @@
 ---
 title: ningbo2024 初赛 - Wal1et
 date: 2024/5/8 23:58:00
+updated: 2024/7/25 12:34:56
 tags:
     - got-hijack
 excerpt: 通过栈溢出覆盖`scanf@got`，利用`check`函数中的`scanf`实现代码执行，最终获取flag。

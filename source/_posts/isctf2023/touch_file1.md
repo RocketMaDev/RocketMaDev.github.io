@@ -1,6 +1,7 @@
 ---
 title: isctf2023 - touch file 1
 date: 2023/12/4 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - shell jail
 excerpt: 通过命令注入利用换行符成功获取shell。

@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week4 - message board
 date: 2023/10/20 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - fmt-string
 excerpt: 利用栈初始化和one_gadget漏洞，成功在msgboard程序中获取shell。

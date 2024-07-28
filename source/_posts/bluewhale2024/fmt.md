@@ -1,6 +1,7 @@
 ---
 title: bluewhale2024 - padded-fmt 
 date: 2024/5/3 23:08:00
+updated: 2024/7/25 12:34:56
 tags:
     - fmt-string
 excerpt: 利用格式化字符串漏洞泄露flag，通过推算栈地址并构造特定payload实现。

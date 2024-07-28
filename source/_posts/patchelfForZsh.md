@@ -1,6 +1,7 @@
 ---
 title: 修复zsh上patchelf自动补全的错误
 date: 2024/5/8 22:40:00
+updated: 2024/7/25 12:34:56
 tags:
     - tricks
     - not-ctf
@@ -61,6 +62,7 @@ curl -o /path/to/your/_patchelf https://raw.githubusercontent.com/RocketMaDev/pa
 放在`~/.zshrc`中，方便在patchelf更新的时候再次覆盖脚本
 ```zsh
 update_patchelf() {
+updated: 2024/7/25 12:34:56
     sudo curl -o /usr/share/zsh/site-functions/_patchelf "https://raw.githubusercontent.com/RocketMaDev/patchelf/master/completions/zsh/_patchelf"
     unfunction _patchelf && autoload -U _patchelf
 }

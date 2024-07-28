@@ -1,6 +1,7 @@
 ---
 title: ciscn2024 - Magic VM 
 date: 2024/5/21 00:48:00
+updated: 2024/7/25 12:34:56
 tags:
     - vm
     - House of Apple 2

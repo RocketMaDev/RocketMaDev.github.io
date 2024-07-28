@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - changeable shellcode
 date: 2023/9/24 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过分析64位程序的shellcode，利用特定内存区域绕过检测并成功打开shell。

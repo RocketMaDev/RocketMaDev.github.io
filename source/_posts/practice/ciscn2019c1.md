@@ -1,6 +1,7 @@
 ---
 title: buuoj - 2019国赛第一题
 date: 2023/9/20 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过栈溢出和ret2libc攻击，利用`puts`泄露libc地址，最终执行`system("/bin/sh")`。

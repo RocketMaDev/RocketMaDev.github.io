@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week4 - game
 date: 2023/10/19 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 利用程序漏洞控制参数，成功执行system函数并获取flag。

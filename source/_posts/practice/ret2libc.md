@@ -1,6 +1,7 @@
 ---
 title: 赛博协会训练营 - ret2libc
 date: 2023/9/18 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过分析`ret2libc`题目，利用栈溢出和泄露main地址实现ret2libc攻击，最终成功获取flag。

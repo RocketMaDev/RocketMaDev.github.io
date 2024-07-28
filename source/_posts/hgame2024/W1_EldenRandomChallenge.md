@@ -1,6 +1,7 @@
 ---
 title: hgame2024 week1 - Elden Random Challenge
 date: 2024/2/6 17:21:00
+updated: 2024/7/25 12:34:56
 tags:
     - buffer overflow
     - result predicting

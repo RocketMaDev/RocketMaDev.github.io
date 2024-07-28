@@ -1,6 +1,7 @@
 ---
 title: hgame2024 week2 - ShellcodeMaster 
 date: 2024/2/15 00:02:00
+updated: 2024/7/25 12:34:56
 tags:
     - shellcode
 excerpt: 通过栈迁移和泄露libc地址，利用shellcode实现flag的读取和打印。

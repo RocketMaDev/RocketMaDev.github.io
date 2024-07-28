@@ -1,6 +1,7 @@
 ---
 title: isctf2023 - fries
 date: 2023/12/4 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 涉及格式化字符串和ret2libc攻击，通过泄露栈和libc地址并利用one_gadget实现远程shell。

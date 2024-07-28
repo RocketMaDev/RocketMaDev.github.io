@@ -1,6 +1,7 @@
 ---
 title: newstar2023 week1 - ezshellcode
 date: 2023/9/25 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过发送64位sh的shellcode到`ezshellcode`程序即可获得shell。

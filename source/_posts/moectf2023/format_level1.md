@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - format level1
 date: 2023/9/25 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过printf漏洞将龙的血量修改为1，以便轻松击败龙并获取flag。

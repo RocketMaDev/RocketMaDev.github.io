@@ -1,6 +1,7 @@
 ---
 title: 使用gdb像pwndbg一样调试exe
 date: 2024/5/1 22:59:00
+updated: 2024/7/25 12:34:56
 tags:
     - tricks
     - Windows

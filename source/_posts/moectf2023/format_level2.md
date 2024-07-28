@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - format level2
 date: 2023/9/26 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 利用格式字符串漏洞，通过写入返回地址跳转到后门函数获取flag。

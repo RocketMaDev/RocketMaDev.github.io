@@ -1,6 +1,7 @@
 ---
 title: isctf2023 - fmt
 date: 2023/12/3 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过修改栈上两个int值，利用格式化字符串漏洞成功获取shell。

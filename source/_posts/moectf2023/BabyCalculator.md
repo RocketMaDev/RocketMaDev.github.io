@@ -1,6 +1,7 @@
 ---
 title: moectf2023 - Baby Calculator
 date: 2023/9/23 12:00:00
+updated: 2024/7/25 12:34:56
 tags:
     - noob
 excerpt: 通过连接服务器并自动回答100道加法题，成功获取flag。
