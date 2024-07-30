@@ -1,7 +1,7 @@
 ---
 title: newstar2023 week5 - no ouput
 date: 2023/10/23 12:00:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:28:00
 tags:
     - stack pivot
     - 1-digit guess
@@ -27,8 +27,7 @@ ghidra分析为64位程序
 而改是一个字节一个字节改的，因此`read & 0xF000`这4位是赌的，每次有1/16的概率能中，
 并不是执行脚本就能一次打下来的
 
-## 踩过的坑
-
+{% notel green fa-arrow-right tips %}
 1. write函数是对系统调用的封装，因此开栈不大，可以放心迁移
 2. system执行的参数在这题只能是libc里的shstr，在.bss上捏的就不行，
 网上也搜不到结果，请懂的师傅发个discussion
@@ -38,6 +37,7 @@ ghidra分析为64位程序
 因此需要用next包裹，如`next(elf.search(str))`
 5. 看准时间提交...虽然比赛是周日晚9点更新题目，但是结束是在早上9点...
 做出来了没提交上:(
+{% endnotel %}
 
 ## EXPLOIT
 

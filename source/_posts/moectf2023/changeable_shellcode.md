@@ -1,7 +1,7 @@
 ---
 title: moectf2023 - changeable shellcode
 date: 2023/9/24 12:00:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:28:00
 tags:
     - noob
 excerpt: 通过分析64位程序的shellcode，利用特定内存区域绕过检测并成功打开shell。
@@ -23,7 +23,7 @@ gdb `vmmap`查看发现该区域可读写执行
 然后跳转到写了syscall`|05|0f|`的地址，
 并且除了syscall以外的指令要写到最简以免长度超限
 
-{% notel purple 踩过的坑 %}
+{% notel green fa-arrow-right tips %}
 1. 32位的int 0x80好像不能用，就算设置rax=0xb，也无法正常打开shell
 2. 不要用ascii转换器，22字节的shellcode可以转出76字节来
 {% endnotel %}

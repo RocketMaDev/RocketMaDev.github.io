@@ -101,7 +101,6 @@ fastbin: head -> 7 -> 8
 """
 
 addn(9, 1024)       #0 huge chunk to trigger malloc consolidate
-updated: 2024/7/25 12:34:56
 """
 bins now:
 inuse: ...

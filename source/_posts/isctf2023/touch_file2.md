@@ -1,7 +1,7 @@
 ---
 title: isctf2023 - touch file 2
 date: 2023/12/5 12:00:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:28:00
 tags:
     - heap - tcache
     - libc2.31
@@ -24,8 +24,7 @@ glibc: 2.31
 再进行tcache dup，把`__free_hook`写上system，最后给一个chunk上写上/bin/sh，
 free它就能拿到shell
 
-## 踩过的坑
-
+{% notel green fa-arrow-right tips %}
 1. strncpy函数会将size中未输入的部分全部填0，并且复制时是'\0'截断的！这点要注意
 2. 这题附件给了ld，给了libc，但是libstdc++之类的其他依赖都没给，这时候借助docker，
 下载一个ubuntu容器可以快速解决问题（主要是本地的libcstdc++依赖高版本libc）
@@ -33,7 +32,7 @@ free它就能拿到shell
 的P位设为1
 4. 当getline得到一个超长输入时，会分配一个chunk，用完后释放，可以考虑写入大量垃圾字符，
 来触发`malloc_consolidate`（不是用在这题）
-updated: 2024/7/25 12:34:56
+{% endnotel %}
 
 ## EXPLOIT
 

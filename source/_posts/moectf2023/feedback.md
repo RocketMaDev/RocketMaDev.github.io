@@ -1,7 +1,7 @@
 ---
 title: moectf2023 - feedback
 date: 2023/9/27 12:00:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:28:00
 tags:
     - IO arb write
 excerpt: 利用`_IO_FILE`结构体漏洞，通过修改stdout指针实现读取flag。
@@ -53,8 +53,7 @@ puts, sprintf, printf等包装函数，最后都会调用write，可以对stdout
 会打印`_IO_write_base`到`_IO_write_ptr`范围内的字符；初始化后`_IO_write_*`
 会指向结构体中的`_shortbuf`，通过覆盖最后一个字节，可以将base指向`_chain`
 
-## 踩过的坑
-
+{% notel blue fa-arrow-right tips %}
 一开始在我本地上跑的时候，flag是无法写入的:
 read函数返回-1(val of rax)，使用`p *__errno_location()`查询errno得知，
 14: Bad Address，本身读入的地址就没有w权限
@@ -68,12 +67,13 @@ Arch Linux可以直接pacman(yay)安装patchelf哦
 
 gdb中要重启程序不需要q，先kill再run/start即可
 
-```shell
-patchelf patchelf --set-interpreter ./libs/ld-2.31.so --replace-needed libc.so.6 ./libs/libc-2.31.so feedback
+```sh
+patchelf --set-interpreter ./libs/ld-2.31.so --replace-needed libc.so.6 ./libs/libc-2.31.so feedback
 chmod +x ./libs/* # 一定要+x！不然没有权限执行
 ```
 
 patch后gdb调试发现这时flag就会放到一个匿名内存段，不会崩溃了
+{% endnotel %}
 
 ## 解题思路
 

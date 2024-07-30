@@ -1,7 +1,7 @@
 ---
 title: newstar2023 week2 - shellcode revenge
 date: 2023/10/4 12:00:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:28:00
 tags:
     - shellcode
 thumbnail: /assets/newstar2023/regs.png
@@ -78,11 +78,12 @@ rcx + 'Z': \0  ; store rbx later
 ```
 
 最后shellcode长度：**90字节**
-## 踩过的坑
 
+{% notel green fa-arrow-right tips %}
 1. gdb在调试shellcode的时候建议用si，ni会直接运行到底
 2. 网上资料可能不全，需要自己摸索，比如'40'就是自己反汇编才知道的
 3. 字符间换来换去还挺麻烦的，用用下面的函数
+{% endnotel %}
 
 ```python
 def toHex(s: str):

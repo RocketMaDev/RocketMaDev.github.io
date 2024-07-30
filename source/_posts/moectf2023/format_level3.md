@@ -1,7 +1,7 @@
 ---
 title: moectf2023 - format level3
 date: 2023/9/26 12:00:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:28:00
 tags:
     - noob
 excerpt: 通过利用ebp间接改写返回地址，成功利用后门漏洞解决format level3题目。
@@ -16,9 +16,11 @@ ghidra分析为32位程序
 
 和level2类似，存在后门，但是输入的str放到了.bss上
 
-踩过的坑：16字节还想把栈迁移到.bss上？直接爆了（栈上的空间本来也不够）
+{% note tip fa-arrow-right %}
+16字节还想把栈迁移到.bss上？直接爆了（栈上的空间本来也不够）
 
 正解：通过ebp+4来利用ebp间接改写返回地址
+{% endnote %}
 
 ## EXPLOIT
 

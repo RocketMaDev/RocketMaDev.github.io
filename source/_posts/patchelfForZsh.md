@@ -1,7 +1,7 @@
 ---
 title: 修复zsh上patchelf自动补全的错误
 date: 2024/5/8 22:40:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:53:00
 tags:
     - tricks
     - not-ctf
@@ -19,10 +19,10 @@ thumbnail: /images/patchelfFix.png
 
 ## 前情提要
 
-早在21年，**@Y7n05h**[尝试为zsh增加补全支持](https://github.com/NixOS/patchelf/issues/310)，
+早在21年， **@Y7n05h**[尝试为zsh增加补全支持](https://github.com/NixOS/patchelf/issues/310)，
 但随着他不再使用patchelf，他也停止了补全脚本的编写
 
-23年，**@Freed-Wu**接过了任务，完成了补全脚本并提交了PR，但是他的脚本并不完全正确，
+23年， **@Freed-Wu**接过了任务，完成了补全脚本并提交了PR，但是他的脚本并不完全正确，
 导致了zsh无法正确补全
 
 ## 修复
@@ -62,7 +62,6 @@ curl -o /path/to/your/_patchelf https://raw.githubusercontent.com/RocketMaDev/pa
 放在`~/.zshrc`中，方便在patchelf更新的时候再次覆盖脚本
 ```zsh
 update_patchelf() {
-updated: 2024/7/25 12:34:56
     sudo curl -o /usr/share/zsh/site-functions/_patchelf "https://raw.githubusercontent.com/RocketMaDev/patchelf/master/completions/zsh/_patchelf"
     unfunction _patchelf && autoload -U _patchelf
 }

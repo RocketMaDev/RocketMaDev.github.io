@@ -1,7 +1,7 @@
 ---
 title: newstar2023 week3 - puts or system
 date: 2023/10/12 12:00:00
-updated: 2024/7/25 12:34:56
+updated: 2024/7/30 10:28:00
 tags:
     - noob
 excerpt: 通过格式化字符串漏洞，将程序中的puts调用替换为system调用，成功获取shell。
@@ -19,10 +19,10 @@ ghidra分析为64位程序
 
 由于程序relro保护为partial，因此可以直接将`puts@got`地址改为system地址即可
 
-## 踩过的坑
-
+{% note tip fa-arrow-right %}
 %n系列写地址输出过的字符是**累计的**，所以计算失误就会导致攻击失败，
 因此可以把小的数字放在前面，大的数字放在后面，方便计算
+{% endnote %}
 
 ## EXPLOIT
 
