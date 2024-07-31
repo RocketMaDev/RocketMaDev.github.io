@@ -13,6 +13,12 @@
     avatar: /images/friends/k0rian_avatar.jpg
     thumbnail: /images/friends/k0rian_banner.jpg
 
+  - name: mysid
+    link: https://mysid.top
+    description: 爱摸鱼的web手
+    avatar: https://avatars.githubusercontent.com/u/150575626
+    thumbnail: /images/friends/mysid_banner.png
+
 - links_category: 校外
   has_thumbnail: true
   list:
