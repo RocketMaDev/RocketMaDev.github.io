@@ -19,6 +19,13 @@
     avatar: https://avatars.githubusercontent.com/u/150575626
     thumbnail: /images/friends/mysid_banner.png
 
+  - name: Doddy
+    link: https://blog.hiirachan.moe
+    description: Doddy 的咖啡厅
+    avatar: https://blog.hiirachan.moe/usr/Hiiragi.jpg
+    thumbnail: https://blog.hiirachan.moe/usr/uploads/2020/02/qOrDxn23nt4SXjEYb7jovVvV.jpeg
+    
+
 - links_category: 校外
   has_thumbnail: true
   list:
