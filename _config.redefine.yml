@@ -152,20 +152,18 @@ home_banner:
   # Home banner social links
   social_links:
     # Whether to enable
-    enable: false
+    enable: true
     # Social links style
     style: default # default, reverse, center
     # Social links
     links:
-      github:  # your GitHub URL
-      instagram: # your Instagram URL
-      zhihu:  # your ZhiHu URL
-      twitter:  # your twitter URL
-      email:  # your email
+      github: https://github.com/RocketMaDev
+      email: ma2014119@outlook.com
+      bilibili: https://space.bilibili.com/91319968
       # ...... # you can add more
     # Social links with QRcode drawers
-    qrs:
-      weixin:  # your Wechat QRcode image URL
+    # qrs:
+      # weixin:  # your Wechat QRcode image URL
       # ...... # you can add more
 # HOME BANNER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
@@ -248,6 +246,12 @@ home:
       友情链接:
         icon: fa-solid fa-users
         path: /links/
+      早鸟优惠:
+        icon: fa-solid fa-dove
+        path: https://github.com/RocketMaDev/CTFWriteup
+      源码仓库:
+        icon: fa-solid fa-box-archive
+        path: https://github.com/RocketMaDev/RocketMaDev.github.io
       # Archives: 
       #   path: /archives 
       #   icon: fa-regular fa-archive # can be empty
