@@ -41,6 +41,12 @@
 - links_category: 校外
   has_thumbnail: true
   list:
+  - name: chunzhen
+    link: https://zqy.ink
+    description: pwn beginner
+    avatar: /images/friends/chunzhen_avatar.png
+    thumbnail: /images/friends/chunzhen_banner.png
+    
   - name: nova
     link: https://n.ova.moe
     description: 逆天二次元
