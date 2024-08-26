@@ -1,7 +1,7 @@
 ---
 title: hgame2024 week3 - Elden Ring III
 date: 2024/2/22 19:25:00
-updated: 2024/7/25 12:34:56
+updated: 2024/8/26 17:18:00
 tags:
     - heap - largebin
     - largebin attack
@@ -31,10 +31,10 @@ glibc 2.32
 反编译发现只能分配large bin，那就干脆学一下Largebin attack和House of Apple吧，
 以后打高版本libc都要用到
 
-我会在参考文献一栏列出优质的博客，没有它们，我不能做出这题！还有就是在打Apple的时候，
+我会在参考一栏列出优质的博客，没有它们，我不能做出这题！还有就是在打Apple的时候，
 要想进入overflow分支，还需要伪造的IO_FILE里`_IO_write_ptr > _IO_write_base`
 
-另，自glibc 2.38开始，调用链发生变化，`_IO_flsuh_all_lockp`已更名为`_IO_flsuh_all`，
+另，自glibc 2.38开始，调用链发生变化，`_IO_flush_all_lockp`已更名为`_IO_flush_all`，
 但是apple2仍然能打，不影响
 
 ## EXPLOIT
@@ -135,7 +135,7 @@ def payload(lo:int):
     sh.interactive()
 ```
 
-## 参考文献
+## 参考
 
 1. [Largebin Attack典例](https://www.anquanke.com/post/id/244018)
 2. [House of Apple 2官方示例](https://bbs.kanxue.com/thread-273832.htm)

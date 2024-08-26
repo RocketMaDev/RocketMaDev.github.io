@@ -1,7 +1,7 @@
 ---
 title: ningbo2024 初赛 - House of Minho
 date: 2024/5/11 13:13:00
-updated: 2024/7/25 12:34:56
+updated: 2024/8/26 17:18:00
 tags:
     - heap - unsorted
     - House of minho
@@ -252,6 +252,6 @@ def payload(lo:int):
     sh.interactive()
 ```
 
-## 参考文献
+## 参考
 
 [Black Hat 2023 0解Pwn题Houseofminho详细WP](https://bbs.kanxue.com/thread-279588.htm)

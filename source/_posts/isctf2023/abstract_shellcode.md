@@ -1,7 +1,7 @@
 ---
 title: isctf2023 - abstract shellcode
 date: 2023/12/2 20:00:00
-updated: 2024/7/30 10:28:00
+updated: 2024/8/26 17:18:00
 tags:
     - shellcode
 excerpt: 通过分析64位程序的shellcode，利用read和execve实现远程shell的获取。
@@ -93,7 +93,7 @@ push rbx ; S 还原rbx的地址到rsp上
 ret      ; \xc3 ; aka pop rip: 程序跳转到rbx的地址上
 ```
 
-## 参考文献
+## 参考
 
 [printable shellcode](https://web.archive.org/web/20110716082850/http://skypher.com/wiki/index.php?title=X64_alphanumeric_opcodes)
 

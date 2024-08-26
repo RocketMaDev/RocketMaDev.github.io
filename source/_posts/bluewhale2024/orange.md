@@ -1,7 +1,7 @@
 ---
 title: bluewhale2024 - one orange 
 date: 2024/5/4 00:11:00
-updated: 2024/7/25 12:34:56
+updated: 2024/8/26 17:18:00
 tags:
     - heap - unsorted
     - House of Orange
@@ -149,6 +149,6 @@ def payload(lo:int):
     sh.interactive()
 ```
 
-## 参考文献
+## 参考
 
 [House of Orange](https://www.cnblogs.com/ZIKH26/articles/16712469.html)
