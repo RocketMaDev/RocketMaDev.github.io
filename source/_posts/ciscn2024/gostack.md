@@ -1,7 +1,7 @@
 ---
 title: ciscn2024 - gostack 
 date: 2024/5/23 00:47:00
-updated: 2024/7/25 12:34:56
+updated: 2024/9/11 23:35:00
 tags:
     - go
     - rop
@@ -38,7 +38,6 @@ excerpt: 通过栈溢出控制返回地址，利用Go程序的漏洞成功执行
 网上很多wp写rop的链子，很怪，程序不是提供了后门吗。。直接把返回地址修改成`&main.main.func2`，
 就可以任意执行一个shell命令，输入`cat flag`就可以获得flag
 
-![success](/assets/ciscn2024/success.png)
 ## EXPLOIT
 
 ```python
@@ -62,3 +61,7 @@ def payload(lo:int):
 
     sh.interactive()
 ```
+
+{% note default fa-flag %}
+![success](/assets/ciscn2024/success.png)
+{% endnote %}
