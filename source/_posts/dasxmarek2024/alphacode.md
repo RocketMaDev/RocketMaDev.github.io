@@ -1,10 +1,11 @@
 ---
 title: DASCTF2024八月开学季 - alphacode
 date: 2024/09/05 00:12:00
-updated: 2024/09/11 23:05:00
+updated: 2024/09/27 00:12:00
 excerpt: 使用`sendfile`系统调用，通过异或解码与`imul`绕过 shellcode 字符限制，逐字节输出flag。
 tags:
     - shellcode
+thumbnail: /assets/dasxmarek2024/flag.png
 ---
 
 ## 文件属性

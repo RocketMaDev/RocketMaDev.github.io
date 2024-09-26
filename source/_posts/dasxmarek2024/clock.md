@@ -1,11 +1,12 @@
 ---
 title: DASCTF2024八月开学季 - clock 
 date: 2024/09/05 00:15:00
-updated: 2024/09/13 19:49:00
+updated: 2024/09/27 00:12:00
 excerpt: 通过`vsnprintf`格式化漏洞，利用`%*c%6$lln`覆盖`puts@got`为堆地址，执行自定义shellcode。
 tags:
     - fmt-string
     - tricks
+thumbnail: /assets/dasxmarek2024/explanation.png
 ---
 
 {% note green fa-heart %}
