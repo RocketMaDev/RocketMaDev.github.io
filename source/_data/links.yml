@@ -20,10 +20,22 @@
     thumbnail: /images/friends/jbnrz_banner.jpg
 
   - name: k0rian
-    link:  https://k0rian.github.io/
+    link: https://k0rian.github.io/
     description: 咸鱼pwn手 ，不定期更新
     avatar: /images/friends/k0rian_avatar.jpg
     thumbnail: /images/friends/k0rian_banner.jpg
+
+  - name: z221x
+    link: https://www.z221x.website
+    description: Vidar在职逆向菜鸡
+    avatar: /images/friends/z221x_avatar.jpg
+    thumbnail: /images/friends/z221x_banner.jpg
+
+  - name: Mantle
+    link: https://csmantle.top
+    description: Mantle's potato bakery
+    avatar: /images/friends/mantle_avatar.svg
+    thumbnail: /images/friends/mantle_banner.jpg
 
   - name: mysid
     link: https://mysid.top
