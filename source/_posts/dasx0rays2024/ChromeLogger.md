@@ -20,6 +20,8 @@ thumbnail: /assets/dasx0rays2024/logo.png
 不知道是不是大家对新事物的接受能力不高，WhereIsMySauce做出来的人也不多。
 难道是看到libtcmalloc大家就不知道怎么下手了？
 
+> 也可以看看[WhereIsMySauce](/2024/10/22/WhereIsMySauce/)的博客，
+> 或者由 *dbgbgtf* 出的[sixbytes和usersys](http://dbgbgtf.top/2024/10/23/dasctf/)。
 ## 缘起
 
 在ctf-wiki上，记载了多个堆实现，除了常见的ptmalloc，还有tcmalloc和jemalloc，
