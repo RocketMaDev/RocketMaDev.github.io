@@ -5,7 +5,7 @@ updated: 2024/7/30 10:53:00
 tags:
     - tricks
     - not-ctf
-thumbnail: /images/patchelfFix.png
+thumbnail: /assets/trueblog/patchelfFix.png
 ---
 
 <!--excerpt-->

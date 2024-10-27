@@ -5,7 +5,7 @@ updated: 2024/7/25 12:34:56
 tags:
     - tricks
     - not-ctf
-thumbnail: /assets/gdbWithCode.png
+thumbnail: /assets/trueblog/gdbWithCode.png
 ---
 
 <!--excerpt-->
@@ -13,7 +13,7 @@ thumbnail: /assets/gdbWithCode.png
 自从做pwn题以来，一直有一个奇怪的现象，当我调试程序时，遇到libc中的函数就会显示源代码，
 但是一旦patchelf了以后Pwndbg就无法显示源代码了
 
-![source code shown](/assets/gdbWithCode.png)
+![source code shown](/assets/trueblog/gdbWithCode.png)
 
 {% note %}
 注：笔者使用Arch Linux
@@ -47,7 +47,7 @@ ln -s "$LIBC/.debug" .
 同时`info share`显示libc.so.6的调试符号是缺失的，哪怕是执行了`set debug-file-directory $LIBC/.debug`，
 亦或是`set debug-file-directory $LIBC/.debug/.build-id`之后
 
-![no debugging symbols](./assets/gdbWithoutDbg.png)
+![no debugging symbols](/assets/trueblog/gdbWithoutDbg.png)
 
 {% note info fa-circle-arrow-right %}
 事实上`set debug-file-directory $LIBC/.debug`是可以加载调试符号的，但***必须***在程序启动前或附加上去前设置
@@ -74,7 +74,7 @@ ln -s "$LIBC/.debug" .
 
 Pwndbg已经自动在~/.gdbinit中写入`set debuginfod enabled on`，此时调试题目，gdb就会自动根据patch的libc下载debuginfo了
 
-![now we have debugging symbols](./assets/gdbWithDbg.png)
+![now we have debugging symbols](/assets/trueblog/gdbWithDbg.png)
 
 有读者可能会问：源码呢？源码还是没下成功啊？很遗憾，ubuntu的debuginfo并不提供源码，
 以下话转自[官网](https://ubuntu.com/server/docs/about-debuginfod)

@@ -6,7 +6,7 @@ tags:
     - tricks
     - Windows
     - not-ctf
-thumbnail: /assets/success.png
+thumbnail: /assets/trueblog/success.png
 ---
 
 <!--excerpt-->
@@ -30,13 +30,13 @@ pacman -S mingw-w64-ucrt-x86_64-python-pygments
 
 然后又出bug了：
 
-![锟斤拷烫烫烫](/assets/gbk.png)
+![锟斤拷烫烫烫](/assets/trueblog/gbk.png)
 
 怎么锟斤拷都出来了？？于是我就设置了gdb的选项`host-charset`, `target-charset`, `target-wide-charset`,
 `charset`都为`UTF-8`，还是不行，看到有人说，gdb应该读取外部的LANG环境变量来决定编码，但在Windows平台，
 还是要过一遍Windows-console，编码又变回了GBK，必须在运行gdb的时候手动把代码页设置为65001，于是我也跟着做了，
 gdb显示no context，没办法，我只能将Windows全局设为了UTF-8，终于解决了问题
 
-![configuration](/assets/conf.png)
+![configuration](/assets/trueblog/conf.png)
 
-![sucess](/assets/success.png)
+![sucess](/assets/trueblog/success.png)

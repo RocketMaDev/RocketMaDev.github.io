@@ -5,6 +5,7 @@ updated: 2024/10/23 19:03:00
 tags:
     - tricks
 sticky: 90
+thumbnail: /assets/dasx0rays2024/debuginfod.png
 ---
 <!-- excerpt -->
 

@@ -6,7 +6,7 @@ tags:
     - libc-hook
     - not-ctf
     - got-hijack
-thumbnail: /assets/disasm.png
+thumbnail: /assets/trueblog/disasm.png
 ---
 
 <!--excerpt-->
@@ -24,8 +24,8 @@ thumbnail: /assets/disasm.png
 
 于是我就在本地调了一下，也是类似有个跳表存在，不过Arch的libc不能改这一项（因为开了Full RELRO）
 
-![what is ABS?](/assets/disasm.png)
-![can not write](/assets/vmmap.png)
+![what is ABS?](/assets/trueblog/disasm.png)
+![can not write](/assets/trueblog/vmmap.png)
 
 可以看到出现跳表的位置对应源码是在`strlen`的位置，在[elixir](https://elixir.bootlin.com/glibc/glibc-2.38/source/libio/ioputs.c#L48)中，
 原始的`puts`函数是这样的：
