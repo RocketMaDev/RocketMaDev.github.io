@@ -12,6 +12,8 @@
 info:
   # Site title
   title: RocketDevlog
+  # Site subtitle
+  subtitle: Rocket's dev log
   # Author name
   author: RocketDev
   # Site URL
