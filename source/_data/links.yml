@@ -65,3 +65,14 @@
     avatar: /images/friends/nova_avatar.png
     thumbnail: /images/friends/nova_banner.png
 
+  - name: Pid
+    link: https://pid-blog.com/
+    description: 伪装成 web 手的前端仔
+    avatar: /images/friends/pid_avatar.jpg
+    thumbnail: /images/friends/pid_banner.jpg
+
+  - name: hkbin
+    link: https://www.hkbinbin.fun/
+    description: Pwn pWn pwN
+    avatar: /images/friends/hkbin_avatar.jpg
+    thumbnail: /images/friends/hkbin_banner.png
