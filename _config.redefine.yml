@@ -91,7 +91,10 @@ global:
     enable: true
     custom_message: # Custom message. If empty, the site title will be displayed
   # Whether to enable open graph
-  open_graph: true
+  open_graph:
+    enable: true
+    image: /images/opengraph.jpg  # default og:image
+    description: Explore pwn blogs from here
   # Google Analytics
   google_analytics:
     enable: false # Whether to enable Google Analytics
@@ -298,6 +301,7 @@ articles:
     image_alignment: center # image alignment. left, center
     image_caption: false # Whether to display image caption
     link_icon: true # Whether to display link icon
+    delete_mask: false # Add mask effect to <del> tags, hiding content by default and revealing on hover
     title_alignment: left # Title alignment. left, center
     headings_top_spacing: # Top spacing for headings from h1-h6
       h1: 3.2rem
@@ -429,15 +433,20 @@ footer:
 # Docs: https://redefine-docs.ohevan.com/inject
 inject:
   # Whether to enable inject
-  enable: false
+  enable: true
   # Inject custom head html code
-  head: 
-    -
-    -
+  head:
+    - |
+      <script>
+        if (window.location.hostname === "rocketmadev.github.io") {
+          window.location.replace("https://rocketma.dev" + window.location.pathname + window.location.search);
+        }
+      </script>
+    # -
   # Inject custom footer html code
-  footer:
-    -
-    -
+  # footer:
+  #   -
+  #   -
 # INJECT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -466,7 +475,7 @@ plugins:
   # Mermaid JS. Requires hexo-filter-mermaid-diagrams (npm i hexo-filter-mermaid-diagrams). See https://mermaid.js.org/
   mermaid:
     enable: false # enable mermaid or not
-    version: "9.3.0" # default v9.3.0
+    version: "11.4.1" # default v11.4.1
 # PLUGINS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
