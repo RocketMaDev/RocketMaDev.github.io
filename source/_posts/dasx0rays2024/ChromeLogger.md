@@ -8,7 +8,7 @@ tags:
     - House of Apple 3
     - exit hook
     - buffer overflow
-sticky: 99
+sticky: 80
 thumbnail: /assets/dasx0rays2024/logo.png
 ---
 <!-- excerpt -->
