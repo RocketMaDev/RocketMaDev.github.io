@@ -4,6 +4,7 @@ date: 2024/10/22 23:44:00
 updated: 2024/10/23 19:03:00
 tags:
     - tricks
+    - challenge author
 thumbnail: /assets/dasx0rays2024/debuginfod.png
 ---
 <!-- excerpt -->
