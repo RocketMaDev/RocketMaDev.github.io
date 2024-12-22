@@ -4,6 +4,7 @@ date: 2024/7/25 16:39:00
 updated: 2024/7/25 16:39:00
 tags:
     - awd
+    - offline
 thumbnail: /images/shanghai2024awd.jpg
 excerpt: 首次线下参赛未获分数但获得保底三等奖，揭示了靶机漏洞及利用技巧。
 ---

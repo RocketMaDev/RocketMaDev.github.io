@@ -30,7 +30,7 @@ pacman -S mingw-w64-ucrt-x86_64-python-pygments
 
 然后又出bug了：
 
-![锟斤拷烫烫烫](/assets/trueblog/gbk.png)
+![锟斤拷烫烫烫](/assets/trueblog/gbk.jpg)
 
 怎么锟斤拷都出来了？？于是我就设置了gdb的选项`host-charset`, `target-charset`, `target-wide-charset`,
 `charset`都为`UTF-8`，还是不行，看到有人说，gdb应该读取外部的LANG环境变量来决定编码，但在Windows平台，
@@ -39,4 +39,4 @@ gdb显示no context，没办法，我只能将Windows全局设为了UTF-8，终�
 
 ![configuration](/assets/trueblog/conf.png)
 
-![sucess](/assets/trueblog/success.png)
+![sucess](/assets/trueblog/success.jpg)

@@ -4,6 +4,7 @@ date: 2024/08/06 23:31:00
 updated: 2024/09/11 19:03:00
 tags:
     - awd
+    - offline
 thumbnail: /assets/industrial2024/banner.jpg
 excerpt: （信息安全测试员竞赛）下午的awd拿分拿到爽，最后团体第三
 ---
