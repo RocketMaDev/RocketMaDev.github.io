@@ -5,8 +5,8 @@ updated: 2024/10/21 03:27:00
 tags:
     - tricks
     - ptrace
+excerpt: 在羊城杯2024的 **Hard Sandbox** 中，有`RET_TRACE`的沙箱，因此如何构造rce并绕过限制的问题，就来到了如何使用ptrace上。ptrace作为Linux的syscall，已经存在很久了，相关的文档也很完善，具体细则可以通过`man ptrace`查看，这篇博客主要讲讲一些值得注意的点。
 ---
-<!-- excerpt -->
 
 在羊城杯2024的 **Hard Sandbox** 中，有`RET_TRACE`的沙箱，因此如何构造rce并绕过限制的问题，
 就来到了如何使用ptrace上。ptrace作为Linux的syscall，已经存在很久了，相关的文档也很完善，

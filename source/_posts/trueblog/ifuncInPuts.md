@@ -7,9 +7,8 @@ tags:
     - not-ctf
     - got-hijack
 thumbnail: /assets/trueblog/disasm.png
+excerpt: 在千岛湖团建时，讨论了强网杯中`_exit`题目涉及的`puts@got@libc`，发现与`strlen`相关。通过分析`glibc`的`ifunc`机制，得知`strlen`的优化版本`__strlen_avx2`嵌入库中，利用Partial RELRO可修改跳表`*ABS*`，从而在执行`puts`时运行任意代码。这与近期的xz风波类似，表明多个库函数存在利用可能性。
 ---
-
-<!--excerpt-->
 
 去千岛湖团建的时候和*男孩*聊起上次强网杯中`_exit`的题中用到了`puts@got@libc`，
 当时不是很理解，于是就提起了这件事，然后发现，这个类似于got表一样的东西与`puts`没啥关系，

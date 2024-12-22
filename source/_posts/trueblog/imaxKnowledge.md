@@ -5,8 +5,8 @@ updated: 2024/10/18 17:41:00
 tags:
     - not-ctf
 thumbnail: /assets/trueblog/IMAX_blue_logo.svg
+excerpt: IMAX影院分为多代，选择优先级为IMAX GT > IMAX COLA = Dolby Cinema > IMAX Laser XT > IMAX氙灯，杜比影院也是不错选择。
 ---
-<!-- excerpt -->
 
 暑假前看了流浪地球2，就算在我家的小电视上都能看出冲击感。之后在B站看深度解读的时候，
 看到评论区里都在讨论相比起球1的进步以及自己已经去电影院看了多少次了。

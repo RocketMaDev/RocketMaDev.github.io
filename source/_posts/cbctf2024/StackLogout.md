@@ -10,7 +10,7 @@ tags:
     - remote debugging
     - challenge author
 sticky: 90
-excerpt: 去年 4 月份左右 pankas 转发了一篇推文，讲 PHP 通杀的，我一看原文，竟然是 glibc 组件的 bug， 并且有 cve 编号。博客很详细，还更了整整 3 篇，不用调试就能看懂。自从看到 CVE-2024-2691 的缓冲区溢出，我就一直想着考上一题，这次趁着新生赛，它来了！
+excerpt: 去年4月份左右 *pankas* 转发了一篇推文，讲PHP通杀的，我一看原文，竟然是glibc组件的bug，并且有cve编号。博客很详细，还更了整整3篇，不用调试就能看懂。自从看到CVE-2024-2691的缓冲区溢出，我就一直想着考上一题，这次趁着新生赛，它来了！
 thumbnail: /assets/cbctf2024/morebytes.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 字节决赛北京游
 date: 2024/11/23 20:00:00
-updated: 2024/11/23 20:00:00
+updated: 2024/12/23 01:01:00
 tags:
     - not-ctf
     - offline
