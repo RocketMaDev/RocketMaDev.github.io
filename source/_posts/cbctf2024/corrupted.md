@@ -8,6 +8,7 @@ tags:
     - challenge author
 sticky: 92
 thumbnail: /assets/cbctf2024/rwx.png
+excerpt: 前段时间在看 ELF 头，正好新生赛到了，可以拿来出一道简单题，类似于 ret2shell。对于程序头 phdr 来说，如果 p_type == PT::LOAD，那么它就是负责加载程序段的。 对于本题的情况，我把原来加载代码段的 rx 改成了 rwx，这样代码段就变成可读可写可执行了。可以通过设置偏移量为 -1394 修改 verify 函数的内容。可以修改 4 次，总共 32 字节，足以写一 shellcode 了，直接拿 shell。
 ---
 
 前段时间在看ELF头，正好新生赛到了，可以拿来出一道简单题，类似于`ret2shell`。
