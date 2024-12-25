@@ -1,4 +1,4 @@
-- links_category: 校内
+- links_category: 0RAYS
   has_thumbnail: true
   list: 
   - name: dbgbgtf
@@ -25,6 +25,15 @@
     avatar: /images/friends/k0rian_avatar.jpg
     thumbnail: /images/friends/k0rian_banner.jpg
 
+  - name: nan0in
+    link: https://nan0in27.cn/
+    description: day day pwn up
+    avatar: /images/friends/nan0in_avatar.jpg
+    thumbnail: /images/friends/nan0in_banner.jpg
+
+- links_category: Vidar
+  has_thumbnail: true
+  list:
   - name: z221x
     link: https://www.z221x.website
     description: Vidar在职逆向菜鸡
