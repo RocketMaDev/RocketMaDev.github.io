@@ -9,7 +9,6 @@ tags:
     - exit hook
     - buffer overflow
     - challenge author
-sticky: 80
 thumbnail: /assets/dasx0rays2024/logo.png
 excerpt: 在 ctf-wiki 上，记载了多个堆实现，除了常见的 ptmalloc，还有 tcmalloc 和 jemalloc， 于是我一时兴起，找了找有关文章，想借此出题。其中 jemalloc 比较难利用， 因为在拿到的堆块附近没有任何堆的元数据，反倒是 tcmalloc 在堆块附近有很多堆指针。于是我就随便改了一个指针，然后分配 2 次同样大小的堆块就实现了任意堆块分配。这么好的特性，拿来出题正好。
 ---

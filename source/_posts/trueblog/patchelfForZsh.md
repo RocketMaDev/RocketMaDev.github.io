@@ -4,7 +4,7 @@ date: 2024/5/8 22:40:00
 updated: 2024/7/30 10:53:00
 tags:
     - tricks
-    - not-ctf
+    - non-ctf
 thumbnail: /assets/trueblog/patchelfFix.png
 ---
 

@@ -4,7 +4,7 @@ date: 2024/5/8 21:18:00
 updated: 2024/7/25 12:34:56
 tags:
     - tricks
-    - not-ctf
+    - non-ctf
 thumbnail: /assets/trueblog/gdbWithCode.png
 ---
 

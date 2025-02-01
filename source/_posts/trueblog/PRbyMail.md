@@ -3,7 +3,7 @@ title: 古老的基础设施：使用邮件提交补丁
 date: 2024/11/23 09:22:00
 updated: 2024/11/23 23:10:00
 tags:
-    - not-ctf
+    - non-ctf
     - debuginfod
 thumbnail: /assets/trueblog/debuginfod.png
 excerpt: 最近Arch上的debuginfod更新了，也带来了bug...还好只是shell脚本的错误，还在我的能力范畴之内。花了一段时间如何通过邮件向上游提交补丁，最终解决了这个bug。

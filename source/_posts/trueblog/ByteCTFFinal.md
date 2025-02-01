@@ -3,7 +3,7 @@ title: 字节决赛北京游
 date: 2024/11/23 20:00:00
 updated: 2024/12/23 01:01:00
 tags:
-    - not-ctf
+    - non-ctf
     - offline
 thumbnail: /assets/trueblog/bytectf.jpg
 excerpt: 决赛的形式是作品答辩，字节给了一系列选题，我们Emmmmmm2024选了蓝军：隐秘的通道，因为这个选题看起来最像传统的C2。但是大家都没什么时间做，最后只是糊弄糊弄。但是对我来说，这是极好的公费旅游机会！直接飞北京，见识见识其他队的成员，其他队的作品，与北京。

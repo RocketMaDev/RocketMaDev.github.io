@@ -3,7 +3,7 @@ title: 看电影的学问——IMAX & Dolby Cinema
 date: 2024/10/18 17:41:00
 updated: 2024/10/18 17:41:00
 tags:
-    - not-ctf
+    - non-ctf
 thumbnail: /assets/trueblog/IMAX_blue_logo.svg
 excerpt: IMAX影院分为多代，选择优先级为IMAX GT > IMAX COLA = Dolby Cinema > IMAX Laser XT > IMAX氙灯，杜比影院也是不错选择。
 ---

@@ -5,7 +5,7 @@ updated: 2024/7/25 12:34:56
 tags:
     - tricks
     - Windows
-    - not-ctf
+    - non-ctf
 thumbnail: /assets/trueblog/success.jpg
 excerpt: Pwndbg 很好用，可以检查地址，可以看代码等，那么如果能够在 MSYS 里装上的话，调试 exe 的体验不是飞起？类似 Pwndbg，gdb-dashboard也是个显示很多信息的项目，手动拉下来作为.gdbinit，效果不错。
 ---
