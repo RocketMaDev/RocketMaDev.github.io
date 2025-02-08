@@ -6,6 +6,7 @@ tags:
     - non-ctf
     - KernelSU
 thumbnail: /assets/trueblog/rootca.jpg
+excerpt: 在手机上抓包，可以使用`PCAPdroid`，但是为了解包https流量，需要做中间人攻击，安装用户证书，并在通知栏中显示“网络流量可能受到监控”。为了把这些字样去除，可以使用KSU模块将准备好的用户证书复制到根证书区，随后就可以删除用户证书了。然而，模块却引入了新的问题...
 ---
 
 {% note blue fa-newspaper %}
