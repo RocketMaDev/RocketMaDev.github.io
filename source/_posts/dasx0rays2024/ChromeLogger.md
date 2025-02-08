@@ -7,6 +7,7 @@ tags:
     - libc2.39
     - House of Apple 3
     - exit hook
+    - libc-hook
     - buffer overflow
     - challenge author
 thumbnail: /assets/dasx0rays2024/logo.png
