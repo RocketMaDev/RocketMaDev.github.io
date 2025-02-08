@@ -3,7 +3,7 @@ title: 迁移通知
 date: 2024/12/18 18:35:00
 updated: 2024/12/18 18:35:00
 tags:
-    - not-ctf
+    - non-ctf
 thumbnail: /assets/migrate.png
 excerpt: 本站已正式迁移至 https://rocketma.dev 。原先网站托管在 GitHub Pages 上，在国内部分地区直接无法访问，每次和别人分享博客地址， 需要别人开梯子又不太好意思，于是我将博客迁移到了 Cloudflare Pages，再怎么说 Cloudflare 在国内至少能打开。
 ---
