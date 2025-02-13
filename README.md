@@ -1,3 +1,3 @@
 # This is my blog!
 
-Visit it by clicking here: https://rocketmadev.github.io
+Visit it by clicking here: https://rocketma.dev
