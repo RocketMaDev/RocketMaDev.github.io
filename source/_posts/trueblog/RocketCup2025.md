@@ -391,3 +391,7 @@ def payload(lo: int):
 {% note default fa-flag %}
 ![](/assets/trueblog/newyear2025/flag.png)
 {% endnote %}
+
+## 参考
+
+[Zsh 开发指南](https://github.com/goreliu/zshguide)
