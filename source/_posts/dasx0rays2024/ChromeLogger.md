@@ -1,5 +1,5 @@
 ---
-title: DASCTF 2024金秋十月 ChromeLogger 出题博客
+title: DASCTF 2024金秋十月 ChromeLogger
 date: 2024/10/23 14:01:00
 updated: 2024/10/23 14:14:00
 tags:
@@ -11,19 +11,18 @@ tags:
     - buffer overflow
     - challenge author
 thumbnail: /assets/dasx0rays2024/logo.png
-excerpt: 在 ctf-wiki 上，记载了多个堆实现，除了常见的 ptmalloc，还有 tcmalloc 和 jemalloc， 于是我一时兴起，找了找有关文章，想借此出题。其中 jemalloc 比较难利用， 因为在拿到的堆块附近没有任何堆的元数据，反倒是 tcmalloc 在堆块附近有很多堆指针。于是我就随便改了一个指针，然后分配 2 次同样大小的堆块就实现了任意堆块分配。这么好的特性，拿来出题正好。
+excerpt: 在 ctf-wiki 上，记载了多个堆实现，除了常见的 ptmalloc，还有 tcmalloc 和 jemalloc， 于是我一时兴起，找了找有关文章。其中 jemalloc 比较难利用， 因为在拿到的堆块附近没有任何堆的元数据，反倒是 tcmalloc 在堆块附近有很多堆指针。于是我就随便改了一个指针，然后分配 2 次同样大小的堆块就实现了任意堆块分配。
 ---
 
 当你看到这篇博客的时候，安恒官方的wp应该已经放出了，你也大概是因为看到了wp中夹带的网址而来，
-并且是有一定基础的pwner，来都来了，可以在评论区中尽情吐槽。说实话，
-我自认为这题的难度没有这么高，怎么说8个小时还是能做出来的，结果最后也没人做出来，
-感觉题白出了:(
+并且是有一定基础的pwner，来都来了，可以在评论区中尽情吐槽。
 
 不知道是不是大家对新事物的接受能力不高，WhereIsMySauce做出来的人也不多。
 难道是看到libtcmalloc大家就不知道怎么下手了？
 
 > 也可以看看[WhereIsMySauce](/2024/10/22/WhereIsMySauce/)的博客，
-> 或者由 *dbgbgtf* 出的[sixbytes和usersys](http://dbgbgtf.top/2024/10/23/dasctf/)。
+> 或者由 *dbgbgtf* 的[sixbytes和usersys](http://dbgbgtf.top/2024/10/23/dasctf/)。
+
 ## 缘起
 
 在ctf-wiki上，记载了多个堆实现，除了常见的ptmalloc，还有tcmalloc和jemalloc，
@@ -239,7 +238,7 @@ tcmalloc是谷歌研发的，听说曾经用在Chromium上过，而对于浏览�
 根据我对FreeList的poc，我打算就简单搞个堆溢出，既然如此，那我`free`也不给了，
 反正只要`malloc`就能实现任意堆块分配。
 
-> 也许我哪一天会再出一题考uaf或者和`free`有关的攻击，不过那就要等我读完源码了。
+> 也许哪一天会再有一题考uaf或者和`free`有关的攻击，不过那就要等我读完源码了。
 
 想着直接堆溢出有点太无脑了，我就用到了大部分人只见过却没研究过的`setvbuf`。
 本来我的想法是让`stdout`和`stderr`的缓冲区堆块可以由pwner来分配，
@@ -382,10 +381,10 @@ rsi将会是`forgedFileAddr + 0xe0`，[rsi]是`forgedFileAddr + 0x48`，[rsi]+8�
 还好我做了准备直接启用`FALLBACK`宏重新编译ChromeLogger，直接给出堆基址，并微调脚本，
 还好这个“非预期”被我“预期”到了。
 
-之后安恒让我们测试题目是否有非预期解。之前我跳过了"exit_hook"有关的打法，
-因为我认为只能注册无参函数，无法控制rdi和rsi。此时我觉得万一rdi，rsi符合条件呢？
-我先测试了很多wp提到的`tls__dtor__list`，可惜，rsi是无效参数，rdi倒是可控，
-原先使用rbp寄存器作为中转的方案，很方便就能rop，不过libc 2.38改掉了，没有利用可能了。
+接下来看看其他非预期情况，之前我跳过了"exit_hook"有关的打法，因为我认为只能注册无参函数，
+无法控制rdi和rsi。此时我觉得万一rdi，rsi符合条件呢？我先测试了很多wp提到的
+`tls__dtor__list`，可惜，rsi是无效参数，rdi倒是可控，原先使用rbp寄存器作为中转的方案，
+很方便就能rop，不过libc 2.38改掉了，没有利用可能了。
 
 {% note purple fa-clock-rotate-left %}
 tls的destructor的添加是通过`__cxa_thread_atexit_impl`函数实现的，
@@ -655,7 +654,7 @@ def payload(lo: int, useFSOP: bool) -> bool:
 
 ## 尾声
 
-尽管放了提示，但是8小时，没有师傅能做出我的题，感觉有些遗憾。要是放在XCTF分站赛的话，
+尽管放了提示，但是8小时，没有师傅能做出这道题，感觉有些遗憾。要是放在XCTF分站赛的话，
 估计不久就被秒了吧。各位师傅有什么想问的都可以在评论区中问。
 
 ## 参考

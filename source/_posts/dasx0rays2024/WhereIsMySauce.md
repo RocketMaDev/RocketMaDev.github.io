@@ -1,5 +1,5 @@
 ---
-title: DASCTF 2024金秋十月 WhereIsMySauce 出题博客
+title: DASCTF 2024金秋十月 WhereIsMySauce
 date: 2024/10/22 23:44:00
 updated: 2024/10/23 19:03:00
 tags:
