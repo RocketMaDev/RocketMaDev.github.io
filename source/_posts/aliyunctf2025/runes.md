@@ -5,6 +5,7 @@ updated: 2025/02/24 23:51:00
 tags:
     - syscall
 thumbnail: /assets/aliyunctf2025/banner.png
+excerpt: 通过利用`prctl`的`PR_SET_MDWE`系统调用，禁止`mmap`分配可执行内存来击败恶龙，并通过`brk`和`execve`获取shell。
 ---
 
 > Show me your runes.
