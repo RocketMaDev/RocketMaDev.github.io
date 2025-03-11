@@ -81,6 +81,13 @@ gdbserver 127.0.0.1:1337 login.cgi "$@"
 
 ![confusion](/assets/tpctf2025/cmdConfusion.png)
 
+{% folding purple::更多细节 %}
+压缩包中还有一些html和js文件，阅读后可以发现，如果在网页端尝试登录，会首先将密码使用
+`gen_enc`加密，再提交登录/注册请求。然而，这并不是强制的。由于没有提供注册接口，
+数据库又是空的，因此我们需要先手动发送http请求来注册。注册成功后如果登录，由于不存在
+`manager.cgi`，因此会显示404。
+{% endfolding %}
+
 ## EXPLOIT
 
 ```python
