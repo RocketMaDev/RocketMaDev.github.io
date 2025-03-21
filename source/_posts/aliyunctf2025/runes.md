@@ -1,9 +1,10 @@
 ---
 title: 第三届阿里云CTF - runes
 date: 2025/02/24 23:11:00
-updated: 2025/02/24 23:51:00
+updated: 2025/03/22 00:55:00
 tags:
     - syscall
+    - conference
 thumbnail: /assets/aliyunctf2025/banner.png
 excerpt: 通过利用`prctl`的`PR_SET_MDWE`系统调用，禁止`mmap`分配可执行内存来击败恶龙，并通过`brk`和`execve`获取shell。
 ---
@@ -142,3 +143,34 @@ def payload(lo: int):
 
 1. [PR_SET_MDWE(2const) — Linux manual page](https://man7.org/linux/man-pages/man2/pr_set_mdwe.2const.html)
 2. [第三届阿里云CTF官方Writeup](https://xz.aliyun.com/news/17029)
+
+## 阿里白帽大会
+
+在阿里云CTF结束后，阿里邀请成绩好的队伍参加阿里白帽大会，由于我们队伍是联队，
+就把包吃住的名额让给省外的同学了。不过又了解了一下，可以报名后自己去。
+~~但是没得吃~~
+
+在会前的晚上，还有一个安全沙龙，问了一下，我们杭电的可以直接过去。负责人大气地请我们喝奶茶，
+~~虽然还是没得吃自助餐，~~ 还带来了不少阿里的大佬，甚至有一个华为天才少年班的成员。
+在会上交流了本次CTF办得如何，要不要整新的赛制，比如awd，speedrun之类的。然后还有自由提问环节，
+我问“pwn方向想找实习需要怎么样的技术？”，阿里的大佬说对利用反而是次重要的，
+**最重要的是逆向功底** 。还有人问到crypto如何找工作，阿里的人也直截了当的说，只会密码就不了业，
+必须会开发之类的其他技能才行。
+
+{% note green fa-gauge-high %}
+**speedrun** 赛制是指，两人登台做题，同时做一道简单题，做出来的人有分，做不出来没分，
+感觉强度非常高。
+{% endnote %}
+
+<img src="/assets/aliyunctf2025/eve.jpg" width="60%">
+
+在线下遇到了 *Qanux*, *cnwangjihe* 和 *Visionary* 师傅！！
+
+然后是第二天，正式的白帽大会，具体讲了啥不太记得了（逃），那会儿一直在写pwntools的patch。
+还有抽奖环节， *cnwangjihe* 中了一个索尼的耳机，太有运气了。
+
+<img src="/assets/aliyunctf2025/conference.jpg" width="60%">
+
+场地上还有很多厂商的src站台，薅了不少小玩意。
+
+<img src="/assets/aliyunctf2025/gadgets.jpg" width="60%">
