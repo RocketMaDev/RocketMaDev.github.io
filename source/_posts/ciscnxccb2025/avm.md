@@ -97,4 +97,6 @@ def payload(lo: int):
     sh.close()
 ```
 
+{% note default fa-flag %}
 ![](/assets/ciscnxccb2025/avmFLAG.png)
+{% endnote %}

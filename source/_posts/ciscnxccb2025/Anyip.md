@@ -45,7 +45,7 @@ excerpt: 通过控制队列的`rear`和树节点，实现了对`logname`的覆�
 借助C++编译一个空的deque然后-g生成调试符号，终于在Ghidra里读到了整个结构体的全貌，
 同时也推出了其他的库函数，可以分析了。最后还原出的树构建的函数大约是这样的：
 
-```c tree_operation
+```c++ tree_operation
 struct Node {
     char ch;
     Node *lchild;
