@@ -26,6 +26,10 @@ thumbnail: /assets/ciscnxccb2025/half_banner.jpg
 
 9点开始，awdp有pwn有web，我打算先patch。上通防没法过检查，只能一个一个看。
 
+{% note purple fa-paperclip %}
+可以在[我的CTF仓库](https://github.com/RocketMaDev/CTFWriteup/releases/tag/ciscnxccb)中下载pwn附件。
+{% endnote %}
+
 ### typo
 
 **PATCH**
