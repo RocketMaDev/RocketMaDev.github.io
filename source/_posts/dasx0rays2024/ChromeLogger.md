@@ -21,7 +21,7 @@ excerpt: 在 ctf-wiki 上，记载了多个堆实现，除了常见的 ptmalloc�
 难道是看到libtcmalloc大家就不知道怎么下手了？
 
 > 也可以看看[WhereIsMySauce](/2024/10/22/WhereIsMySauce/)的博客，
-> 或者由 *dbgbgtf* 的[sixbytes和usersys](http://dbgbgtf.top/2024/10/23/dasctf/)。
+> 或者由 *dbgbgtf* 的[sixbytes和usersys](https://dbgbg.tf/dasctf)。
 
 ## 缘起
 
