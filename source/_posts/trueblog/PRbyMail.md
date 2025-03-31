@@ -1,7 +1,7 @@
 ---
 title: 古老的基础设施：使用邮件提交补丁
 date: 2024/11/23 09:22:00
-updated: 2024/11/23 23:10:00
+updated: 2025/03/31 11:50:00
 tags:
     - non-ctf
     - debuginfod
@@ -139,7 +139,8 @@ logfile ~/.msmtp.log
 
 ## 参考
 
-1. [[PATCH] config: fix globing error for zsh](https://sourceware.org/pipermail/elfutils-devel/2024q4/007580.html)
-2. [/etc/profile.d/debuginfod.sh causes spurious output on interactive login for non-bash shells](https://gitlab.archlinux.org/archlinux/packaging/packages/elfutils/-/issues/2)
-3. [Bug 32314 - Profile script in elfutils-debuginfod-client throws error on login](https://sourceware.org/bugzilla/show_bug.cgi?id=32314)
-4. [Bug 2321818 - Profile script in elfutils-debuginfod-client throws error on login](https://bugzilla.redhat.com/show_bug.cgi?id=2321818)
+1. [Oh no, git send-email](https://jade.fyi/blog/oh-no-git-send-email/)
+2. [[PATCH] config: fix globing error for zsh](https://sourceware.org/pipermail/elfutils-devel/2024q4/007580.html)
+3. [/etc/profile.d/debuginfod.sh causes spurious output on interactive login for non-bash shells](https://gitlab.archlinux.org/archlinux/packaging/packages/elfutils/-/issues/2)
+4. [Bug 32314 - Profile script in elfutils-debuginfod-client throws error on login](https://sourceware.org/bugzilla/show_bug.cgi?id=32314)
+5. [Bug 2321818 - Profile script in elfutils-debuginfod-client throws error on login](https://bugzilla.redhat.com/show_bug.cgi?id=2321818)
