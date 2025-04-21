@@ -1,7 +1,7 @@
 ---
 title: 初探Linux内核调试
 date: 2025/04/21 12:20:00
-updated: 2025/04/21 12:20:00
+updated: 2025/04/22 00:38:00
 tags:
     - kernel
 excerpt: |-

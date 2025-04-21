@@ -1,7 +1,7 @@
 ---
 title: 从 Vim 到 NeoVim：感知不强
 date: 2025/04/06 19:45:00
-updated: 2025/04/07 22:23:00
+updated: 2025/04/22 01:40:00
 tags:
     - non-ctf
 excerpt: Vim原来的功能固然很强大，但是总有人说，现在是时候把Vim换成新时代的NeoVim了。话虽如此，但是要想把NeoVim配得和我现在用的Vim一样丝滑，就需要花大量的时间调配置。但当我全部配完后，却发现好像和之前配的vim差别并不大...
@@ -55,14 +55,15 @@ call plug#end()
 比如我就选了`pkexec`。写了以下lua代码并添加到`init.lua`中：
 
 ```lua init.lua
--- Define :WW command to save the file using pkexec and force reload
-vim.api.nvim_create_user_command('WW', function()
+-- Define :S command to save the file using pkexec and force reload
+vim.api.nvim_create_user_command('S', function()
     vim.cmd('silent! w !pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY tee % >/dev/null') -- Save file using pkexec
     vim.cmd('edit!')  -- Force reload the file
 end, {})
 ```
 
-当执行`:WW`时会唤起KDE的要求权限窗口。
+当执行`:S`时会唤起KDE的要求权限窗口。不能使用`:WW`，因为没有`:W`命令，所以neovim在输入`:W`时，
+会自动运行`:WW`，造成不必要的权限申请，将其改为`:S`就不会有这个问题。
 
 <img src="/assets/trueblog/pkexec.png" width="60%">
 {% endnotel %}
@@ -71,6 +72,22 @@ Anyway，我已经把[我的配置放到GitHub](https://github.com/RocketMaDev/R
 上了，如果想借鉴的可以到这个地址看看。接下来是配置好的NeoVim演示：
 
 [![demo](/assets/trueblog/neovimCover.png)](https://www.bilibili.com/video/BV1rmRmYmEXb)
+
+{% notel blue fa-bandage 250422更新 %}
+`nvim-cmp`有奇怪的bug，即使光标前没有任何字符，按下`<CR>/<Tab>/ `，
+都会有补全，但是这种情况下我根本不需要补全啊！没办法，只能切换到
+`blink.cmp`，这个框架没有凭空补全的问题。除此之外，基于treesitter
+的函数参数文本对象也有问题，当使用clangd补全时，遇到函数里有`const char *`
+这样的表述时，参数文本对象就乱掉了，我只好换回vim的参数文本对象插件。
+不知道注册了哪些快捷键？neovim还提供了打印所有映射的键位的功能：
+
+```vim
+:lua vim.print(vim.api.nvim_get_keymap("a"))
+```
+
+这时候在绑定键位时写desc的优势就体现出来了：每个键在做什么一目了然。
+[查看所有变更](https://github.com/RocketMaDev/RocketMaDev/commit/e450bfe8514d1cc3768efb4289ca702b9dc453df)
+{% endnotel %}
 
 ## 参考
 
