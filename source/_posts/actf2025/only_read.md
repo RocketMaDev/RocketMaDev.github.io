@@ -5,6 +5,7 @@ updated: 2025/04/27 22:29:00
 tags:
     - ret2dlresolve
 thumbnail: /assets/actf2025/dl_fixup.png
+excerpt: 通过栈溢出控制`rbp`到bss，伪造`write`符号并利用`dl_resolve`泄露libc，最终执行`execl`获取shell。
 ---
 
 本次ACTF2025我们0RAYS最后取得第7名，pwn方向差点爆零。
