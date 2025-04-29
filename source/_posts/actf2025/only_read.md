@@ -305,7 +305,21 @@ def payload(lo: int):
 ![flag](/assets/actf2025/flag.png)
 {% endnote %}
 
+## 赛后复盘
+
+当初我还纳闷为啥 **arandom** 这么一道内核题怎么有这么多队出，看了[星盟的博客](https://blog.xmcve.com/2025/04/27/ACTF2025-Writeup/#title-2)，
+原来是非预期。`/`的uid是1000，我们可以`mv /etc 1; mkdir /etc`来替换etc文件夹，
+然后`echo 'root::0:0:root:/root:/bin/bash' > /etc/passwd`来完成passwd替换，
+就可以直接`su bash`提权了...属实没想到，点竟然在根目录的权限设置上。
+
+使用`find / -user 1000 ! -path '/proc/*'`可以找用户为1000的文件，
+并排除`proc`目录下的文件。
+
+还有`AFL sandbox`，沙箱中允许了`shmat`，同时`afl-fuzz`调用了`shmget`，
+我还以为是要打共享的数据，搞了半天侧信道就可以了，有点无语...明明看题的时候又想到。
+
 ## 参考
 
 1. [newstar2023 week3 - dlresolve - RocketDevlog](/2023/10/10/W3_dlresolve/)
 2. [赛博杯新生赛 2024 - StackLogout 出题博客 - RocketDevlog](/2024/12/22/StackLogout/)
+3. [ACTF2025 Writeup - 星盟安全团队](https://blog.xmcve.com/2025/04/27/ACTF2025-Writeup/#title-2)
