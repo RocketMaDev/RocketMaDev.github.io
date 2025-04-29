@@ -135,3 +135,15 @@ qemu启动，嘿，还真行。虽然说没什么用就是了。
 <img src="/assets/ciscnxccb2025/half_prize.jpg" width="80%">
 
 ~~天津赛区有玻璃奖杯，四川赛区有金杯，怎么浙江赛区只有一张纸啊~~
+
+{% folding green::一些平台界面截图 %}
+看起来是信息评测中心做的ui
+![awdp main screen](/assets/ciscnxccb2025/semi-awdpmain.png)
+<center><em>awdp主屏幕</em></center>
+
+![awdp per challenge](/assets/ciscnxccb2025/semi-awdpchal.png)
+<center><em>awdp题目防御界面</em></center>
+
+![awdp penetration](/assets/ciscnxccb2025/semi-penetration.png)
+<center><em>渗透+取证界面</em></center>
+{% endfolding %}
