@@ -1,7 +1,7 @@
 ---
 title: 京麒CTF 2025 - OldWine
 date: 2025/05/28 12:05:00
-updated: 2025/05/28 12:05:00
+updated: 2025/05/28 12:19:00
 tags:
     - rop
     - hijack callee
@@ -31,7 +31,7 @@ excerpt: 通过修改栈上`[rbp]`为`rbp+0x10`，使`call read@plt`时`rsp`指�
 
 ## 解题思路
 
-程序禁止了one gadget，可以调整rbp，也可以在栈上向后写。类似的思路其实当时西湖论剑的 **heaven**
+程序禁止了one gadget，可以调整rbp，也可以在栈上向后写。类似的思路其实当时西湖论剑的 **babytrace**
 就出现过，然而一下没想到，没做出来，还在那里找各种gadget，这下吃一堑吃一堑了。
 
 原本的栈大小是0x10，加上`[rbp]`和返回地址总共0x20字节，然后索引从`rbp - 0x10`开始算。
