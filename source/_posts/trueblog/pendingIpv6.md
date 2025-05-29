@@ -1,7 +1,7 @@
 ---
 title: 没有应答的IPv6长连接
 date: 2025/02/15 23:08:00
-updated: 2025/02/16 01:10:00
+updated: 2025/05/30 03:19:00
 tags:
     - non-ctf
 excerpt: >-
@@ -83,6 +83,13 @@ precedence ::ffff:0:0/96  100
 {% note green fa-code-pull-request %}
 截至2月15日，这个问题已有PR修复错误，等待Release即可。
 {% endnote %}
+
+{% notel yellow fa-face-angry 25-05-30更新 %}
+我以前给[我的vps](newyear.rocketma.dev)申请了一个证书，那时候申请很快，几十秒就搞定了。
+但是从那之后，续签再也没有成功过，不管我怎么操作1panel，都会卡住，一等就是一小时。
+知道我把`/etc/resolv.conf`中ipv6的nameserver删除，终于不被卡了。原本以为国外ipv6
+铺得开一些，结果也不怎么样嘛。当遇到网络连接卡住的情况，可以考虑是不是ipv6的问题！
+{% endnotel %}
 
 ## 参考
 
