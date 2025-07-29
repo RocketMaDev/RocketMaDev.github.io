@@ -112,3 +112,8 @@ marked:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# RSS Feed settings
+feed:
+  icon: /images/icon.svg
+  content: false # let users read full content in browser
