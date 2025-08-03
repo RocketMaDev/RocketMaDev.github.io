@@ -1,11 +1,12 @@
 ---
 title: 长城杯 2025 决赛 - orw
 date: 2025/08/03 17:48:00
-updated: 2025/08/03 17:48:00
+updated: 2025/08/03 18:43:00
 tags:
     - protobuf
     - shellcode
     - tricks
+    - offline
 thumbnail: /assets/ciscnxccb2025/pbpt.png
 excerpt: 利用 **protobuf-pwn-tool** 还原结构体，分析错误RC4实现与无效seccomp，构造可打印shellcode绕过检查获取shell。
 ---
@@ -179,3 +180,40 @@ def payload(lo: int):
 ## 参考
 
 1. [Rea1Atomic/protobuf-pwn-tool](https://github.com/Rea1Atomic/protobuf-pwn-tool)
+
+## 回顾
+
+决赛跑到福建比赛了，主办方有协议酒店，然后我们选了那个温泉酒店。奇葩的是酒店离场地非常远，
+有20+km，会有专车接送。场地挺大，采光很好，中饭是盒饭。
+
+pwn喜提爆0，最后28名，三等奖保底了。
+
+{% folding blue::一些照片 %}
+<img src="/assets/ciscnxccb2025/ccb.room.jpg" width="50%">
+<center><em>酒店房间玻璃上有弹孔😨</em></center>
+
+<img src="/assets/ciscnxccb2025/ccb.dinner.jpg" width="50%">
+<center><em>去的那天晚上酒店提供晚饭，结果没想到是盒饭</em></center>
+
+<img src="/assets/ciscnxccb2025/ccb.hotel.jpg" width="50%">
+<center><em>酒店正门照</em></center>
+
+<img src="/assets/ciscnxccb2025/ccb.gift.jpg" width="50%">
+<center><em>参赛礼😋</em></center>
+
+<img src="/assets/ciscnxccb2025/ccb.live.jpg" width="50%">
+<center><em>比赛现场</em></center>
+{% endfolding %}
+
+{% folding green::一些平台界面截图 %}
+和半决赛差不多
+
+![platform](/assets/ciscnxccb2025/ccb-ctf.png)
+<center><em>CTF界面</em></center>
+
+![challenge](/assets/ciscnxccb2025/ccb-chal.png)
+<center><em>题目界面</em></center>
+
+![category](/assets/ciscnxccb2025/ccb-category.png)
+<center><em>总共分CTF和渗透两个赛道</em></center>
+{% endfolding %}
