@@ -1,7 +1,7 @@
 ---
 title: 修复zsh上patchelf自动补全的错误
 date: 2024/5/8 22:40:00
-updated: 2024/7/30 10:53:00
+updated: 2025/8/11 23:42:00
 tags:
     - tricks
     - non-ctf
@@ -49,11 +49,16 @@ patchelf还可以`--print-needed`，那么是不是可以把打印出来的依�
 ## 安装使用
 
 本文对应的PR: https://github.com/NixOS/patchelf/pull/552
+
+{% note green fa-champagne-glasses %}
+PR已经被合入啦，找文件在主线里找哦
+{% endnote %}
+
 1. `echo $fpath`列出补全文件搜索目录
 2. 找到`_patchelf`文件所在位置（如在我这里是在`/usr/local/share/zsh/site-functions`中）
-3. 从我的仓库中下载`_patchelf`并替换你的`_patchelf`
+3. 从~我的仓库~官方仓库中下载`_patchelf`并替换你的`_patchelf`
 ```sh
-curl -o /path/to/your/_patchelf https://raw.githubusercontent.com/RocketMaDev/patchelf/master/completions/zsh/_patchelf
+curl -o /path/to/your/_patchelf https://raw.githubusercontent.com/NixOS/patchelf/master/completions/zsh/_patchelf
 # 可能需要root
 # 或者手动复制并覆写
 ```
@@ -62,10 +67,15 @@ curl -o /path/to/your/_patchelf https://raw.githubusercontent.com/RocketMaDev/pa
 放在`~/.zshrc`中，方便在patchelf更新的时候再次覆盖脚本
 ```zsh
 update_patchelf() {
-    sudo curl -o /usr/share/zsh/site-functions/_patchelf "https://raw.githubusercontent.com/RocketMaDev/patchelf/master/completions/zsh/_patchelf"
+    sudo curl -o /usr/share/zsh/site-functions/_patchelf "https://raw.githubusercontent.com/NixOS/patchelf/master/completions/zsh/_patchelf"
     unfunction _patchelf && autoload -U _patchelf
 }
 ```
+
 推荐patch对象前置，例如`patchelf $ELF --replace-needed [TAB]`，这样方便补全，
 否则就需要先留个空位，然后写上要替换的so的路径，写上patch对象，再回过去补全
 
+{% note blue fa-heart-crack %}
+由于patchelf迟迟不发新包，我就想着向[Arch官方推个MR](https://gitlab.archlinux.org/archlinux/packaging/packages/patchelf/-/merge_requests/2)
+解决一下补全脚本问题，直接被驳回了😭
+{% endnote %}
