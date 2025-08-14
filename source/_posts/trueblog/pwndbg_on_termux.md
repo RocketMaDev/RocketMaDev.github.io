@@ -1,7 +1,7 @@
 ---
 title: 在termux上运行pwndbg
 date: 2025/08/09 15:44:00
-updated: 2025/08/09 21:32:00
+updated: 2025/08/14 22:54:00
 tags:
     - non-ctf
     - tricks
@@ -91,6 +91,15 @@ static inline long seccomp_get_filter(struct task_struct *task,
 	return -EINVAL;
 }
 ```
+
+具体是怎么知道的呢？可以检查手机的内核选项
+
+```sh
+sudo zgrep CONFIG_CHECKPOINT_RESTORE /proc/config.gz
+# CONFIG_CHECKPOINT_RESTORE is not set
+```
+
+因此这个选项并没有被启用，也就无法调用这个接口了。
 
 # 参考
 
