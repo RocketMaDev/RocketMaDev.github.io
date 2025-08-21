@@ -1,7 +1,7 @@
 ---
 title: 在termux上运行pwndbg
 date: 2025/08/09 15:44:00
-updated: 2025/08/14 22:54:00
+updated: 2025/08/21 14:55:00
 tags:
     - non-ctf
     - tricks
@@ -75,6 +75,54 @@ exec proot $PREFIX/../home/pwndbg/bin/pwndbg "$@"
 
 <img src="/assets/trueblog/termux_success.jpg" width="50%">
 
+# KernelSU，启动！
+
+我手机用的是KernelSU来提权，然后我在运行`sudo cat /proc/self/status`的时候发现，
+seccomp信息看起来不太对：
+
+```
+NoNewPrivs:     0
+Seccomp:        0
+Seccomp_filters:        1
+```
+
+这怎么可能？seccomp被应用于所有应用，termux也不例外，并且seccomp一旦被应用后，
+就不能关闭。而现在seccomp被关闭了，seccomp filter计数却为一，这怎么可能？
+
+想来想去，唯一的可能就出在`sudo`上，检查[ksu的代码](https://github.com/tiann/KernelSU/blob/v1.0.5/kernel/core_hook.c)，
+发现在提权时，会关闭seccomp！
+
+```c kernel/core_hook.c::disable_seccomp
+static void disable_seccomp()
+{
+	assert_spin_locked(&current->sighand->siglock);
+	// disable seccomp
+#if defined(CONFIG_GENERIC_ENTRY) &&                                           \
+	LINUX_VERSION_CODE >= KERNEL_VERSION(5, 11, 0)
+	current_thread_info()->syscall_work &= ~SYSCALL_WORK_SECCOMP;
+#else
+	current_thread_info()->flags &= ~(TIF_SECCOMP | _TIF_SECCOMP);
+#endif
+
+#ifdef CONFIG_SECCOMP
+	current->seccomp.mode = 0;
+	current->seccomp.filter = NULL;
+#else
+#endif
+}
+```
+
+由此一来，借助ksu的帮助，我们可以直接`sudo pwndbg`来避免使用`proot`
+（proot底层通过ptrace来绕过一些系统调用，性能比较差），直接启动调试，
+使用ksu的小伙伴可以使用这个方案。
+
+{% notel purple fa-angles-up KernelSU-based pwndbg wrapper %}
+```sh $PREFIX/bin/pwndbg
+#!/bin/sh
+exec sudo $PREFIX/../home/pwndbg/bin/pwndbg "$@"
+```
+{% endnotel %}
+
 # 题外话
 
 为了查看程序的沙箱，我尝试把[ceccomp](https://github.com/dbgbgtf1/Ceccomp)
@@ -85,11 +133,15 @@ exec proot $PREFIX/../home/pwndbg/bin/pwndbg "$@"
 根本没机会返回，内核直接拒绝了...
 
 ```c common/include/linux/seccomp.h
+#if defined(CONFIG_SECCOMP_FILTER) && defined(CONFIG_CHECKPOINT_RESTORE)
+...
+#else
 static inline long seccomp_get_filter(struct task_struct *task,
 				      unsigned long n, void __user *data)
 {
 	return -EINVAL;
 }
+#endif
 ```
 
 具体是怎么知道的呢？可以检查手机的内核选项
@@ -105,5 +157,6 @@ sudo zgrep CONFIG_CHECKPOINT_RESTORE /proc/config.gz
 
 1. [Releases - pwndbg/pwndbg](https://github.com/pwndbg/pwndbg/releases)
 2. [proot/src/tracee/seccomp.c at master](https://github.com/termux/proot/blob/master/src/tracee/seccomp.c)
+3. [KernelSU/kernel/core_hook.c at v1.0.5](https://github.com/tiann/KernelSU/blob/v1.0.5/kernel/core_hook.c)
 3. [dbgbgtf1/Ceccomp: A tool to resolve seccomp](https://github.com/dbgbgtf1/Ceccomp)
 4. [seccomp.h: Android Code Search](https://cs.android.com/android/kernel/superproject/+/common-android-mainline:common/include/linux/seccomp.h;l=94;drc=354893f20269ea62e322c7bc371f12e3fd606e53)
