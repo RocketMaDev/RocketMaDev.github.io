@@ -1,7 +1,7 @@
 ---
 title: 陇剑杯 2025 初赛 - MagicBox
 date: 2025/09/06 23:37:00
-updated: 2025/09/06 23:37:00
+updated: 2025/09/11 01:11:00
 tags:
     - hard to rev
     - mips
