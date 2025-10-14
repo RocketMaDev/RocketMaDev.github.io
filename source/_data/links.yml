@@ -19,17 +19,23 @@
     avatar: /images/friends/jbnrz_avatar.jpg
     thumbnail: /images/friends/jbnrz_banner.jpg
 
-  - name: k0rian
-    link: https://k0rian.github.io/
-    description: 咸鱼pwn手 ，不定期更新
-    avatar: /images/friends/k0rian_avatar.jpg
-    thumbnail: /images/friends/k0rian_banner.jpg
-
   - name: nan0in
     link: https://nan0in27.cn/
     description: day day pwn up
     avatar: /images/friends/nan0in_avatar.jpg
     thumbnail: /images/friends/nan0in_banner.jpg
+
+  - name: SkipShot
+    link: https://skipshot.cn
+    description: 梦破身疲心不改，披蓑挂雨踏歌行
+    avatar: /images/friends/skipshot_avatar.jpg
+    thumbnail: /images/friends/skipshot_banner.jpg
+
+  - name: k0rian
+    link: https://k0rian.github.io/
+    description: 咸鱼pwn手 ，不定期更新
+    avatar: /images/friends/k0rian_avatar.jpg
+    thumbnail: /images/friends/k0rian_banner.jpg
 
 - links_category: Vidar
   has_thumbnail: true
