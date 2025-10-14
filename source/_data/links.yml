@@ -7,6 +7,12 @@
     avatar: /images/friends/dbgbgtf_avatar.png
     thumbnail: /images/friends/dbgbgtf_banner.png
 
+  - name: int_巴比妥酸
+    link: https://imsy.cc
+    description: 从来就没有什么救世主，也不靠神仙皇帝
+    avatar: /images/friends/int_avatar.png
+    thumbnail: /images/friends/int_banner.jpg
+
   - name: Mak4R1
     link: http://mak4r1.com
     description: 不会ssh的23届web手
