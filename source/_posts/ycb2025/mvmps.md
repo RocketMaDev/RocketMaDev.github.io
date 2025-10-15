@@ -4,6 +4,8 @@ date: 2025/10/13 16:51:00
 updated: 2025/10/13 16:51:00
 tags:
     - vm
+    - LIEF
+    - got-hijack
 thumbnail: /assets/ycb2025/test_assembler.png
 excerpt: 利用虚拟机中`sp`越界漏洞，构造字节码劫持`read@GOT`为`execve`，执行`execve("/bin/sh", 0, 0)`获取shell。
 ---
