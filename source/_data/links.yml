@@ -96,4 +96,10 @@
     link: https://www.hkbinbin.fun/
     description: Pwn pWn pwN
     avatar: /images/friends/hkbin_avatar.jpg
-    thumbnail: /images/friends/hkbin_banner.png
+    thumbnail: /images/friends/hkbin_banner.jpg
+
+  - name: Asperfor Mias
+    link: https://www.mias.moe
+    description: The inescapable lot of solitude.
+    avatar: https://mias.moe/image/avatar.jpg
+    thumbnail: /images/friends/mias_banner.png
