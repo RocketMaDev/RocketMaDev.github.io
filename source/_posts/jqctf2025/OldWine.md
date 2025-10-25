@@ -3,7 +3,7 @@ title: 京麒CTF 2025 - OldWine
 date: 2025/05/28 12:05:00
 updated: 2025/05/28 12:19:00
 tags:
-    - rop
+    - ROP
     - hijack callee
 thumbnail: /assets/jqctf2025/stack_after.png
 excerpt: 通过修改栈上`[rbp]`为`rbp+0x10`，使`call read@plt`时`rsp`指向可控区域，从而劫持返回地址泄露libc，最终利用ROP链调用`execveat`实现利用。

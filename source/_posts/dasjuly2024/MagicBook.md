@@ -5,7 +5,7 @@ updated: 2024/7/30 09:14:00
 tags:
     - heap - largebin
     - largebin attack
-    - rop
+    - ROP
 excerpt: 利用堆块漏洞和largebin攻击，通过execveat获取shell并打印flag。
 ---
 

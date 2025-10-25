@@ -5,7 +5,7 @@ updated: 2024/10/27 10:31:00
 tags:
     - go
     - fmt-string
-    - rop
+    - ROP
 thumbnail: /assets/sctf2024/bss.png
 excerpt: 利用Go语言编译器中的`printf`漏洞，通过`%hhn`逐字节修改内存，实现ROP链，最终执行`/bin/sh`以获得shell。
 ---

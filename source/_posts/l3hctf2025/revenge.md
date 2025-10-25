@@ -5,7 +5,7 @@ updated: 2025/07/19 00:07:00
 tags:
     - heap - tcache
     - libc2.39
-    - rop
+    - ROP
 thumbnail: /assets/l3hctf2025/tcache_chunk.png
 excerpt: 利用`game`函数中的`pop rbp`劫持rbp指向堆，构造tcache链分配chunk 0写入ROP链，通过`leave; ret`实现堆上ROP拿shell。
 ---

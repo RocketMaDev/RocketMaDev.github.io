@@ -3,7 +3,7 @@ title: L3HCTF 2025 - heack
 date: 2025/07/18 13:57:00
 updated: 2025/07/18 23:32:00
 tags:
-    - rop
+    - ROP
     - buffer overflow
 thumbnail: /assets/l3hctf2025/stack.png
 excerpt: 利用栈溢出配合任意地址写跳转至含`%lu`的printf泄露libc，通过爆破4位构造ROP链执行`system("/bin/sh")`。

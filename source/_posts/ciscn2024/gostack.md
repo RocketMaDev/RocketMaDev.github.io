@@ -4,7 +4,7 @@ date: 2024/5/23 00:47:00
 updated: 2024/9/11 23:35:00
 tags:
     - go
-    - rop
+    - ROP
 thumbnail: /assets/ciscn2024/bypass.png
 excerpt: 通过栈溢出控制返回地址，利用Go程序的漏洞成功执行命令获取flag。
 ---

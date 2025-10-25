@@ -3,7 +3,7 @@ title: 2024浙江通信行业职业技能竞赛 - parse
 date: 2024/08/05 21:22:00
 updated: 2024/08/05 21:22:00
 tags:
-    - rop
+    - ROP
 excerpt: （信息安全测试员竞赛）通过栈溢出利用`getline`输入，构造payload执行ROP，最终成功获取动态flag。
 ---
 
