@@ -5,6 +5,7 @@ updated: 2025/08/21 14:55:00
 tags:
     - non-ctf
     - tricks
+    - Android
 thumbnail: /assets/trueblog/termux_thumbnail.jpg
 excerpt: >-
     在开发过程中，调试器是绕不开的一环，如果使用gdb的话，pwndbg是必不可少的伴侣。
