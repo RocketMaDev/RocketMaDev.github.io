@@ -9,9 +9,9 @@ tags:
 thumbnail: /assets/dasxmarek2024/explanation.png
 ---
 
-{% note green fa-heart %}
+{% callout green fa-heart %}
 感谢 *dbgbgtf* 提供的复杂printf格式解释思路
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 
@@ -37,7 +37,7 @@ thumbnail: /assets/dasxmarek2024/explanation.png
 
 跟进去一看，`vsnprintf`是什么函数？
 
-{% notel purple fa-circle-arrow-right `vsnprintf`与`va_list` %}
+{% callout purple fa-circle-arrow-right ::`vsnprintf`与`va_list` %}
 `vsnprintf`是"printf to string with max n chars in raw va_list"的意思，`va_list`是什么？
 通过gdb打印它的结构，看不懂；在glibc中找定义，找不到；在网上找文章，没有具体信息；
 最后发现它是由gcc实现的。正当我放弃时，想到了pwndbg，结果发现pwndbg已经做好了解析功能
@@ -46,13 +46,13 @@ thumbnail: /assets/dasxmarek2024/explanation.png
 
 图中`gp_offset`指向的参数就是第一个参数，`reg_save_area`用完了，`overflow_arg_area`继续，
 这也是各种`printf`的内部实现，不难看出，从第 **6** 个参数开始从栈上访问
-{% endnotel %}
+{% endcallout %}
 
 可以发现，第二个参数来自堆上，而堆又是可执行的；第三个参数来自栈上，因此可以写指针，
 然后利用`$`来访问。注意到在`format_and_print`函数后跟了`puts`， 并且程序没有开PIE与只读GOT，
 因此可以尝试覆盖之。如果能覆盖成堆地址就好了，直接跳转过去执行我输入的代码。其中的秘诀就是——`%*c`。
 
-{% notel purple fa-circle-arrow-right `*`——取宽度格式化修饰符 %}
+{% callout purple fa-circle-arrow-right ::`*`——取宽度格式化修饰符 %}
 `*`在printf中是一个格式化修饰符，意味着将当前参数作为`int`读入并视为宽度，
 例如`printf("%*d", -5, 777)`就会在内部被解释为`"%-5d"`，输出`777  `；
 `*`还可以使用positional arg，例如`printf("%c%*4$d", '>', 1, 2, 3)`就会输出`>  1`。
@@ -66,7 +66,7 @@ thumbnail: /assets/dasxmarek2024/explanation.png
 
 此外，`*`取参数的值时，固定取`int`，当取到的值为负数时，会自动做相反数运算，并且打开左对齐输出，
 在后文中会提到，这是一个对我们在利用时不利的特性。
-{% endnotel %}
+{% endcallout %}
 
 ```c glibc2.38/stdio-common/vfprintf-internal.c#L763
       /* Get width from argument.  */
@@ -109,13 +109,13 @@ thumbnail: /assets/dasxmarek2024/explanation.png
 使用`"%*c%6$lln"`作为格式输入，`vsnprintf`就会将第一个堆地址作为宽度，打印第二个字符，
 然后根据写过的字符数，将其写入到第六个参数，`puts@got`中。
 
-{% notel green fa-exclamation 巧合 %}
+{% callout green fa-exclamation ::巧合 %}
 由于程序没开PIE，因此堆地址刚好占4个字节，由于`*`取的类型为`int`，所以如果开了PIE，
 堆地址变成了6个字节，这个方法就废了
 
 此外，`puts@got`原先已经链接了`puts@libc`，其中存放了6个字节的数据，
 需要通过`lln`清空之前的数据，只保留堆地址这4个字节
-{% endnotel %}
+{% endcallout %}
 
 这样以来，我们只需要在申请的堆块上写上打开shell的shellcode，我们就能成功拿shell。
 
@@ -158,10 +158,10 @@ def payload(lo:int):
 然后再使用`%?$n`就可以把调过偏移的数字写入你想要写的指针中（堆之上，栈之下的地址的高2字节，
 即`0x7fff`这个部分，基本都一样，因此可以直接利用）
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 基于我本机(Arch Linux, GLIBC_2.39)的libc.so.6，我收集了一系列在`system`之前的符号，
 可以在当前目录下的[SymbolsBeforeSystem.txt](https://github.com/RocketMaDev/CTFWriteup/blob/main/dasxmarek2024/SymbolsBeforeSystem.txt)中查看
-{% endnote %}
+{% endcallout %}
 
 但是，由上面的源码可见，当`libc & 0x80000000 != 0`时，`*`取到的就是一个负数，
 并会将其取相反数，例如对`0x7ffff7c00000`取就会变成`-(0x7ffff7c00000 & 0xffffffff)`，
@@ -186,13 +186,13 @@ gdb跟踪查看源代码，当有大量字符溢出时，会反复使用`memset`
 而这个行为实际上并不经过网络传输，因此不会导致连接关断。
 [相关代码](https://elixir.bootlin.com/glibc/glibc-2.38/source/stdio-common/Xprintf_buffer_pad_1.c#L39)
 
-{% notel blue fa-info `written`有误？ %}
+{% callout blue fa-info ::`written`有误？ %}
 在上述结构体中，有`written`字段，然而，如果payload比较短，我发现`written`明明是0，
 但是使用`%n`时仍然写入了正确的数字。例如`"%c%20c%n"`在运行到`%n`时，
 结构体中的`written`仍然是0。实际上，printf正确地将21写入了预期的指针中，
 查询源码发现统计"%n"前已写入的字符是`written + (write_ptr - write_base)`，因此没有问题。
 [相关代码](https://elixir.bootlin.com/glibc/glibc-2.38/source/stdio-common/Xprintf_buffer_done.c#L24)
-{% endnotel %}
+{% endcallout %}
 
 实际使用`*`时，除了可以用在`vsnprintf` & `snprintf`，还可以用在`fprintf` & `dprintf`，
 如写入的文件是`/dev/null`，这同样不会向网络传输字符。总而言之，只要空白字符不打印出来，

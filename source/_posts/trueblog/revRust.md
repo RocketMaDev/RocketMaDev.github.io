@@ -19,11 +19,11 @@ thumbnail: /assets/trueblog/ehtoken.png
 做完任务后使用老师分发的`eh`程序运行评测，通过就会输出一串Token ~~flag~~，
 然后上传到头歌平台上通过评测。
 
-{% note blue fa-square-check %}
+{% callout blue fa-square-check %}
 原先以为是学院里写的粗劣操作系统，让我们补全代码，没想到这个 *tatakOS*
 竟然是操作系统赛获奖的系统。我粗略地看了一眼代码，没有明显瑕疵，
 感觉可以做做。
-{% endnote %}
+{% endcallout %}
 
 ## 逆向
 
@@ -58,7 +58,7 @@ thumbnail: /assets/trueblog/ehtoken.png
 字符串打印出来。知道流程之后，只需要找到所有题目的token，就可以写一个注册机，
 直接上交平台，通过评测。
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 为了验证`eh`的流程和我说的是否一致，一开始我使用CyberChef来验证，
 结果它的RSA实现有问题，即使我截获了rng做重放，使用raw加密，
 结果也和程序的对不上，换用了python的模块才对上。为了追踪题目
@@ -66,7 +66,7 @@ token，还动用了`rr`，碰巧遇到了[pwndbg的bug](https://github.com/pwnd
 顺手修了一下，花费了我不少时间。rust的字符串是没有`'\0'`截断的，
 和go类似，在函数调用时将长度一起传入，再加上静态编译，
 `strings`直接输出一大坨，这也给还原代码带来了一些困扰。
-{% endnote %}
+{% endcallout %}
 
 通过头歌平台，还可以泄露评测脚本和私钥，具体怎么做就不说了，留给读者自己探索。
 最后写出的注册机大概是这样：

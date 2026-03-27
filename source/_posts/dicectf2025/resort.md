@@ -371,11 +371,11 @@ CLEAR: [0, 2, 8, 15, 16, 17, 22, 25, 28, 36]
 在那轮控制偏移就可以实现近乎任意地址写。最后把剩下的一只兔子打败就可以返回跳到OneGadget，
 拿shell读flag。
 
-{% note purple fa-circle-arrow-right %}
+{% callout purple fa-circle-arrow-right %}
 本来exp是一轮一轮交互的，但是发得很慢，不可能在60s之内发完（一分钟只能交互300轮左右）。
 正当我头疼怎么优化时，我想到由于每轮数字是使用`scanf`读取的，`scanf`属于标准IO，
 存在缓存，因此可以一股脑把所有操作都发过去，会一起处理，从而节约了来回发所消耗的时间。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -475,6 +475,6 @@ def payload(lo: int):
     sh.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/dicectf2025/resort.png)
-{% endnote %}
+{% endcallout %}

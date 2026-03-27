@@ -23,10 +23,10 @@ gdb `vmmap`查看发现该区域可读写执行
 然后跳转到写了syscall`|05|0f|`的地址，
 并且除了syscall以外的指令要写到最简以免长度超限
 
-{% notel green fa-arrow-right tips %}
+{% callout green fa-arrow-right ::tips %}
 1. 32位的int 0x80好像不能用，就算设置rax=0xb，也无法正常打开shell
 2. 不要用ascii转换器，22字节的shellcode可以转出76字节来
-{% endnotel %}
+{% endcallout %}
 
 ## EXPLOIT
 

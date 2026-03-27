@@ -42,14 +42,14 @@ thumbnail: /assets/dasxmarek2024/flag.png
 需要使用`jmp -?`，而产生的shellcode都大于`0x7f`，因此要想异或解密，需要让eax产生大于`0x7f`的字节。
 我使用了`IMUL r32, [m32], i8`来产生这些字节，然后再异或一次得到`jmp -9`的shellcode。
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 值得注意的是，由于之前把标准输入关闭了，新打开的文件fd取代标准输入成为了`0`，
 没有碰到seccomp限制。
-{% endnote %}
+{% endcallout %}
 
-{% note blue fa-info %}
+{% callout blue fa-info %}
 官方题解中异或解码出`ADD`来凑大于`0x7f`的字节，没有使用处于范围内的`IMUL`
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -135,6 +135,6 @@ def payload(lo:int):
 > *纯真* 师傅出的题，上来直接开做，很快啊！直接拿下唯一解，就是花了太多时间，
 > 错过了 **clock** ，要不然还能得1000分
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/dasxmarek2024/flag.png)
-{% endnote %}
+{% endcallout %}

@@ -26,11 +26,11 @@ ghidra分析为64位程序
 
 下文有shellcode的详细解释
 
-{% note tip fa-arrow-right %}
+{% callout tip fa-arrow-right %}
 read的第三个参数`count`有最大值`SSIZE_MAX(0x7ffff000 on Linux)`，
 超过这个值是依赖于实现的，当我随便找了一个超大数字时，我用的Arch Linux可以成功read，
 Ubuntu就不行，害得我一开始连远端就寄，还得开虚拟机试试（毕竟是内核存在差别）
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 

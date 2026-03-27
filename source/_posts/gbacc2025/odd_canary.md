@@ -90,6 +90,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/gbacc2025/odd_canary_flag.png)
-{% endnote %}
+{% endcallout %}

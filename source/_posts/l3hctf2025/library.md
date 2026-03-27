@@ -152,10 +152,10 @@ if __name__ == '__main__':
     binary.write('./library.kexe.new')
 ```
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 将函数符号的大小设置为0，gdb就会认为它是一个“标签”，它没有范围。除此之外，
 你还可以看到LIEF可以用来设置解释器，添加RUNPATH，可以说，它完全可以替代`patchelf`。
-{% endnote %}
+{% endcallout %}
 
 什么，你还不知道LIEF是什么？[LIEF是一个解析二进制文件的库](https://lief.re/)，由C++编写，
 未来pwntools将使用它来解析二进制文件。我之后也会考虑单独出一期博客讲讲这个好用的库。
@@ -207,20 +207,20 @@ struct ArrayList {
 
 ![construct](/assets/l3hctf2025/construct.png)
 
-{% note purple fa-box-open %}
+{% callout purple fa-box-open %}
 当打印字符串时，会把`String.str`先从UTF-16 cast 到UTF-8，为此，我们从中获取输出时，
 需要先用UTF-8解码，再用UTF-16编码才能获取原始内容。
-{% endnote %}
+{% endcallout %}
 
 到了这一步以后就很简单了，由于栈离jvm heap实在太远，索引超过了32位的限制，
 输入偏移的时候会被`kt_toint`返回`NULL`而导致程序退出，因此选择打IO。
 在jvm heap上反复利用 *read* 构造一个fake file，然后正常退出执行FSOP拿shell。
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 有师傅通过 *watch* 可以将输入的字符串放到栈上，但是我这里不行...
 *hkbin* 师傅的思路是通过修改`Library`中关于magic cat的使用计数和指针，
 从而达到任意读写的目的，也挺巧妙的。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -316,9 +316,9 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 <img src="/assets/l3hctf2025/library_flag.png" width="80%">
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

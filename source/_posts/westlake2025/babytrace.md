@@ -31,10 +31,10 @@ excerpt: 利用 `int3` 干扰 ptrace 监控，劫持 `strlen@GOT` 实现 ROP 链
 会在系统调用进入和退出时分别唤醒tracer。如果没有任何异常的话，我们就只能按照要求，
 只能执行`read, write, newfstat, exit, exit_group`这么几个系统调用。
 
-{% note blue fa-circle-info %}
+{% callout blue fa-circle-info %}
 我一开始不知道ptrace syscall在进入和退出时都会通知tracer，以为有一半的系统调用没有限制，
 导致我一直在尝试让我想做的事落在没有限制的哪一半，还是对ptrace的机制不够熟悉啊。
-{% endnote %}
+{% endcallout %}
 
 我们需要的，就是需要通过什么办法，唤醒tracer，使调试关系错乱，进入syscall的时候没检查，
 退出syscall的时候有检查，这样就拦不住任何东西了。接下来就是一个关键的指令出场了：`int3`。
@@ -81,12 +81,12 @@ for idx, addr in enumerate(int3s):
 
 这样就可以实现任意写后`puts -> +stack -> rop`。最后构造rop链加上int3，拿shell。
 
-{% notel purple fa-exclamation 不能执行`execve("/bin/sh", NULL, NULL)` %}
+{% callout purple fa-exclamation ::不能执行`execve("/bin/sh", NULL, NULL)` %}
 这道题不能使用`execve`，因为执行的shell启动后仍然处于被调试状态，
 各种syscall会在返回时被赋值为`-1`，从而被认定为失败，导致开不成shell。
 反倒是`system`可以，因为会先fork一次，而题目没开`PTRACE_O_TRACEFORK`，
 因而fork后执行syscall不受限制。
-{% endnotel %}
+{% endcallout %}
 
 ## EXPLOIT
 

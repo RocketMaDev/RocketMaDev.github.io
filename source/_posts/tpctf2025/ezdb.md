@@ -14,9 +14,9 @@ excerpt: 利用page存放record方式的漏洞实现堆上任意读写，泄露h
 
 > The flag is located in the /flag, in the format of flag{.+}
 
-{% note green fa-heart %}
+{% callout green fa-heart %}
 本题由我和 *dbgbgtf* 共同完成
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

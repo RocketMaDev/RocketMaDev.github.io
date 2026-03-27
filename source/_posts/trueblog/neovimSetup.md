@@ -49,7 +49,7 @@ call plug#end()
 个人觉得效果比较好的插件是`render-markdown.nvim`，在NeoVim里显示效果还是不错的。
 在把全部的插件配完以后，我意识到，实际上和我原来的vim配置差距并不大...
 
-{% notel purple fa-unlock-keyhole 在NeoVim中使用root权限保存文件 %}
+{% callout purple fa-unlock-keyhole ::在NeoVim中使用root权限保存文件 %}
 在NeoVim中是无法直接使用`:w !sudo tee % > /dev/null`的，因为会显示需要一个终端，
 即使加上`-S`也无法通过标准输入来输入密码。这时有一些work around可以选，
 比如我就选了`pkexec`。写了以下lua代码并添加到`init.lua`中：
@@ -66,14 +66,14 @@ end, {})
 会自动运行`:WW`，造成不必要的权限申请，将其改为`:S`就不会有这个问题。
 
 <img src="/assets/trueblog/pkexec.png" width="60%">
-{% endnotel %}
+{% endcallout %}
 
 Anyway，我已经把[我的配置放到GitHub](https://github.com/RocketMaDev/RocketMaDev/tree/main/.config/nvim)
 上了，如果想借鉴的可以到这个地址看看。接下来是配置好的NeoVim演示：
 
 [![demo](/assets/trueblog/neovimCover.png)](https://www.bilibili.com/video/BV1rmRmYmEXb)
 
-{% notel blue fa-bandage 250422更新 %}
+{% callout blue fa-bandage ::250422更新 %}
 `nvim-cmp`有奇怪的bug，即使光标前没有任何字符，按下`<CR>/<Tab>/ `，
 都会有补全，但是这种情况下我根本不需要补全啊！没办法，只能切换到
 `blink.cmp`，这个框架没有凭空补全的问题。除此之外，基于treesitter
@@ -87,7 +87,7 @@ Anyway，我已经把[我的配置放到GitHub](https://github.com/RocketMaDev/R
 
 这时候在绑定键位时写desc的优势就体现出来了：每个键在做什么一目了然。
 [查看所有变更](https://github.com/RocketMaDev/RocketMaDev/commit/e450bfe8514d1cc3768efb4289ca702b9dc453df)
-{% endnotel %}
+{% endcallout %}
 
 ## 参考
 

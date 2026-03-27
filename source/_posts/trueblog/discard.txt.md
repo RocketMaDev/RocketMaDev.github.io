@@ -128,10 +128,10 @@ std::u16string GetSuggestedFilenameImpl(
 启动浏览器调试，把断点下在`net::GenerateFileNameImpl`，下载调试符号，让浏览器跑起来。
 启动完成以后尝试下载一下文件，观察到此时进入调试态，注意寄存器的状态是什么样的。
 
-{% note blue fa-box %}
+{% callout blue fa-box %}
 虽然Arch提供了chromium的调试符号包，但是调试符号中只有函数名，这意味着我们没有源码可以看，只能盲调。
 通过pwndbg的`nextcall`命令，可以很方便地观察调用了哪些函数，就着源码看也还行。
-{% endnote %}
+{% endcallout %}
 
 例如以下是下载我网站上文件时寄存器的状态，根据源码，rdx是指向`Content-Disposition`的字符串，
 rsi是指向url的字符串，r9是指向mime_type的字符串，即`application/octet-stream`。
@@ -159,10 +159,10 @@ rsi是指向url的字符串，r9是指向mime_type的字符串，即`application
 
 ![extension](/assets/trueblog/chromium/blob_ext.png)
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 在chromium查找扩展名的过程中，由于`application/octet-stream`是“通用二进制数据”，
 因此检查直接返回了，不要求后缀名。
-{% endnote %}
+{% endcallout %}
 
 # 错误设置的下载方式
 

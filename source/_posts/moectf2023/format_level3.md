@@ -16,11 +16,11 @@ ghidra分析为32位程序
 
 和level2类似，存在后门，但是输入的str放到了.bss上
 
-{% note tip fa-arrow-right %}
+{% callout tip fa-arrow-right %}
 16字节还想把栈迁移到.bss上？直接爆了（栈上的空间本来也不够）
 
 正解：通过ebp+4来利用ebp间接改写返回地址
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 

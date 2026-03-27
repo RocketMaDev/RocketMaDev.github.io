@@ -17,10 +17,10 @@ ghidra分析为64位程序
 这道题考察格式化字符串+ret2libc，共有8次机会，可以先leak栈地址和libc地址，
 再把返回地址写成打开shell，此处使用one_gadget可以只利用一次返回完成攻击
 
-{% note tip fa-arrow-right %}
+{% callout tip fa-arrow-right %}
 本地能过的脚本，远端换了多少ogg就是不行，最后发现是栈上内容不一样！
 下次还是先patchelf把libc打成目标的再本地调试吧（一开始偷懒，本地没patch）
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 

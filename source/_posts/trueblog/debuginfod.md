@@ -15,9 +15,9 @@ thumbnail: /assets/trueblog/gdbWithCode.png
 
 ![source code shown](/assets/trueblog/gdbWithCode.png)
 
-{% note %}
+{% callout %}
 注：笔者使用Arch Linux
-{% endnote %}
+{% endcallout %}
 
 ## 背景
 
@@ -29,9 +29,9 @@ thumbnail: /assets/trueblog/gdbWithCode.png
 我迫切需要调试符号来辅助调试，却一直无法获得，只好退回到本地的libc，终于知道了`arena+224`的含义，
 也引发我解决这个问题的想法（题目在我的wp里有）
 
-{% note info fa-circle-arrow-right %}
+{% callout info fa-circle-arrow-right %}
 实际上作者给出了不自动更新的方法，README往下翻一点就有
-{% endnote %}
+{% endcallout %}
 
 ## 旧方案
 
@@ -49,9 +49,9 @@ ln -s "$LIBC/.debug" .
 
 ![no debugging symbols](/assets/trueblog/gdbWithoutDbg.png)
 
-{% note info fa-circle-arrow-right %}
+{% callout info fa-circle-arrow-right %}
 事实上`set debug-file-directory $LIBC/.debug`是可以加载调试符号的，但***必须***在程序启动前或附加上去前设置
-{% endnote %}
+{% endcallout %}
 
 ## 新方案探索
 
@@ -66,9 +66,9 @@ ln -s "$LIBC/.debug" .
 
 ## 解决方案
 
-{% note primary fa-check %}
+{% callout primary fa-check %}
 使用较新的Ubuntu 22.04及以上的用户不需要配置，这个功能已经在gdb中默认启用了
-{% endnote %}
+{% endcallout %}
 
 给gdb永久加上搜索的url：`vim /etc/debuginfod/ubuntu.urls`，写入内容： `https://debuginfod.ubuntu.com`，保存退出
 

@@ -32,9 +32,9 @@ $ chmod +x /sbin/poweroff
 $ exit
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/sctf2024/kerFlag.png)
-{% endnote %}
+{% endcallout %}
 
 > 预期解好像考到缺页错误引发的暂停，有点超出我的知识范畴了
 

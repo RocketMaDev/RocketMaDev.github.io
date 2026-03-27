@@ -7,9 +7,9 @@ tags:
 excerpt: （信息安全测试员竞赛）通过栈溢出利用`getline`输入，构造payload执行ROP，最终成功获取动态flag。
 ---
 
-{% note info fa-paperclip %}
+{% callout info fa-paperclip %}
 题目可以在[Releases](https://github.com/RocketMaDev/CTFWriteup/releases/download/career/career.tar.zst)附件中找到
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

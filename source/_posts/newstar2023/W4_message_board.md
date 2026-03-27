@@ -19,7 +19,7 @@ scanf也只能修改任意地址一次，又要怎么做？
 
 分别利用栈初始化和one_gadget即可
 
-{% notel green fa-arrow-right tips %}
+{% callout green fa-arrow-right ::tips %}
 1. libcBase并不是无中生有，而是在栈上存在未初始化的`_IO_2_1_stderr_`
 2. 数字会覆盖到栈上；垃圾字符会导致scanf一直输入不了；而'+'能使scanf跳过输入，
 不覆盖栈内容
@@ -27,7 +27,7 @@ scanf也只能修改任意地址一次，又要怎么做？
 4. got可写，那么可以利用one_gadget来使一个函数直接运行打开shell（但是要注意限制条件）
 5. 注意got里的函数是不可写的，只有.got.plt里的函数可写
 6. one_gadget在本地不一定是可用的，在我的电脑上就没开起来（但是验证了可行性）
-{% endnotel %}
+{% endcallout %}
 
 ## EXPLOIT
 

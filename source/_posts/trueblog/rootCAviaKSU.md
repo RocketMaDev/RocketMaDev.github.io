@@ -9,10 +9,10 @@ thumbnail: /assets/trueblog/rootca.jpg
 excerpt: 在手机上抓包，可以使用`PCAPdroid`，但是为了解包https流量，需要做中间人攻击，安装用户证书，并在通知栏中显示“网络流量可能受到监控”。为了把这些字样去除，可以使用KSU模块将准备好的用户证书复制到根证书区，随后就可以删除用户证书了。然而，模块却引入了新的问题...
 ---
 
-{% note blue fa-newspaper %}
+{% callout blue fa-newspaper %}
 在高考结束后，买了小米13，没想到成了最后一部方便解锁的小米手机。看看现在的解锁政策，
 根本不是人能成功的。
-{% endnote %}
+{% endcallout %}
 
 既然买了小米13，自然是要狠狠地刷机！刷上KernelSU之后，自然需要找些用武之地。LSPosed
 自不必说，root还可以做一些影响系统根目录的操作，比如写入根证书。为了在手机上抓包，

@@ -92,6 +92,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/zhejiang2025/calc_flag.png)
-{% endnote %}
+{% endcallout %}

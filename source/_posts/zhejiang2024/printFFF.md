@@ -79,6 +79,6 @@ def payload(lo: int):
     sh.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/zhejiang2024/printFFF.png)
-{% endnote %}
+{% endcallout %}

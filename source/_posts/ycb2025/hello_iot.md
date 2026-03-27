@@ -251,6 +251,6 @@ t.send(body + payload)
 t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/ycb2025/iot_flag.png)
-{% endnote %}
+{% endcallout %}

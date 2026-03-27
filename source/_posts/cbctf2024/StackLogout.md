@@ -16,9 +16,9 @@ thumbnail: /assets/cbctf2024/morebytes.png
 去年4月份左右 *pankas* 转发了一篇推文，讲PHP通杀的，我一看原文，竟然是glibc组件的bug，
 并且有cve编号。博客很详细，还更了整整3篇，不用调试就能看懂。
 
-{% note purple fa-circle-arrow-right %}
+{% callout purple fa-circle-arrow-right %}
 查看经典博客：https://www.ambionics.io/blog/iconv-cve-2024-2961-p1
-{% endnote %}
+{% endcallout %}
 
 自从看到CVE-2024-2691的缓冲区溢出，我就一直想着考上一题，这次趁着新生赛，它来了！
 
@@ -110,11 +110,11 @@ jump过来后需要加载的字节码减少了，适合放在热点代码处。
 在泄露完信息后，通过cve在第一次输入时多写一个字节到`toread`，造成足够长的长度做栈迁移，
 然后第二次输入写掉前一个函数的rbp，等待上个函数返回执行栈迁移。
 
-{% notel green fa-candy-cane 隐藏在ELF中的彩蛋 %}
+{% callout green fa-candy-cane ::隐藏在ELF中的彩蛋 %}
 在ELF的注释段有我在汇编中插入的彩蛋哦
 
 <img src="/assets/cbctf2024/easteregg.png" height="70%" width="70%">
-{% endnotel %}
+{% endcallout %}
 
 ### 完善题目背景
 
@@ -163,12 +163,12 @@ rbp，`logout`再做`leave;ret`实现rop。
 
 得，我直接让所有`strstr`强制运行`__strstr_generic`得了。
 
-{% note blue fa-link %}
+{% callout blue fa-link %}
 我强制让`strstr`运行`__strstr_generic`的方法是定义了如下全局变量：
 `static char *(* __strstr_generic)(const char *, const char *) = (void *)((size_t)puts + 0x2dc30);`
 我原先以为它会在运行时计算，结果在ld加载阶段就算好了，直接放到ro区域了，和别的GOT项一个待遇。
 所以由于不同的libc库偏移不同，直接patchelf后运行大概率会挂掉，只能放在容器里调试。
-{% endnote %}
+{% endcallout %}
 
 ## 题解
 

@@ -16,9 +16,9 @@ ghidra分析为64位程序
 
 程序中直接执行rbp-0x70的地址，且给了100B的空间，填一个shellcode即可
 
-{% note warning fa-exclamation %}
+{% callout warning fa-exclamation %}
 在运行asm时加上参数`arch='amd64'`，否则缺省以i386架构产生，会报错
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 

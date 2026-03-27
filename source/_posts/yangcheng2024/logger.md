@@ -75,9 +75,9 @@ def payload(lo:int):
     sh.interactive()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/yangcheng2024/loggerFlag.png)
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

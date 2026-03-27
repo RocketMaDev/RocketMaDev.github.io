@@ -9,9 +9,9 @@ thumbnail: /assets/matrix2024/imhex.png
 excerpt: 通过暴力打表获取浮点数对应的输入，利用mprotect实现shellcode执行，成功获取shell。
 ---
 
-{% note %}
+{% callout %}
 你知道 IEEE754 吗
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

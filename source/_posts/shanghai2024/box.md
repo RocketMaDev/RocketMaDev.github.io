@@ -7,9 +7,9 @@ tags:
 excerpt: 通过推箱子小游戏引发缓冲区溢出，利用ROP攻击获取shell。
 ---
 
-{% note %}
+{% callout %}
 小明写了一个推箱子小游戏，但有一点小问题。
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

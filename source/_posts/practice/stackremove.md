@@ -22,10 +22,10 @@ ghidra分析为64位程序
 
 具体过程讲解可以看newstar2023中的`stack_migration`Writeup
 
-{% notel green fa-arrow-right tips %}
+{% callout green fa-arrow-right ::tips %}
 1. `scanf`中的函数会执行`movaps ..., xmm0`，也会检查rsp！下次见到这个指令就要多加一个ret
 2. 本地调试找的main函数获取pieBase，结果一连接，崩了，一检查发现pieBase不对，在栈上找了一个其他函数
-{% endnotel %}
+{% endcallout %}
 
 ## EXPLOIT
 

@@ -27,9 +27,9 @@ ghidra分析为64位程序
 4. 将**puts@got**偏移到system@got & shstr@got
 5. 回到`gets`函数，重新执行溢出拿到sh
 
-{% note warning fa-exclamation %}
+{% callout warning fa-exclamation %}
 如果一个字节为**0x0a**，**会被截断**！（换行）
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 

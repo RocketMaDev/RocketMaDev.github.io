@@ -34,20 +34,20 @@ excerpt: 通过栈溢出控制`rbp`到bss，伪造`write`符号并利用`dl_reso
 还好我以前[做过类似的题](/2023/10/10/W3_dlresolve/)，
 可以用来借鉴。
 
-{% note green fa-check %}
+{% callout green fa-check %}
 原博客对于`reloc_arg`的描述有误，它是相对于`__DT_JMPREL`的，
 不是相对于`__DT_SYMTAB`，现已更新。
-{% endnote %}
+{% endcallout %}
 
 这次我采用了人工构造的方式去伪造一个`write`符号，即`Elf64_Sym`和`Elf64_Rela`，
 接下来将图解我构造的结构体：
 
 ![payload struct](/assets/actf2025/dl_resolve.png)
 
-{% note purple fa-circle-exclamation %}
+{% callout purple fa-circle-exclamation %}
 `fake_sym`和`fake_rel`需要分别对齐到从`symtab`和`jmprel`开始的0x18边界上，
 否则`_dl_fixup`不能正确读取我们的伪造的符号。可以看以下代码中的`test_offsets`做参考。
-{% endnote %}
+{% endcallout %}
 
 当开始执行`plt_init`时，就会运行`_dl_runtime_resolve_xsavec`，随后执行`_dl_fixup`，
 将我们伪造的各种数据作为参数开始解析`write`函数并运行，如下图所示：
@@ -160,13 +160,13 @@ sleep infinity
 ```
 {% endfolding %}
 
-{% notel yellow fa-file-circle-exclamation patchelf会改变strtab和symtab %}
+{% callout yellow fa-file-circle-exclamation ::patchelf会改变strtab和symtab %}
 当我起了容器开始调试以后，突然发现在本地能打的脚本远程突然就打不了了，
 一看是`strtab`和`symtab`变了。原来在patchelf的时候，`strtab`和`symtab`会变化，
 变得更低一些。也是因为这个原因，patch过的人和没patch的人脚本就不一样，
 所以官方靶机布置了4个，我由于在docker里还原了libc，跑的程序就没patch，
 本地能跑通的脚本，放到远程只有3号机可以，其他均不行。
-{% endnotel %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -301,9 +301,9 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/actf2025/flag.png)
-{% endnote %}
+{% endcallout %}
 
 ## 赛后复盘
 

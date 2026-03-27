@@ -154,9 +154,9 @@ def payload(lo: int):
 
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/qwb2024/expect_number.png)
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

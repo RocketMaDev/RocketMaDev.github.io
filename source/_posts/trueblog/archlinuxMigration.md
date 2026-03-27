@@ -20,11 +20,11 @@ thumbnail: /assets/trueblog/archMigration.jpg
 分出efi、swap和根后，初始化文件系统并挂载到`/mnt/new`下，在挂载旧硬盘到
 `/mnt/old`下。正好回去看了一下安装指南，太久不看都忘了差不多了。
 
-{% note blue fa-hard-drive %}
+{% callout blue fa-hard-drive %}
 分区时，现代硬盘请选择GPT。固态硬盘还可以设置逻辑块大小，在一些硬盘中，4KB
 性能更佳，[详见wiki](https://wiki.archlinuxcn.org/wiki/%E5%85%88%E8%BF%9B%E6%A0%BC%E5%BC%8F%E5%8C%96#NVMe_%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98)。
 注意更改逻辑块大小会格式化硬盘！虽然我的7100没4KB这个选项就是了。
-{% endnote %}
+{% endcallout %}
 
 挂载好后迁移文件，使用rsync，并输出简洁的进度：
 
@@ -37,9 +37,9 @@ rsync --info=progress2 -qaHAXS $SOURCE_DIR $DESTINATION_DIR
 就可以更新fstab并`arch-chroot`去更新grub。由于是全新盘，因此还要先install
 一下grub。最后`mkinitcpio -P`后就可以重启使用了。
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 请挂载所有分区，否则在genfstab时可能缺少一些分区挂载信息。
-{% endnote %}
+{% endcallout %}
 
 ## 补上安全措施
 
@@ -105,12 +105,12 @@ Exec = /usr/bin/sed -i "s/menuentry_id_option 'gnulinux-advanced/submenu_id_opti
 archiso中补做的。~~我都不知道我自己装的时候是怎么一遍过的，我都忘记用
 `systemctl enable sddm`开启桌面环境自启了~~
 
-{% note yellow fa-bug %}
+{% callout yellow fa-bug %}
 不要尝试在x11 + nvidia + kde的情况下，选择只在外接显示器上显示...
 设置了之后无响应，只有鼠标能动，画面没反应...如果设置了的话，
 需要在tty里，删除`~/.local/share/kscreen`下对应的配置文件，
 然后重启才行！ ~~我们KDE用户也有自己的赛博灯泡~~
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

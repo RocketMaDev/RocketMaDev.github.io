@@ -10,9 +10,9 @@ tags:
 excerpt: 本题主要通过Largebin攻击和House of Apple 2技术，利用glibc 2.32中的漏洞进行利用和提取libc及堆地址。
 ---
 
-{% note %}
+{% callout %}
 write some large notes
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

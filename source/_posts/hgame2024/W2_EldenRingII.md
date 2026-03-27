@@ -8,9 +8,9 @@ tags:
 excerpt: 利用glibc 2.31中的UAF漏洞，通过tcache dup和poisoning获得libc并执行system("/bin/sh")。
 ---
 
-{% note %}
+{% callout %}
 write some notes
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

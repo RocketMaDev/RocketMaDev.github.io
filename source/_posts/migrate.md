@@ -18,6 +18,6 @@ ID直接关联，另一方面短了也好输。
 Cloudflare Pages部署起来还是很方便的，甚至比GitHub还方便。Cloudflare买域名也很方便，
 价格也不是很高（虽然比国内高，但至少方便）。
 
-{% note green fa-wheelchair-move %}
+{% callout green fa-wheelchair-move %}
 `<head>`中插入了js代码，检测到是GitHub的域名就自动重定向到新域名，不用担心原域名失效。
-{% endnote %}
+{% endcallout %}

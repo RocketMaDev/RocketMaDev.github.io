@@ -22,10 +22,10 @@ thumbnail: /assets/trueblog/shstk/clear_env.png
 `call`、`jmp`等操作时，检查要跳转的地址有没有出现`endbr*`指令，否则就引发段错误。
 **SHSTK** 会在`call`时向阴影栈中也压入返回地址，并在返回时检查栈上的返回地址是否和阴影栈上的一致。
 
-{% note blue fa-book-bookmark %}
+{% callout blue fa-book-bookmark %}
 **IBT**: Indirect Branch Tracking, 间接分支追踪；
 **SHSTK**: Shadow Stack, 阴影栈。
-{% endnote %}
+{% endcallout %}
 
 # 在 Linux 中启用 CET
 
@@ -43,12 +43,12 @@ thumbnail: /assets/trueblog/shstk/clear_env.png
 
 满足所有条件后，才能打开CET保护。
 
-{% note yellow fa-triangle-exclamation %}
+{% callout yellow fa-triangle-exclamation %}
 根据[Linux文档]，SHSTK通过`arch_prctl(ARCH_SHSTK_ENABLE, ARCH_SHSTK_SHSTK)`开启，
 但是我们不能自己开启，否则系统调用返回时阴影栈开启了，却没有返回条目，就会直接崩溃。
 
 [Linux文档]: https://docs.kernel.org/next/x86/shstk.html
-{% endnote %}
+{% endcallout %}
 
 # 测试 SHSTK
 
@@ -191,10 +191,10 @@ int main(int argc, char **argv) {
 
 ![bypass](/assets/trueblog/shstk/clear_env.png)
 
-{% note blue fa-forward %}
+{% callout blue fa-forward %}
 由于篇幅原因，没有展示代码正确性验证，实际上我自己测试过是正确的（例如修改只读段的权限，
 没有崩溃），也可以自己测试示例代码。
-{% endnote %}
+{% endcallout %}
 
 # 参考
 

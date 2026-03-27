@@ -14,9 +14,9 @@ excerpt: 在千岛湖团建时，讨论了强网杯中`_exit`题目涉及的`put
 当时不是很理解，于是就提起了这件事，然后发现，这个类似于got表一样的东西与`puts`没啥关系，
 倒是与`strlen`有关系
 
-{% note tip fa-circle-arrow-right %}
+{% callout tip fa-circle-arrow-right %}
 省流：看下文粗体结论
-{% endnote %}
+{% endcallout %}
 
 先是在*nameless*师傅的博客里找到的灵感：  
 [cyberprinter](https://nameless.top/index.php/2022/09/20/das9%e6%9c%88%e6%9c%88%e8%b5%9bpwn%e9%a2%98%e5%87%ba%e9%a2%98%e5%bf%83%e8%b7%af/)

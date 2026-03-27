@@ -32,21 +32,21 @@ go的逆向太困难了，一些函数调用根本看不出来做了什么操作
 发现了`ugo`允许调用C语言的函数，但仅限于`write`和`printf`，并且`printf`的格式化参数有限制，
 必须包含且仅包含一个`%`符号。
 
-{% notel green fa-screwdriver-wrench 时间无关调试工具：rr %}
+{% callout green fa-screwdriver-wrench ::时间无关调试工具：rr %}
 rr是Mozilla开发的一个调试工具，可以实现 **timeless debug** ，也就是说，
 它通过提前录制程序行为，稍后就可以回放程序，实现“逆向调试”。不过你也注意到了，
 你并不是在真正调试程序，你只是在回溯程序的行为。但是借助这个特性，我们可以面对go这种难调的家伙，
 通过定位确定的错误点，一步一步逆向推导，就可以猜测出程序的行为，相较静态检查多了灵活性。
 这次的很多发现，包括`printf`的行为，都是我通过rr看出来的。
-{% endnotel %}
+{% endcallout %}
 
 由于有了`printf`原语，我们可以通过`%hhn`来一个字节一个字节改内存。并且由于结果程序是无PIE的，
 我们可以直接修改bss区的内容。
 
-{% note purple fa-circle-arrow-right %}
+{% callout purple fa-circle-arrow-right %}
 不使用`%hn`等是因为由于只能用1个%，用`%hn`写数据需要堆砌大量的无效字符，
 最终会导致程序过大，因此`%hhn`是权衡过后的更佳选择。
-{% endnote %}
+{% endcallout %}
 
 接下来我们就可以利用如下原语，将payload注入到`INSERT`处，
 反复调用`printf('1' * n, addr)`的方式来任意写
@@ -71,23 +71,23 @@ func main() int {
 由于没有PIE，因此可以做栈迁移到`ebx + 0x30`上！我只要将数据写到`ebx + 0x30`的地址上，
 就可以实现rop，只要构造`syscall(SYS_execve, "/bin/sh", NULL, NULL)`就可以拿到shell。
 
-{% note purple fa-circle-arrow-right %}
+{% callout purple fa-circle-arrow-right %}
 `ebx + 0x30`的地方并不是可以任意写的，在调`_IO_cleanup`之前，会先运行`__exit_funcs`中的hook，
 调用`call_fini -> __preinit_array_start -> __do_global_dtor_aux -> __deregister_frame_info_bases`，
 在最后一个函数中会判断`object+24`是不是`&__EH_FRAME_BEGIN__`，如果不是则会继续迭代，
 导致发生SIGSEGV，而`object`刚好在`ebx + 0x30`不远处，还需要绕过这个地方。
 
 ![bssStatus](/assets/sctf2024/bss.png)
-{% endnote %}
+{% endcallout %}
 
 剩下的就是先把payload伪造好，交给容器里的gcc编译，这样由于payload长度固定，生成出来的gadget位置基本也不会变，
 执行就可以获取shell了
 
-{% note default fa-ban %}
+{% callout default fa-ban %}
 原先的方案是声明字符串的，由于llvm的特性，声明的字符串会在程序中保留一份，因此"/bin/sh"可以借此获取，
 不过大概是由于程序中有太多字符串了，因此每次调整payload，即使长度没有变化，字符串的地址也会变化。
 最后选择了把"/bin/sh"直接写到了bss上固定位置。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -150,9 +150,9 @@ def payload(lo:int):
     sh.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/sctf2024/goFlag.png)
-{% endnote %}
+{% endcallout %}
 
 ## 尾声
 
@@ -170,14 +170,14 @@ def payload(lo:int):
 
 之后有一天我上网看看别人博客有没有更新，结果看到了[原作者的博客](https://ywhkkx.github.io/2024/04/12/ugo-lab1-%E6%9C%80%E5%B0%8FuGo%E7%A8%8B%E5%BA%8F/)
 
-{% note blue fa-info %}
+{% callout blue fa-info %}
 Ghidra的go插件能够恢复部分编译时的信息，包括源代码位置，因此可以清楚看到作者是
 **yhellow**，还可以看到他的仓库里有Syclover的内容，肯定没错了。
 
 <img src="/assets/sctf2024/author.png" height="10%" width="10%">
 <img src="/assets/sctf2024/decompile.png" height="50%" width="50%">
 <img src="/assets/sctf2024/proof.png" height="60%" width="60%">
-{% endnote %}
+{% endcallout %}
 
 看来pwn也可做信息收集啊。~~不过里面写的demo和题目的匹配度不是特别高~~
 

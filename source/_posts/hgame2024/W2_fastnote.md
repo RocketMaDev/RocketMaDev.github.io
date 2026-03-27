@@ -10,9 +10,9 @@ thumbnail: /assets/hgame2024/stashfb.png
 excerpt: 通过构造tcache dup和利用libc 2.31中的free hook，实现任意地址写，最终调用system('/bin/sh')。
 ---
 
-{% note %}
+{% callout %}
 Fast note can't be edited
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

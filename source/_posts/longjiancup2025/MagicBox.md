@@ -9,9 +9,9 @@ thumbnail: /assets/longjiancup2025/1st_blood.png
 excerpt: 逆向分析基于 0dMIPS 模拟器的 MIPS64 程序内存，通过新增的 magic 指令与 magic_out 机制还原加密的 flag。
 ---
 
-{% note yellow fa-award %}
+{% callout yellow fa-award %}
 第一次在大型比赛中拿一血，纪念一下😋
-{% endnote %}
+{% endcallout %}
 
 > 某用户在自定义硬件上运行了一份程序, 该程序怀疑有后门序列
 
@@ -230,10 +230,10 @@ interupt_handler:
 就可以借助项目，将文件编译为 `magic.elf`，放在 `build/example_asm` 下。
 将其拖入Ghidra，可以大致反编译得到如下信息：
 
-{% note blue fa-clock-rotate-left %}
+{% callout blue fa-clock-rotate-left %}
 其实从官方给的案例中可以看出，题目是写了C文件编译成的，由于我们是在逆向回去，
 因此不能做到各部分地址和题目给的memory一样，请根据我的解释分析。
-{% endnote %}
+{% endcallout %}
 
 ```c
 void print(char *param_1) {
@@ -342,12 +342,12 @@ void main(void) {
 然后进入死循环。我们看到的情况就是运行模拟器，打印 `00000000` 和 `HALT`，
 模拟器终止。难道写入 `magic_out` 都是无效的吗？那多这一段判断有什么必要呢？
 
-{% note green fa-circle-info %}
+{% callout green fa-circle-info %}
 反编译中的 `0x417` 是 `:) flag=` 的地址，`0x411` 是 `HALT` 的地址。
 
 MIPS 一个“字”是4个字节。模拟器支持 `syscall` 和 `break` 两种方式陷入内核，
 不用管反编译的结果，关注反汇编中调用时携带的数据即可。
-{% endnote %}
+{% endcallout %}
 
 难道 magic 单元就没有工作？使用 GTKWave 检查输出的 `trace.vcd`，可以发现是有值的。
 

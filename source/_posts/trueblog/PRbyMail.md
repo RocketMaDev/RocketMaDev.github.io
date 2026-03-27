@@ -37,14 +37,14 @@ fi
 unset prefix
 ```
 
-{% notel blue fa-book bash与zsh对于glob的处理 %}
+{% callout blue fa-book ::bash与zsh对于glob的处理 %}
 对于bash来说当匹配不到字符串时，会保留原字符串，例如`*.nothing -> '*.nothing'`，
 而这个字符串接着传到`cat`中，由于不存在这个文件，会输出错误，紧接着错误被丢弃，
 因此对于bash来说，这段代码能够正常运行。
 
 然而，zsh视无法匹配的glob为错误，并终止当前命令，因此会打印出zsh的错误，
 这里不是cat的错误。
-{% endnotel %}
+{% endcallout %}
 
 一开始想着这不是加个shebang的事？加上以后发现无济于事。`profile.d`...？
 经过查找，这个文件是被`source`加载的，并不是直接运行，因此只能是由当前shell运行脚本。
@@ -52,9 +52,9 @@ unset prefix
 把`cat /dev/null "/etc/debuginfod"/*.urls 2>/dev/null | tr '\n' ' ' || :`修改为：
 `find "/etc/debuginfod" -name "*.urls" -print0 2>/dev/null | xargs -0 cat 2>/dev/null | tr '\n' ' ' || :`
 
-{% note blue fa-info %}
+{% callout blue fa-info %}
 `|| :`中的`:`不做任何事。`find`缺省使用空格分隔文件名，`-print0`可以让`xargs`分清带有空格的文件名。
-{% endnote %}
+{% endcallout %}
 
 ## PATCH IT
 
@@ -82,9 +82,9 @@ unset prefix
 git并没有内建OAuth2支持。因此，无法使用outlook邮箱。奇怪的是，用gmail同样不行。
 看起来git自带的send-email写的一坨，可用性存在问题。于是我看到[可以用msmtp](https://jade.fyi/blog/oh-no-git-send-email/)。
 
-{% note purple fa-circle-arrow-right %}
+{% callout purple fa-circle-arrow-right %}
 要调试git-send-email需要使用参数`--smtp-debug=1`，只有`--smtp-debug`不起效
-{% endnote %}
+{% endcallout %}
 
 我看到博客里一般用gmail，因为gmail的应用密码没有微软那样的校验，可以直接登录，
 于是配置好msmtp后，再把git配置一下就可以发送邮件了。
@@ -106,9 +106,9 @@ logfile ~/.msmtp.log
     smtpserveroption = default
 ```
 
-{% note green fa-info %}
+{% callout green fa-info %}
 可以在gmail网页端中找到应用密码的申请入口
-{% endnote %}
+{% endcallout %}
 
 ## ACCEPTED
 

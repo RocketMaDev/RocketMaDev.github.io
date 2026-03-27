@@ -25,8 +25,8 @@ nc localhost 37713
 *114514*  
 *asdfasdf*
 
-{% note default fa-info %}
+{% callout default fa-info %}
 斜体代表输入，正体代表命令
-{% endnote %}
+{% endcallout %}
 
 Done.

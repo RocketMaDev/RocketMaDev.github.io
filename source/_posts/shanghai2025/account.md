@@ -32,10 +32,10 @@ excerpt: 栈溢出利用ret2libc构造32位ROP链泄露libc并执行`system("/bi
 
 <img src="/assets/shanghai2025/32bit_rop.png" width="60%">
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 `scanf("%d")`在输入超大数字时不会自动溢出到负数，因此需要我们手动干预，
 取数字的补码，例如对于libc这种超过`0x7fffffff`的指针，就要手动减去`1 << 32`
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -78,6 +78,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/shanghai2025/account_flag.png)
-{% endnote %}
+{% endcallout %}

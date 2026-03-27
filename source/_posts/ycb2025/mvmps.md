@@ -108,10 +108,10 @@ struct OP {
 }
 ```
 
-{% note purple fa-exclamation %}
+{% callout purple fa-exclamation %}
 题目的IMM指令的加载不按套路出牌啊。别的都是用C语法直接加载，就它是手写的，使用
 **大端** 并 **只加载 3 个字节** （`RD_IMM`加载立即数时加载4字节）。
-{% endnote %}
+{% endcallout %}
 
 在解析完字节码后，程序将数据存放进OP结构体中，然后按照其`type`执行对应的`vm_exec_*`，如加减乘除，
 赋值，执行系统调用等。最后返回`vm_run`进入下一个解码、执行循环。
@@ -514,6 +514,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/ycb2025/vm_flag.png)
-{% endnote %}
+{% endcallout %}

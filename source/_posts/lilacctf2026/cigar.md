@@ -82,12 +82,12 @@ argv 指针），所以不太好利用。注意到使用的是 `snprintf`，
 
 ![regs](/assets/lilacctf2026/ogg-regs.png)
 
-{% note green fa-message %}
+{% callout green fa-message %}
 去问了一下出题人，这么做并非预期解。如果开了 Full RELRO，那么我这个方法也能做，
 只需要将劫持的指针改成 `__vsnprintf_internal` 的返回地址，然后将其修改成
 one_gadget 就行。如果还有沙箱的话就麻烦了，按照出题的人的意思，
 要靠这个办法的任意地址写，打 House of Husk，劫持printf的处理流。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -170,6 +170,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/lilacctf2026/cigar-flag.png)
-{% endnote %}
+{% endcallout %}

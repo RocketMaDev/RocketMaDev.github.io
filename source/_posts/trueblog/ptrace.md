@@ -82,9 +82,9 @@ int main(void) {
 
 ![tracerZsh](/assets/trueblog/tracerZsh.png)
 
-{% note purple fa-circle-arrow-right %}
+{% callout purple fa-circle-arrow-right %}
 没有ptraceme的话，由于没有注册SIGHUP信号的处理函数，因此程序会被直接退出
-{% endnote %}
+{% endcallout %}
 
 ## `<defunct>`是什么？
 
@@ -137,14 +137,14 @@ int main(void) {
 }
 ```
 
-{% note yellow fa-exclamation %}
+{% callout yellow fa-exclamation %}
 `raise(SIGSTOP)`不可省略！虽然上文提到`execve`会使tracee收到SIGTRAP，但是在这之前，
 由于沙箱的限制，子进程会在父进程能够设置ptrace选项前退出，因此父进程不再能调试子进程。
 因此通过显式发出信号，可以让父进程有接管子进程的时间
 
 一开始我以为`fork`会使子进程从`main`函数重新开始，实际上不是的，`fork`后，
 父子进程的rip都在`fork`后的下一句话
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

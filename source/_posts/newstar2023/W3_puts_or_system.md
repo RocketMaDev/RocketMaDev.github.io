@@ -19,10 +19,10 @@ ghidra分析为64位程序
 
 由于程序relro保护为partial，因此可以直接将`puts@got`地址改为system地址即可
 
-{% note tip fa-arrow-right %}
+{% callout tip fa-arrow-right %}
 %n系列写地址输出过的字符是**累计的**，所以计算失误就会导致攻击失败，
 因此可以把小的数字放在前面，大的数字放在后面，方便计算
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 

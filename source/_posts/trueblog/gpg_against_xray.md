@@ -13,13 +13,13 @@ excerpt: >-
 thumbnail: /assets/trueblog/strace_gpg.png
 ---
 
-{% note yellow fa-exclamation %}
+{% callout yellow fa-exclamation %}
 本文无不良引导，仅讨论网络工具的使用，均在合法合规的范围内使用
-{% endnote %}
+{% endcallout %}
 
-{% note purple fa-bullseye %}
+{% callout purple fa-bullseye %}
 本解决方案针对使用`*ray`代理工具并使用内置DNS的用户！
-{% endnote %}
+{% endcallout %}
 
 ## 问题表象
 

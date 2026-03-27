@@ -75,6 +75,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/zhejiang2025/rop_flag.png)
-{% endnote %}
+{% endcallout %}

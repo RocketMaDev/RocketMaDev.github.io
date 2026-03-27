@@ -79,11 +79,11 @@ rcx + 'Z': \0  ; store rbx later
 
 最后shellcode长度：**90字节**
 
-{% notel green fa-arrow-right tips %}
+{% callout green fa-arrow-right ::tips %}
 1. gdb在调试shellcode的时候建议用si，ni会直接运行到底
 2. 网上资料可能不全，需要自己摸索，比如'40'就是自己反汇编才知道的
 3. 字符间换来换去还挺麻烦的，用用下面的函数
-{% endnotel %}
+{% endcallout %}
 
 ```python
 def toHex(s: str):

@@ -30,11 +30,11 @@ excerpt: 利用MQTT客户端处理消息时的条件竞争，通过`sleep`窗口
 题目附件中并没有给出broker的信息，因此broker大概不是考点，
 我们可以直接借助`python-paho`这样的库来操作题目。
 
-{% notel purple fa-file-signature MQTT - Message Queuing Telemetry Transport %}
+{% callout purple fa-file-signature ::MQTT - Message Queuing Telemetry Transport %}
 在做题之前，首先要知道mqtt的工作原理，mqtt中存在中心代理broker，负责接受并广播消息，
 客户端使用subscribe来“监听”某个指定的主题，然后使用publish将消息广播到所有订阅了该主题的客户端上。
 对于这道题，我们不需要也不能和目标二进制直接建立连接，只能用mqtt机制去打。
-{% endnotel %}
+{% endcallout %}
 
 虽然剥了符号，但是并不难，整体逆向量很小，唯一需要注意的代码就在这里：
 
@@ -95,6 +95,6 @@ client.loop_stop()
 client.disconnect()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/ciscnxccb2025/mqtt_flag.png)
-{% endnote %}
+{% endcallout %}

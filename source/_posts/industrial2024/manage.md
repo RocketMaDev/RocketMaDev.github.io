@@ -8,9 +8,9 @@ tags:
 excerpt: （信息安全测试员竞赛）通过利用负索引访问GOT表，泄露libc地址并重定向函数实现shell获取。
 ---
 
-{% note info fa-paperclip %}
+{% callout info fa-paperclip %}
 题目可以在[Releases](https://github.com/RocketMaDev/CTFWriteup/releases/download/career/career.tar.zst)附件中找到
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

@@ -85,11 +85,11 @@ void tostring(string &acc) {
 }
 ```
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 当不开优化选项时，C++的大量函数模板实例化后没有内联，导致这道题的很多函数是空的，
 逆向难度变相提高了。如果开启了编译选项，结构体信息会全部打包进ELF中，使用反编译软件可以读取之，
 从而方便我们backport类的结构体到题目中。（虽然还是要猜它是什么类）
-{% endnote %}
+{% endcallout %}
 
 根据以上代码，在插入节点时，使用BFS方式填充节点（也就是数组平铺式），
 在构建字符串时使用中序遍历取出节点。在树打印函数中，如果中序遍历树得到`SomeIpfun`，

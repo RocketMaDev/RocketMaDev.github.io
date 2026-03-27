@@ -31,10 +31,10 @@ excerpt: 利用 edit 的 off-by-one 在 glibc 2.27 下通过 unsorted bin 泄露
 
 <img src="/assets/zhejiang2025/one_layout.png" width="70%">
 
-{% note green fa-boxes-stacked %}
+{% callout green fa-boxes-stacked %}
 题目没有给 libc，但是可以从 ELF 中的编译器信息发现是 `GCC 7.5.0-3ubuntu1~18.04`，
 因此可以用 glibc 2.27 来打。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -118,6 +118,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/zhejiang2025/one_flag.png)
-{% endnote %}
+{% endcallout %}

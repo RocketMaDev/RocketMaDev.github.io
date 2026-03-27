@@ -117,8 +117,8 @@ nc node4.buuoj.cn 28760
  flag{你猜}
 ```
 
-{% note default fa-dollar-sign %}
+{% callout default fa-dollar-sign %}
 money变化：100 - 40 - 40 - 50 -> -10 -> 0xFFFFFFF5
-{% endnote %}
+{% endcallout %}
 
 Done.

@@ -58,9 +58,9 @@ exec "$dir/lib/ld-linux-aarch64.so.1" "$dir/exe/gdb" --quiet --early-init-eval-c
 并被seccomp杀了。他发现，`proot`会[处理这些安卓上不能用的syscall](https://github.com/termux/proot/blob/master/src/tracee/seccomp.c)，
 因此使用`proot`启动就可以了。
 
-{% note green fa-heart %}
+{% callout green fa-heart %}
 感谢 *@cypis* 帮我找到问题所在，并找到解决方案！
-{% endnote %}
+{% endcallout %}
 
 # 写一个wrapper
 
@@ -117,12 +117,12 @@ static void disable_seccomp()
 （proot底层通过ptrace来绕过一些系统调用，性能比较差），直接启动调试，
 使用ksu的小伙伴可以使用这个方案。
 
-{% notel purple fa-angles-up KernelSU-based pwndbg wrapper %}
+{% callout purple fa-angles-up ::KernelSU-based pwndbg wrapper %}
 ```sh $PREFIX/bin/pwndbg
 #!/bin/sh
 exec sudo $PREFIX/../home/pwndbg/bin/pwndbg "$@"
 ```
-{% endnotel %}
+{% endcallout %}
 
 # 题外话
 

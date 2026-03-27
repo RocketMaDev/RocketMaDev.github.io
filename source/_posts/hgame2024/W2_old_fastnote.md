@@ -35,9 +35,9 @@ glibc 2.23，tcache还没有，打fastbin dup，先分配0x80的chunk在unsorted
 
 颜色是后期涂的，很明显，字节错位的要求是含有`p64(libc地址)+p64(0)`才可以
 
-{% note default fa-exclamation %}
+{% callout default fa-exclamation %}
 图中的地址是打不通的，仅作示意；黄色部分是mallocHook
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 

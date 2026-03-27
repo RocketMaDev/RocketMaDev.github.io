@@ -78,7 +78,7 @@ exit                ; func18
 
 然后读入的字节码将被插入到exit之前。
 
-{% notel green fa-book MANUAL %}
+{% callout green fa-book ::MANUAL %}
 反汇编所有函数，得到以下manual
 
 ```asm
@@ -117,7 +117,7 @@ push sp             ; func16
 push pc             ; func17
 exit                ; func18
 ```
-{% endnotel %}
+{% endcallout %}
 
 据此我们就可以写出exp了
 
@@ -231,7 +231,7 @@ def payload(lo:int):
     sh.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/sctf2024/vmFlag.png)
-{% endnote %}
+{% endcallout %}
 

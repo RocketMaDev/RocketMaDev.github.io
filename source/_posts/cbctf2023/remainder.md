@@ -38,9 +38,9 @@ compile代码时，不检查注释，但在直接用`python calc.py`时，会使
 > ~~一开始还以为是用shebang绕过~~  
 > 这些题目的flag竟然是放在环境变量里的，是我pwn打多了不知道这一点吗...
 
-{% note success fa-lightbulb %}
+{% callout success fa-lightbulb %}
 感谢JBN的大力指导！
-{% endnote %}
+{% endcallout %}
 
 ## Web
 

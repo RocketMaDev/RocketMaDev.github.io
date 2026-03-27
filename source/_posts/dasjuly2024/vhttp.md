@@ -61,9 +61,9 @@ struct jmp_buf {
 就可以让程序读取`flag.txt`并打印flag。
 
 ![flag on stack](/assets/dasjuly2024/flagOnStack.png)
-{% note tip fa-circle-info %}
+{% callout tip fa-circle-info %}
 温馨提示：与上图不是一个进程
-{% endnote %}
+{% endcallout %}
 
 ![jump to ...](/assets/dasjuly2024/jumpto.png)
 

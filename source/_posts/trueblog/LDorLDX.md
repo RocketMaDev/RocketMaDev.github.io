@@ -51,10 +51,10 @@ return $A
 			break;
 ```
 
-{% note blue fa-info %}
+{% callout blue fa-info %}
 BPF设计之初就是为了处理网络包的，seccomp只是借用了BPF的用法，因此内核开发者为了避免两者混淆做的
 workaround无可厚非。
-{% endnote %}
+{% endcallout %}
 
 ## 总结
 

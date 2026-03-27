@@ -27,10 +27,10 @@ excerpt: 利用负索引越界修改`stdout`泄露libc并覆盖`__free_hook`为`
 使用`edit`，我们能够写`*stdout`的前0x40字节，通过修改`_flag`和`_IO_write_base`，
 就可以让`puts`先将base-ptr范围之间的内容输出出来，借此泄露libc。
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 网上一般说修改`_flag`为`0xfbad1800`，但是这样的话就不是无缓冲了，会影响脚本后续判断，
 因此根据原flag，我们可以设置为`0xfbad1887`，这样既能利用成功，又能保持原有的输出特性。
-{% endnote %}
+{% endcallout %}
 
 不难注意到`__dso_handle`上放着`__dso_handle`自己，因此我们edit它时，
 等于原地修改那一片的内存。由于是libc2.31，可以直接写入一个`__free_hook`的地址，
@@ -85,6 +85,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/shanghai2025/user_flag.png)
-{% endnote %}
+{% endcallout %}

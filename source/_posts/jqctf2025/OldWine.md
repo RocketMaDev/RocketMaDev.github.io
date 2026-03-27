@@ -9,9 +9,9 @@ thumbnail: /assets/jqctf2025/stack_after.png
 excerpt: 通过修改栈上`[rbp]`为`rbp+0x10`，使`call read@plt`时`rsp`指向可控区域，从而劫持返回地址泄露libc，最终利用ROP链调用`execveat`实现利用。
 ---
 
-{% note green fa-heart %}
+{% callout green fa-heart %}
 感谢 *熙熙* 师傅提供的思路！
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 

@@ -111,9 +111,9 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/lilacctf2026/gateway-flag.png)
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

@@ -26,9 +26,9 @@ thumbnail: /assets/ciscnxccb2025/half_banner.jpg
 
 9点开始，awdp有pwn有web，我打算先patch。上通防没法过检查，只能一个一个看。
 
-{% note purple fa-paperclip %}
+{% callout purple fa-paperclip %}
 可以在[我的CTF仓库](https://github.com/RocketMaDev/CTFWriteup/releases/tag/ciscnxccb)中下载pwn附件。
-{% endnote %}
+{% endcallout %}
 
 ### typo
 
@@ -82,10 +82,10 @@ check脚本写的一坨。
 解密函数里的`malloc`调小了也能过，不知道checker是怎么写的，既然是调小，就不贴修复了，
 没啥意义...
 
-{% note blue fa-hourglass-end %}
+{% callout blue fa-hourglass-end %}
 最后交的时候甚至交错了，浪费了一分钟，最后一分钟交了正确的patch，眼看awdp结束了，
 还没出结果，结果一刷新，竟然验证通过了！太极限了，最后一回合狂揽六七百分。
-{% endnote %}
+{% endcallout %}
 
 ## 下半场：渗透赛
 
@@ -98,10 +98,10 @@ check脚本写的一坨。
 有一个raw的附件，我们一组一开始都没有磁盘取证工具，一直没用到，直到我尝试使用
 qemu启动，嘿，还真行。虽然说没什么用就是了。
 
-{% note green fa-screwdriver-wrench %}
+{% callout green fa-screwdriver-wrench %}
 赛后还了解到有个工具叫做`unhide`，可以通过比较ps的结果和proc目录下的文件，
 得出被隐藏的进程，看起来很有用。
-{% endnote %}
+{% endcallout %}
 
 最后听1RAYS说这道题有个内核模块，hook了`getdents`，使其不显示木马，
 不取证可能还真想不到吧。
@@ -112,9 +112,9 @@ qemu启动，嘿，还真行。虽然说没什么用就是了。
 我想起可以直接访问底层object的，于是从`.git`中找到所有hash文件，
 打印它们的内容就可以找到flag。
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 使用`git cat-file -p $HASH`可以输出hash文件中存放的文本。
-{% endnote %}
+{% endcallout %}
 
 <img src="/assets/ciscnxccb2025/gitflag.png" width="70%">
 
@@ -123,9 +123,9 @@ qemu启动，嘿，还真行。虽然说没什么用就是了。
 总体而言比赛现场还是氛围挺好的，点心发了面包、牛奶、士力架之类，真的挺多的，
 午饭两荤两素加酸奶，伙食很不错。有人“监考”，也不见得有选手能作弊。
 
-{% note green fa-heart %}
+{% callout green fa-heart %}
 感谢 *袁神* 送来的咖啡！
-{% endnote %}
+{% endcallout %}
 
 最后我们取得了 **第14名** 的好成绩，成功进军国赛、长城杯双决赛。回看座位表，
 坐在我们对面的，正是第3名的来自复旦的白泽！！赶紧上去social...

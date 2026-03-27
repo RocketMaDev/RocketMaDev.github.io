@@ -21,9 +21,9 @@ excerpt: 决赛的形式是作品答辩，字节给了一系列选题，我们Em
 就算是只实现命令执行，做`git pull/push`也要把项目做出来！所幸派一个人完成了后端，
 *pid* 也帮助完成了前端。
 
-{% note green fa-heart %}
+{% callout green fa-heart %}
 感谢 *pankas* 和 *Pid* 对项目做出的卓越贡献！！
-{% endnote %}
+{% endcallout %}
 
 最后赶在出发前做了一下ppt，然后就飞北京了。
 

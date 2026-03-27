@@ -31,9 +31,9 @@ excerpt: 利用部分写和任意写0泄露libc并拓展为任意写，构造Hou
 
 ### 寻找漏洞
 
-{% note blue fa-file-circle-question %}
+{% callout blue fa-file-circle-question %}
 题目附件只给了ELF，也不给一下libc...看星盟的wp说是Ubuntu 24.04
-{% endnote %}
+{% endcallout %}
 
 题目中就两个漏洞：部分写入导致的信息泄露，以及在执行`create`时对malloc结果不做检查，
 直接写`'\0'`导致的任意地址写0。
@@ -123,10 +123,10 @@ _IO_getline_info (FILE *fp, char *buf, size_t n, int delim,
 此时我们将`buf_base`和`buf_end`写为`_IO_2_1_stderr_`和`stdout`，
 然后`fgets`没有遇到换行符，消耗0x1f字节，缓冲区剩余`40 - 0x1f = 9 < 0x1f`。
 
-{% note purple fa-triangle-exclamation %}
+{% callout purple fa-triangle-exclamation %}
 这里注意不能多发送一个换行符，不能用`t.sendline`，因为`_IO_buf_end`后面邻接的是`_IO_save_base`，
 在`__uflow`过程中会`free`之，多一个换行符使其变为`0xa`，会导致 *SEGV*。
-{% endnote %}
+{% endcallout %}
 
 这样返回一个"bad choice"后，再次进入`fgets`获取0x1f字节，发现缓冲区耗尽，
 又一次刷新缓冲区，此时我们就能往`_IO_2_1_stderr_`和`_IO_2_1_stdout_`中写入数据了。
@@ -223,7 +223,7 @@ for insn in saved:
 并且准备`_IO_read_ptr`来控制rdx为`_IO_2_1_stderr_`，就可以在`puts`时触发rop链打印flag。
 到这里为止，就能顺利构造exp了。相比星盟的方案，避免了控制rcx的问题，更加直接了些。
 
-{% notel red fa-bomb 不受干扰的栈迁移gadget %}
+{% callout red fa-bomb ::不受干扰的栈迁移gadget %}
 `__push___start_context`处的gadget简单好用，它会不会受编译器影响呢？寻找这个函数，发现其位于
 `glibc/sysdeps/unix/sysv/linux/x86_64/__start_context.S`，是手写汇编，因此，一直存在。
 那么它是什么时候出现的呢？使用git blame，找到这一段的编辑是在[7年前的这个commit]引入的，
@@ -234,7 +234,7 @@ for insn in saved:
 
 最讽刺的是这个函数明明是为了引入shadow stack这么一个安全特性而引入的，
 却为ROP攻击留下了巨大的隐患。补上了一个洞，却又打开了另一扇门。
-{% endnotel %}
+{% endcallout %}
 
 ## EXPLOIT
 

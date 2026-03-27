@@ -42,20 +42,20 @@ tags:
 例如我这里凑了一个 `mprotect` 和一个 `read` 出来，把代码段改成可写并重新覆盖为新
 shellcode，这样就可以继续执行 open + sendfile 打印 flag 了。
 
-{% note purple fa-right-left %}
+{% callout purple fa-right-left %}
 我们常看见访问64位寄存器，如rax时，指令都会有 `48` 这个前缀，但其实其他字节也可以。
 本质上 `48` 代表的含义是 **REX.W**，只要不含 **REX.B**（这会将寄存器变成r8~r15），
 其他含 **REX.W** 的都可以拿来用。例如我下面就用 `4a` 来替换 `48`，这样就能多写几个
 64 位指令。（其实这题全用 32 位寄存器也可以）
-{% endnote %}
+{% endcallout %}
 
-{% note green fa-message %}
+{% callout green fa-message %}
 去问了出题人，原来的思路比这个复杂，由于不能写入syscall，
 因此需要借助段尾部的syscall。通过搓一个 `mremap` 出来，
 将代码段往后挪一页，这样在syscall返回后就能继续执行。直到挪到代码段与新栈相邻，
 就可以往栈最低的地方写 `read` 的shellcode，再使用 `mprotect` 把栈改成 rwx，
 代码段的syscall执行完后继续执行到栈上的代码，实现第二次 read。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -156,6 +156,6 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/lilacctf2026/bytezoo-flag.png)
-{% endnote %}
+{% endcallout %}

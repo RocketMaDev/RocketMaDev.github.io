@@ -48,7 +48,7 @@ Content-Length: 100
 /flag
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 <img src="/assets/yangcheng2024/httpdFlag.png" height="60%" width="60%">
-{% endnote %}
+{% endcallout %}
 

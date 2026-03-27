@@ -50,16 +50,16 @@ thumbnail: /assets/lilacctf2026/memory-layout.png
 0xff:   execute queue
 ```
 
-{% note green fa-bug-slash %}
+{% callout green fa-bug-slash %}
 调试时可以使用 `handle SIG35 noprint nostop pass` gdb命令来跳过所有信号。
-{% endnote %}
+{% endcallout %}
 
-{% note green fa-file-code %}
+{% callout green fa-file-code %}
 别学题目里那样用`while(true);`来让程序一直运行，这会使CPU空转，导致消耗大量性能！
 最合适的是使用 [pause() 函数](https://man7.org/linux/man-pages/man2/pause.2.html)，
 这个函数对应的系统调用会将进程挂起，直到收到信号，非常贴合这题的场景：
 在没收到信号时什么都不做，而且不消耗CPU。
-{% endnote %}
+{% endcallout %}
 
 ### 溢出与信息泄露
 
@@ -76,11 +76,11 @@ thumbnail: /assets/lilacctf2026/memory-layout.png
 这样libc基址也有了。为了方便后续利用，我们继续将`stderr`利用push还原为原始值，
 然后不断push直到`stack`回到`gbuf`，这样我们又能修改一次`stack`。
 
-{% note purple fa-circle-exclamation %}
+{% callout purple fa-circle-exclamation %}
 后续利用的使用会调用到`perror`，其会访问`stderr`，所以必须还原为`_IO_2_1_stderr_`，
 或者合法的结构体，否则会崩溃。（后面想了一下劫持`stderr`其实会更快一些，
 `perror`里面必然会触发IO操作，直接做FSOP就行了）
-{% endnote %}
+{% endcallout %}
 
 ### 如何利用
 
@@ -104,11 +104,11 @@ thumbnail: /assets/lilacctf2026/memory-layout.png
 `_IO_list_all`，修改为伪造的文件结构体指针后不断pop，直到`stack`被递减至 `current_rtmin`
 的地址，此时再push一个大的数字，就可以使信号发送返回错误。
 
-{% note blue fa-boxes-stacked %}
+{% callout blue fa-boxes-stacked %}
 由于这两个变量离得非常远，大约 **0x1400** 字节，即要执行 **1280** 次pop，
 因此一条一条执行的话会比较费时间，可以发送时把数字全放一块，一口气把大量数字请求发送过去，
 不等待IO通知是否写入成功，可以大大加快速度。(即 *pipeline*)
-{% endnote %}
+{% endcallout %}
 
 ### FSOP
 
@@ -122,7 +122,7 @@ thumbnail: /assets/lilacctf2026/memory-layout.png
 
 最后把这些构造好的结构在利用前通过store word放到`gbuf`中方便我们稍后利用即可。
 
-{% notel purple fa-file-circle-exclamation 栈迁移gadget更新了 %}
+{% callout purple fa-file-circle-exclamation ::栈迁移gadget更新了 %}
 这里伪造FILE结构体的时候用的是 [强网杯 bph](https://rocketma.dev/2025/10/25/bph/)
 同款方案，当时能直接控制rdx，然后就能直接改写rsp，但是最新版本libc的编译逻辑变了，
 `_IO_wdoallocbuf` 函数中会把rdi赋给rdx，而rdi是fp指针，此时ret会跳转到FILE结构体中，
@@ -130,7 +130,7 @@ thumbnail: /assets/lilacctf2026/memory-layout.png
 这样连续执行两次栈迁移就可以把栈设置到正确的位置。
 
 <img src="/assets/lilacctf2026/pivot-context.png" width="80%">
-{% endnotel %}
+{% endcallout %}
 
 通篇看下来，从漏洞寻找到利用链构建再到多个结构体构造，复杂得令人咋舌。
 
@@ -364,9 +364,9 @@ def payload(lo: int):
     t.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/lilacctf2026/na1vm-flag.png)
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 

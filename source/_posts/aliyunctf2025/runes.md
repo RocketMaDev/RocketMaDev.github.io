@@ -19,9 +19,9 @@ excerpt: 通过利用`prctl`的`PR_SET_MDWE`系统调用，禁止`mmap`分配可
 >> * All syscall numbers（系统调用号） used in the intended solution are
 >>   under 200 and relatively well used.
 
-{% note green fa-heart %}
+{% callout green fa-heart %}
 本题由 *hkbin* 和 *haraniN* 和我一起合作解决！
-{% endnote %}
+{% endcallout %}
 
 ## 文件属性
 
@@ -36,9 +36,9 @@ excerpt: 通过利用`prctl`的`PR_SET_MDWE`系统调用，禁止`mmap`分配可
 
 ## 解题思路
 
-{% note blue fa-circle-info %}
+{% callout blue fa-circle-info %}
 题目是运行在虚拟机中的，内存256M，内核版本6.6。
-{% endnote %}
+{% endcallout %}
 
 `chal`实现了一个小游戏，基础等级是`1`，可以执行任意syscall，并且可以控制前三个参数，
 但是这3个参数必须小于`等级*100`。小游戏中可以升级，但是不可能超过7，
@@ -67,18 +67,18 @@ ret
 后可以禁止mmap一段`?wx`的内存，并且不会影响到execve后的新程序。
 在因此设置后就能成功升级，实现任意syscall调用。
 
-{% note blue fa-boxes-packing %}
+{% callout blue fa-boxes-packing %}
 由于Arch Linux滚动更新的特性，我的内核保持最新，可以直接把`chal`拖出来在本地调试；
 而一些使用Ubuntu的小伙伴，由于内核老，是没有这个特性的，在本地只能盲调。
-{% endnote %}
+{% endcallout %}
 
 剩下的问题是保护全开，没有泄露任何指针。可以通过`brk`调用申请堆内存，
 在上面写数据。由于sh链接到了busybox，因此还需要设置argv。最后
 `execve(“/bin/sh", {“sh", NULL}, NULL)` 拿shell。
 
-{% note green fa-lightbulb %}
+{% callout green fa-lightbulb %}
 [官方wp](https://xz.aliyun.com/news/17029)中使用了`shmget + shmat`来申请一片内存。
-{% endnote %}
+{% endcallout %}
 
 ## EXPLOIT
 
@@ -135,9 +135,9 @@ def payload(lo: int):
     sh.close()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![flag](/assets/aliyunctf2025/runes.png)
-{% endnote %}
+{% endcallout %}
 
 ## 参考
 
@@ -157,10 +157,10 @@ def payload(lo: int):
 **最重要的是逆向功底** 。还有人问到crypto如何找工作，阿里的人也直截了当的说，只会密码就不了业，
 必须会开发之类的其他技能才行。
 
-{% note green fa-gauge-high %}
+{% callout green fa-gauge-high %}
 **speedrun** 赛制是指，两人登台做题，同时做一道简单题，做出来的人有分，做不出来没分，
 感觉强度非常高。
-{% endnote %}
+{% endcallout %}
 
 <img src="/assets/aliyunctf2025/eve.jpg" width="60%">
 

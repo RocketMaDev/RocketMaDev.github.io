@@ -62,6 +62,6 @@ def payload(lo:int):
     sh.interactive()
 ```
 
-{% note default fa-flag %}
+{% callout default fa-flag %}
 ![success](/assets/ciscn2024/success.png)
-{% endnote %}
+{% endcallout %}
