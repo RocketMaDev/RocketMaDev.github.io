@@ -6,7 +6,7 @@ tags:
     - libc2.35
     - House of Apple 2
     - heap - tcache
-    - off-by-one error
+    - off-by-one
     - buffer overflow
 thumbnail: /assets/tpctf2025/dbLayout.png
 excerpt: 利用page存放record方式的漏洞实现堆上任意读写，泄露heap和libc地址，最终通过控制堆块和伪造文件结构打House of Apple 2获取flag。
