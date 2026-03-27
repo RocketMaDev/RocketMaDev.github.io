@@ -6,6 +6,12 @@ tags:
     - Android
     - kernel
 thumbnail: /assets/trueblog/arbdata/message.png
+excerpt: |-
+    前些天 *int* 给我发了一条消息，里面有个简短的poc，可以直接进入受限的路径。
+    我那小米13是Android 13，因此正常访问过去的话应该是受限的。
+    然而使用`cd /storage/emulated/0/Android/$'\u200d'data`后可以直接进入受限的目录，
+    并列出目录，甚至能进入别的应用的目录并查看文件，这就很危险了。
+    *int* 在使用Pixel 9，能接收到最新的Android安全更新，然而并没有修复这个漏洞...
 ---
 
 # 一条帖子
