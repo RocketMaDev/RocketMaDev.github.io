@@ -176,9 +176,12 @@ home_banner:
     style: default # default, reverse, center
     # Social links
     links:
-      github: https://github.com/RocketMaDev
-      email: ma2014119@outlook.com
-      bilibili: https://space.bilibili.com/91319968
+      - icon: github
+        url: https://github.com/RocketMaDev
+      - icon: email
+        url: ma2014119@outlook.com
+      - icon: bilibili
+        url: https://space.bilibili.com/91319968
       # ...... # you can add more
     # Social links with QRcode drawers
     # qrs:
