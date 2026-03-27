@@ -10,9 +10,7 @@ tags:
 excerpt: 利用off-by-null漏洞和House of Einherjar技术在hgame2024 week3中成功泄露libc地址并执行系统命令。
 ---
 
-{% callout %}
-still notes
-{% endcallout %}
+> still notes
 
 ## 文件属性
 

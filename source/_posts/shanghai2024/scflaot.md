@@ -9,9 +9,7 @@ thumbnail: /assets/shanghai2024/table.png
 excerpt: 通过暴力打表获取浮点数对应的输入，利用可用的`writev`和`openat`实现shellcode执行，最终获取flag。
 ---
 
-{% callout %}
-你是否晓得你的幸运数字呢
-{% endcallout %}
+> 你是否晓得你的幸运数字呢
 
 ~~float, 肯定是没打对~~
 

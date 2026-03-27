@@ -8,9 +8,7 @@ tags:
 excerpt: 利用glibc 2.31中的UAF漏洞，通过tcache dup和poisoning获得libc并执行system("/bin/sh")。
 ---
 
-{% callout %}
-write some notes
-{% endcallout %}
+> write some notes
 
 ## 文件属性
 
@@ -109,4 +107,3 @@ def payload(lo:int):
     sh.clean()
     sh.interactive()
 ```
-

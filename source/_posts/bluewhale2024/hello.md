@@ -8,12 +8,10 @@ thumbnail: /assets/bluewhale2024/vnc.png
 excerpt: 通过VNC连接gtk程序，利用输入大数使符号位为1，成功获取flag。
 ---
 
-{% callout %}
-都什么年代了还在打传统Pwn  
-试试现代的酷炫GUI Pwn！ 
-将nc换成您的vnc客户端  
-如果不知道用啥，这里有个[TightVNC](https://www.tightvnc.com/)
-{% endcallout %}
+> 都什么年代了还在打传统Pwn  
+> 试试现代的酷炫GUI Pwn！ 
+> 将nc换成您的vnc客户端  
+> 如果不知道用啥，这里有个[TightVNC](https://www.tightvnc.com/)
 
 ## 文件属性
 

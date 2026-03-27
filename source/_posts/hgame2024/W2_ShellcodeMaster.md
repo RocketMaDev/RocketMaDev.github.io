@@ -7,9 +7,7 @@ tags:
 excerpt: 通过栈迁移和泄露libc地址，利用shellcode实现flag的读取和打印。
 ---
 
-{% callout %}
-You must be a shellcode master
-{% endcallout %}
+> You must be a shellcode master
 
 ## 文件属性
 

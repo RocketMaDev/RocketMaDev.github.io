@@ -7,9 +7,7 @@ tags:
 excerpt: 通过栈溢出和栈迁移泄露地址，最终获取flag。
 ---
 
-{% callout %}
-没有exec的生活是如此困难，但好在flag放在了根目录下面
-{% endcallout %}
+> 没有exec的生活是如此困难，但好在flag放在了根目录下面
 
 ## 文件属性
 
