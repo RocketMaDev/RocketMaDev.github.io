@@ -1,7 +1,7 @@
 ---
 title: Ubuntu 24.04 到 26.04 堆攻击变化总结
 date: 2026/03/31 10:54:00
-updated: 2026/04/02 16:44:00
+updated: 2026/04/14 17:09:00
 tags:
     - heap - tcache
     - heap - fastbin
@@ -109,7 +109,7 @@ https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=e2436d6f5aa47ce8da80c2ba0
 原来 `calloc` 不会用 tcache 里的堆块吗？
 {% endcallout %}
 
-可能影响：题目中的 `calloc` 行为变化，现在将会影响 tcache。
+影响：题目中的 `calloc` 行为变化，现在将会影响 tcache。
 
 https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=226e3b0a413673c0d6691a0ae6dd001fe05d21cd
 
@@ -218,6 +218,8 @@ void hack(void) {
 
 [这个 PR]: https://github.com/shellphish/how2heap/pull/234/changes/4bfcf2f7515f4092066a01b5ef2086b6f00fe9a7
 
+https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=eff1f680cffb005a5623d1c8a952d095b988d6a2
+
 ```diff
 @@ -3226,21 +3226,24 @@ tcache_available (size_t tc_idx)
  /* Verify if the suspicious tcache_entry is double free.
@@ -257,47 +259,73 @@ void hack(void) {
    /* No double free detected - it might be in a tcache of another thread,
       or user data that happens to match the key.  Since we are not sure,
 ```
+
+## tcache 结构体中 `count` 变为 `num_slots`
+
+于 `7e10e30e` 引入。之前放在 tcache 结构体中每个 size 的堆块有个计数器，
+保存了有几个空闲的堆块；在这个 commit 之后，变为了每个 size 的堆块在 `free`
+时还能往 tcache 结构体上放几个堆块；原来是从 0 开始增加，现在从 7 开始减少。
+
+https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=7e10e30e64aa2cc8ba50f2f83cb7cc2cdad134ad
+
+```diff
+@@ -3119,12 +3119,13 @@ typedef struct tcache_entry
+ 
+ /* There is one of these for each thread, which contains the
+    per-thread cache (hence "tcache_perthread_struct").  Keeping
+-   overall size low is mildly important.  Note that COUNTS and ENTRIES
+-   are redundant (we could have just counted the linked list each
+-   time), this is for performance reasons.  */
++   overall size low is mildly important.  The 'entries' field is linked list of
++   free blocks, while 'num_slots' contains the number of free blocks that can
++   be added.  Each bin may allow a different maximum number of free blocks,
++   and can be disabled by initializing 'num_slots' to zero.  */
+ typedef struct tcache_perthread_struct
+ {
+-  uint16_t counts[TCACHE_MAX_BINS];
++  uint16_t num_slots[TCACHE_MAX_BINS];
+   tcache_entry *entries[TCACHE_MAX_BINS];
+ } tcache_perthread_struct;
+```
+
 ## 新增 large tcache
 
 这项改动稍后详细说明。
 
+# glibc 2.43
+
+## mmap chunk 的大小减小 0x10
+
+于 `614cfd0f` 引入。在之前的 glibc 中，mmap chunk 的大小为 mmap 大小，
+但实际上由于切下来给用户的空间需要额外的 0x10 字节来存放元数据，因此造成了 mmap chunk
+和常规 chunk 大小的不统一，glibc 需要在遇到 mmap chunk 时做额外处理。现在 mmap chunk
+的大小表达方式和常规 chunk 一致。
+
+https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=614cfd0f8a2820aed54f9745077c7da0e6643bac
+
 ## 推迟 `tcache_perthread_struct` 结构体初始化
 
-于 `cbfd7988` 引入。原先只要一分配堆块就会初始化 tcache 的结构体，
+于 `2bf2188f` 引入。原先只要一分配堆块就会初始化 tcache 的结构体，
 现在这个结构体的初始化被推迟到第一次把堆块 free 进 tcache 时。
 
 影响：利用堆溢出现在可以修改到 tcache 结构体，在 [how2heap] 中亦有记载。
 
 [how2heap]: https://github.com/shellphish/how2heap/blob/master/glibc_2.42/tcache_metadata_hijacking.c
 
-https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cbfd7988107b27b9ff1d0b57fa2c8f13a932e508
+https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=2bf2188fae1f3e48d12fdd26f56ff6881fd0b316
 
 ```c
-static void tcache_init (void);
+@@ -3523,6 +3567,9 @@ __libc_free (void *mem)
+               && __glibc_likely (tcache->num_slots[tc_idx] != 0))
+            return tcache_put_large (p, tc_idx);
+        }
++
++      if (__glibc_unlikely (tcache_inactive ()))
++       return tcache_free_init (mem);
+     }
+ #endif
 
-static __always_inline void *
-tcache_get_align (size_t nb, size_t alignment)
-{
-  if (nb < mp_.tcache_max_bytes)
-    {
-      if (__glibc_unlikely (tcache == NULL))
-       {
-         tcache_init ();
-         return NULL;
-       }
-...
 ```
-
-# glibc 2.43
-
-## mmap chunk 的大小减小 0x10
-
-于 `6455a1b0` 引入。在之前的 glibc 中，mmap chunk 的大小为 mmap 大小，
-但实际上由于切下来给用户的空间需要额外的 0x10 字节来存放元数据，因此造成了 mmap chunk
-和常规 chunk 大小的不统一，glibc 需要在遇到 mmap chunk 时做额外处理。现在 mmap chunk
-的大小表达方式和常规 chunk 一致。
-
-https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=614cfd0f8a2820aed54f9745077c7da0e6643bac
 
 ## 移除 fastbin
 
@@ -312,11 +340,13 @@ https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=0b9210bd760b5281f2e9f3e66
 
 # tcache large 堆块
 
-从 glibc 2.42 开始，除了常规的 tcache 块以外，现在 tcache 中能存放 size
+从 [glibc 2.42 开始]，除了常规的 tcache 块以外，现在 tcache 中能存放 size
 不固定的大堆块。正常情况下，tcache 小堆块的范围是 `0x20-0x410`，这些尺寸的堆块会放入
 tcache 中。再大的堆块要想放入 tcache，需要调整 `GLIBC_TUNABLES`，或者从 pwn 的层面，
 改 `mp_` 结构体。通过设置环境变量 `GLIBC_TUNABLES=malloc.tcache.tcache_max_bytes=131072`
 （或更大数字，最大可到 4M），大于 0x410 的堆块就能放进 tcache 中。
+
+[glibc 2.42 开始]: https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cbfd7988107b27b9ff1d0b57fa2c8f13a932e508
 
 ## free 时堆块的插入行为
 
@@ -411,10 +441,13 @@ tcache 的槽位增加到 16 也使预填充变得更加麻烦。
 5. [commitdiff of 4cf2d869](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=4cf2d869367e3813c6c8f662915dedb1f3830c53)
 6. [commitdiff of cd335350](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cd335350021fd0b7ac533c83717ee38832fd9887)
 7. [Add tcache dup (with off-by-one or other ability) technique - GitHub](https://github.com/shellphish/how2heap/pull/234/changes/4bfcf2f7515f4092066a01b5ef2086b6f00fe9a7)
-8. [how2heap/glibc_2.42/tcache_metadata_hijacking.c - GitHub](https://github.com/shellphish/how2heap/blob/master/glibc_2.42/tcache_metadata_hijacking.c)
-9. [commitdiff of cbfd7988](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cbfd7988107b27b9ff1d0b57fa2c8f13a932e508)
+8. [commitdiff of eff1f680](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=eff1f680cffb005a5623d1c8a952d095b988d6a2)
+9. [commitdiff of 7e10e30e](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=7e10e30e64aa2cc8ba50f2f83cb7cc2cdad134ad)
 10. [commitdiff of 614cfd0f](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=614cfd0f8a2820aed54f9745077c7da0e6643bac)
-11. [commitdiff of 0b9210bd](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=0b9210bd760b5281f2e9f3e6640368ccb5f4a7ae)
-12. [commitdiff of b2b4b46a](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=b2b4b46a5235d83eea6d52b44e8c18be7c65f0d9)
-13. [how2heap/glibc_2.41/tcache_relative_write.c - GitHub](https://github.com/shellphish/how2heap/blob/master/glibc_2.41/tcache_relative_write.c)
-14. [Add support for tcache large chunks since glibc 2.42 - GitHub](https://github.com/pwndbg/pwndbg/pull/3854)
+11. [how2heap/glibc_2.42/tcache_metadata_hijacking.c - GitHub](https://github.com/shellphish/how2heap/blob/master/glibc_2.42/tcache_metadata_hijacking.c)
+12. [commitdiff of 2bf2188f](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=2bf2188fae1f3e48d12fdd26f56ff6881fd0b316)
+13. [commitdiff of 0b9210bd](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=0b9210bd760b5281f2e9f3e6640368ccb5f4a7ae)
+14. [commitdiff of cbfd7988](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cbfd7988107b27b9ff1d0b57fa2c8f13a932e508)
+15. [commitdiff of b2b4b46a](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=b2b4b46a5235d83eea6d52b44e8c18be7c65f0d9)
+16. [how2heap/glibc_2.41/tcache_relative_write.c - GitHub](https://github.com/shellphish/how2heap/blob/master/glibc_2.41/tcache_relative_write.c)
+17. [Add support for tcache large chunks since glibc 2.42 - GitHub](https://github.com/pwndbg/pwndbg/pull/3854)
