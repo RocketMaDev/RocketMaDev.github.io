@@ -292,6 +292,56 @@ https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=7e10e30e64aa2cc8ba50f2f83
 
 这项改动稍后详细说明。
 
+## 推迟 `tcache_perthread_struct` 结构体初始化
+
+于 `cbfd7988` 引入。原先只要一分配堆块就会初始化 tcache 的结构体，
+现在这个结构体的初始化被推迟到第一次把 malloc tcache 大小的堆块时。
+
+影响：利用堆溢出现在可以修改到 tcache 结构体，在 [how2heap] 中亦有记载。
+
+[how2heap]: https://github.com/shellphish/how2heap/blob/master/glibc_2.42/tcache_metadata_hijacking.c
+
+https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cbfd7988107b27b9ff1d0b57fa2c8f13a932e508
+
+```diff
+@@ -3395,10 +3484,32 @@ void *
+ __libc_malloc (size_t bytes)
+ {
+ #if USE_TCACHE
+-  size_t tc_idx = usize2tidx (bytes);
++  size_t nb = checked_request2size (bytes);
++  if (nb == 0)
++    {
++      __set_errno (ENOMEM);
++      return NULL;
++    }
++
++  if (nb < mp_.tcache_max_bytes)
++    {
++      size_t tc_idx = csize2tidx (nb);
++      if(__glibc_unlikely (tcache == NULL))
++       return tcache_malloc_init (bytes);
+ 
+-  if (tcache_available (tc_idx))
+-    return tag_new_usable (tcache_get (tc_idx));
++      if (__glibc_likely (tc_idx < TCACHE_SMALL_BINS))
++        {
++         if (tcache->entries[tc_idx] != NULL)
++           return tag_new_usable (tcache_get (tc_idx));
++       }
++      else
++        {
++         tc_idx = large_csize2tidx (nb);
++         void *victim = tcache_get_large (tc_idx, nb);
++         if (victim != NULL)
++           return tag_new_usable (victim);
++       }
++    }
+ #endif
+ 
+   return __libc_malloc2 (bytes);
+```
+
 # glibc 2.43
 
 ## mmap chunk 的大小减小 0x10
@@ -303,18 +353,14 @@ https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=7e10e30e64aa2cc8ba50f2f83
 
 https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=614cfd0f8a2820aed54f9745077c7da0e6643bac
 
-## 推迟 `tcache_perthread_struct` 结构体初始化
+## 再次推迟 `tcache_perthread_struct` 结构体初始化
 
-于 `2bf2188f` 引入。原先只要一分配堆块就会初始化 tcache 的结构体，
-现在这个结构体的初始化被推迟到第一次把堆块 free 进 tcache 时。
-
-影响：利用堆溢出现在可以修改到 tcache 结构体，在 [how2heap] 中亦有记载。
-
-[how2heap]: https://github.com/shellphish/how2heap/blob/master/glibc_2.42/tcache_metadata_hijacking.c
+于 `2bf2188f` 引入。glibc 2.43 开始，结构体初始化再次被推迟到第一个 tcache
+被释放时。
 
 https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=2bf2188fae1f3e48d12fdd26f56ff6881fd0b316
 
-```c
+```diff
 @@ -3523,6 +3567,9 @@ __libc_free (void *mem)
                && __glibc_likely (tcache->num_slots[tc_idx] != 0))
             return tcache_put_large (p, tc_idx);
@@ -443,11 +489,11 @@ tcache 的槽位增加到 16 也使预填充变得更加麻烦。
 7. [Add tcache dup (with off-by-one or other ability) technique - GitHub](https://github.com/shellphish/how2heap/pull/234/changes/4bfcf2f7515f4092066a01b5ef2086b6f00fe9a7)
 8. [commitdiff of eff1f680](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=eff1f680cffb005a5623d1c8a952d095b988d6a2)
 9. [commitdiff of 7e10e30e](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=7e10e30e64aa2cc8ba50f2f83cb7cc2cdad134ad)
-10. [commitdiff of 614cfd0f](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=614cfd0f8a2820aed54f9745077c7da0e6643bac)
-11. [how2heap/glibc_2.42/tcache_metadata_hijacking.c - GitHub](https://github.com/shellphish/how2heap/blob/master/glibc_2.42/tcache_metadata_hijacking.c)
-12. [commitdiff of 2bf2188f](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=2bf2188fae1f3e48d12fdd26f56ff6881fd0b316)
-13. [commitdiff of 0b9210bd](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=0b9210bd760b5281f2e9f3e6640368ccb5f4a7ae)
-14. [commitdiff of cbfd7988](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cbfd7988107b27b9ff1d0b57fa2c8f13a932e508)
+10. [how2heap/glibc_2.42/tcache_metadata_hijacking.c - GitHub](https://github.com/shellphish/how2heap/blob/master/glibc_2.42/tcache_metadata_hijacking.c)
+11. [commitdiff of cbfd7988](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=cbfd7988107b27b9ff1d0b57fa2c8f13a932e508)
+12. [commitdiff of 614cfd0f](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=614cfd0f8a2820aed54f9745077c7da0e6643bac)
+13. [commitdiff of 2bf2188f](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=2bf2188fae1f3e48d12fdd26f56ff6881fd0b316)
+14. [commitdiff of 0b9210bd](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=0b9210bd760b5281f2e9f3e6640368ccb5f4a7ae)
 15. [commitdiff of b2b4b46a](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=b2b4b46a5235d83eea6d52b44e8c18be7c65f0d9)
 16. [how2heap/glibc_2.41/tcache_relative_write.c - GitHub](https://github.com/shellphish/how2heap/blob/master/glibc_2.41/tcache_relative_write.c)
 17. [Add support for tcache large chunks since glibc 2.42 - GitHub](https://github.com/pwndbg/pwndbg/pull/3854)
