@@ -5,7 +5,7 @@ updated: 2024/7/27 16:30:00
 tags:
     - linked list
     - House of Apple 2
-    - libc2.35
+    - glibc2.35
 thumbnail: /assets/matrix2024/notedel.png
 excerpt: 通过链表的UAF漏洞，利用哈希碰撞和字符串长度差异，成功泄露libc和heap地址并获得shell。
 ---

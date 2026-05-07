@@ -5,7 +5,7 @@ updated: 2024/7/25 12:34:56
 tags:
     - heap - fastbin
     - fastbin stash into tcache
-    - libc2.31
+    - glibc2.31
 thumbnail: /assets/hgame2024/stashfb.png
 excerpt: 通过构造tcache dup和利用libc 2.31中的free hook，实现任意地址写，最终调用system('/bin/sh')。
 ---

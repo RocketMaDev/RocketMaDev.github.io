@@ -5,7 +5,7 @@ updated: 2024/8/26 17:18:00
 tags:
     - heap - unsorted
     - House of minho
-    - libc2.35
+    - glibc2.35
 thumbnail: /assets/ningbo2024/smallSuccess.png
 excerpt: 利用堆溢出技术，通过一系列精细的内存操作泄露heap和libc地址，最终实现利用“House of Apple”漏洞的攻击。
 ---

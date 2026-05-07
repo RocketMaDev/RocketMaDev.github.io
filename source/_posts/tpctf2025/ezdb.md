@@ -3,7 +3,7 @@ title: TPCTF 2025 - EzDB
 date: 2025/03/11 09:12:00
 updated: 2025/03/11 09:12:00
 tags:
-    - libc2.35
+    - glibc2.35
     - House of Apple 2
     - heap - tcache
     - off-by-one

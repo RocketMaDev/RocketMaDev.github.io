@@ -4,7 +4,7 @@ date: 2024/10/23 14:01:00
 updated: 2024/10/23 14:14:00
 tags:
     - tcmalloc
-    - libc2.39
+    - glibc2.39
     - House of Apple 3
     - exit hook
     - libc-hook

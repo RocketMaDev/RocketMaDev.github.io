@@ -6,7 +6,7 @@ tags:
     - heap - largebin
     - largebin attack
     - House of Apple 2
-    - libc2.32
+    - glibc2.32
 excerpt: 本题主要通过Largebin攻击和House of Apple 2技术，利用glibc 2.32中的漏洞进行利用和提取libc及堆地址。
 ---
 

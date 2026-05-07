@@ -5,7 +5,7 @@ updated: 2026/03/27 16:27:00
 tags:
     - off-by-one
     - heap - tcache
-    - libc2.27
+    - glibc2.27
 thumbnail: /assets/zhejiang2025/one_layout.png
 excerpt: 利用 edit 的 off-by-one 在 glibc 2.27 下通过 unsorted bin 泄露 libc，重叠堆块后覆盖 `__free_hook` 为 `system`，最终 free("/bin/sh") 拿 shell。
 ---

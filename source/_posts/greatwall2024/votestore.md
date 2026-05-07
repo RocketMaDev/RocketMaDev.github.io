@@ -5,7 +5,7 @@ updated: 2024/7/25 12:34:56
 tags:
     - heap - fastbin
     - House of Spirit
-    - libc2.23
+    - glibc2.23
     - got-hijack
 thumbnail: /assets/greatwall2024/bss.png
 excerpt: 通过修改堆块和GOT表，利用libc漏洞获取shell。

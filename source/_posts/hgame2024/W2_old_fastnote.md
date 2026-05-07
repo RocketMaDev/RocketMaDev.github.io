@@ -4,7 +4,7 @@ date: 2024/2/16 19:36:00
 updated: 2024/7/25 12:34:56
 tags:
     - heap - fastbin
-    - libc2.23
+    - glibc2.23
     - House of Spirit
 thumbnail: /assets/hgame2024/bytecross.png
 excerpt: 通过fastbin dup漏洞，利用glibc 2.23的mallocHook实现了任意代码执行，成功获取shell。

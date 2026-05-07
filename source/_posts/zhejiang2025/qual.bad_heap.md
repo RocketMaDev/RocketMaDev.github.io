@@ -4,7 +4,7 @@ date: 2026/03/20 16:22:00
 updated: 2026/03/27 16:27:00
 tags:
     - House of Botcake
-    - libc2.35
+    - glibc2.35
 thumbnail: /assets/zhejiang2025/botcake.png
 excerpt: 利用 double free 触发 unsorted bin consolidate 实现 **House of Botcake**，绕过限制泄露 heap/libc 与 `environ`，劫持返回地址 ROP 到 `execve("/bin/sh")`。
 ---

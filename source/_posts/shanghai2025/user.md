@@ -4,7 +4,7 @@ date: 2025/08/09 15:29:00
 updated: 2025/08/09 15:29:00
 tags:
     - IO arb write
-    - libc2.31
+    - glibc2.31
 excerpt: 利用负索引越界修改`stdout`泄露libc并覆盖`__free_hook`为`system`实现get shell。
 ---
 

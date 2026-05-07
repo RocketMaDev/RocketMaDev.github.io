@@ -6,7 +6,7 @@ tags:
     - heap - unsortedbin
     - off-by-null
     - House of Einherjar
-    - libc2.27
+    - glibc2.27
 excerpt: 利用off-by-null漏洞和House of Einherjar技术在hgame2024 week3中成功泄露libc地址并执行系统命令。
 ---
 

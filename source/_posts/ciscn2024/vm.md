@@ -5,7 +5,7 @@ updated: 2024/7/25 12:34:56
 tags:
     - vm
     - House of Apple 2
-    - libc2.35
+    - glibc2.35
     - tls
 thumbnail: /assets/ciscn2024/magicvm.png
 excerpt: CTF题解Magic VM利用时序漏洞绕过检测，伪造FILE实现代码执行。

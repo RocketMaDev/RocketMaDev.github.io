@@ -4,7 +4,7 @@ date: 2023/10/18 12:00:00
 updated: 2024/7/25 12:34:56
 tags:
     - heap - fastbin
-    - libc2.31
+    - glibc2.31
 excerpt: 利用堆漏洞和libc 2.31中的free hook，成功实现了对系统调用的利用。
 ---
 

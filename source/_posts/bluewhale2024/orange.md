@@ -5,7 +5,7 @@ updated: 2024/8/26 17:18:00
 tags:
     - heap - unsorted
     - House of Orange
-    - libc2.23
+    - glibc2.23
 thumbnail: /assets/bluewhale2024/orange.png
 excerpt: 利用House of Orange技术，结合堆溢出和libc泄露，成功利用漏洞进行攻击。
 ---

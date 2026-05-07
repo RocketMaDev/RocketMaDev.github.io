@@ -4,7 +4,7 @@ date: 2024/2/15 16:00:00
 updated: 2024/7/25 12:34:56
 tags:
     - heap - tcache
-    - libc2.31
+    - glibc2.31
 excerpt: 利用glibc 2.31中的UAF漏洞，通过tcache dup和poisoning获得libc并执行system("/bin/sh")。
 ---
 
