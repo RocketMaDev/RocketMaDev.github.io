@@ -71,7 +71,7 @@
     thumbnail: https://blog.hiirachan.moe/usr/uploads/2020/02/qOrDxn23nt4SXjEYb7jovVvV.jpeg
     
 
-- links_category: 校外
+- links_category: 校外的师傅们
   has_thumbnail: true
   list:
   - name: chunzhen
@@ -104,6 +104,15 @@
     avatar: https://mias.moe/image/avatar.jpg
     thumbnail: /images/friends/mias_banner.png
 
+  - name: yemaster
+    links: https://blog.yemaster.cn/
+    description: 努力不被 GPT 奴役的🦊
+    avatar: https://assets.yemaster.cn/imgs/imglogo.jpg
+    thumbnail: /images/friends/yemaster_banner.jpg
+
+- links_category: 开源社区的朋友们
+  has_thumbnail: true
+  list:
   - name: Reverier
     link: https://www.woooo.tech/
     description: Reverier 的数字工坊
