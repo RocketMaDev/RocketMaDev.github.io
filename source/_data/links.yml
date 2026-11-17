@@ -67,7 +67,7 @@
   - name: Doddy
     link: https://blog.hiirachan.moe
     description: Doddy 的咖啡厅
-    avatar: https://blog.hiirachan.moe/usr/Hiiragi.jpg
+    avatar: https://blog.hiirachan.moe/usr/friend/Hiiragi.jpg
     thumbnail: https://blog.hiirachan.moe/usr/uploads/2020/02/qOrDxn23nt4SXjEYb7jovVvV.jpeg
     
 
@@ -103,3 +103,9 @@
     description: The inescapable lot of solitude.
     avatar: https://mias.moe/image/avatar.jpg
     thumbnail: /images/friends/mias_banner.png
+
+  - name: Reverier
+    link: https://www.woooo.tech/
+    description: Reverier 的数字工坊
+    avatar: https://www.woooo.tech/favicon.svg
+    thumbnail: https://www.woooo.tech/fires-original.webp
