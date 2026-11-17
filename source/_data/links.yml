@@ -136,3 +136,9 @@
     description: Arch Linux & archlinuxcn Package Maintainer
     avatar: /images/friends/integral_avatar.jpg
     thumbnail: /images/friends/integral_banner.jpg
+
+  - name: bc
+    link: https://billchen.bid/
+    description: 是 bc！
+    avatar: /images/friends/billchen_avatar.jpg
+    thumbnail: /images/friends/billchen_banner.jpg
