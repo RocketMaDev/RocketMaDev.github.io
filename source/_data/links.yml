@@ -130,3 +130,9 @@
     description: 生命是灰色的，理论之树常青。
     avatar: https://cloveryan.com/favicon.png
     thumbnail: https://cloveryan.com/banner.jpg
+
+  - name: Integral
+    link: https://blog.i7arch.com/
+    description: Arch Linux & archlinuxcn Package Maintainer
+    avatar: /images/friends/integral_avatar.jpg
+    thumbnail: /images/friends/integral_banner.jpg
