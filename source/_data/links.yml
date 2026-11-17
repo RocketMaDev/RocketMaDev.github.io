@@ -140,5 +140,5 @@
   - name: bc
     link: https://billchen.bid/
     description: 是 bc！
-    avatar: /images/friends/billchen_avatar.jpg
-    thumbnail: /images/friends/billchen_banner.jpg
+    avatar: /images/friends/billchen_avatar.webp
+    thumbnail: /images/friends/billchen_banner.webp
