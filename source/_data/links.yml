@@ -116,6 +116,12 @@
     avatar: /images/friends/ChangeYourWay_avatar.jpg
     thumbnail: /images/friends/ChangeYourWay_banner.jpg
 
+  - name: C3ngH
+    links: https://c3ngh.top/
+    description: 广告位招租
+    avatar: /images/friends/c3ngh_avatar.jpg
+    thumbnail: /images/friends/c3ngh_banner.jpg
+
 - links_category: 开源社区的朋友们
   has_thumbnail: true
   list:
